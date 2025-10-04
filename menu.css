@@ -288,12 +288,13 @@ body {
 
 .footer_contenido {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 3rem;
 }
 
 .footer_columna {
     flex: 1;
+    min-width: 250px;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -323,6 +324,10 @@ body {
 
 .footer_columna li p {
     margin: 0;
+}
+
+.footer_columna .logo img {
+    width: 120px;
 }
 
 .redes_sociales ul {
@@ -378,6 +383,7 @@ body {
     list-style: none;
     padding: 0;
     margin: 1.5rem 0 1rem;
+    flex-wrap: wrap;
 }
 
 #footer_politicas a {
