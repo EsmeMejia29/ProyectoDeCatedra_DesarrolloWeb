@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Sabor Salvadoreño</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/formulario.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    
+</head>
+<body>
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="../ProyectoDeCatedra_DesarrolloWeb/img/logoSaborSalvadoreño.jpg" alt="Logo restaurante" class="logo-img">
+          <p>Sabor Salvadoreño</p>
+          </a>
+      </div>
+      
+      <nav class="main-nav">
+            <ul>
+                <li>
+                    <a href="index.html" class="iconos">
+                        <img src="../ProyectoDeCatedra_DesarrolloWeb/img/IconInicio.png" alt="Inicio"> Inicio
+                    </a>
+                </li>
+                <li>
+                    <a href="menu.html" class="iconos">
+                        <img src="../ProyectoDeCatedra_DesarrolloWeb/img/IconMenu.png" alt="Menu"> Menú
+                    </a>
+                </li>
+                <li>
+                    <a href="promocion.html" class="iconos">
+                        <img src="../ProyectoDeCatedra_DesarrolloWeb/img/IconPromocion.png" alt="Promocion"> Promociones
+                    </a>
+                </li>
+                <li>
+                    <a href="aboutus.html" class="iconos">
+                        <img src="../ProyectoDeCatedra_DesarrolloWeb/img/IconNosotros.png" alt="Nosotros"> Nosotros
+                    </a>
+                </li>
+                <li>
+                    <a href="contacto.html" class="iconos">
+                        <img src="../ProyectoDeCatedra_DesarrolloWeb/img/IconContacto.png" alt="Contacto"> Contacto
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero-section">
+        <h1>Contáctanos</h1>
+        <p>Estamos aquí para atenderte en reservaciones, preguntas o cualquier consulta</p>
+    </section>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <h2>Información de Contacto</h2>
+            <p>Nos encantaría saber de ti. Ya sea que tengas preguntas sobre nuestro menú, quieras hacer una reservación, o simplemente compartir tu experiencia con nosotros.</p>
+
+            <div class="info-item">
+                <div class="icon">
+                    <span class="material-icons">location_on</span>
+                </div>
+                <div class="info-content">
+                    <h3>Dirección</h3>
+                    <p>123 Calle Principal</p>
+                    <p>San Salvador, El Salvador</p>
+                    <p>Código Postal: 12345</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="icon">
+                    <span class="material-icons">phone</span>
+                </div>
+                <div class="info-content">
+                    <h3>Teléfono</h3>
+                    <p>+503 2234-5678</p>
+                    <p>+503 7890-1234 (Móvil)</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="icon">
+                    <span class="material-icons">email</span>
+                </div>
+                <div class="info-content">
+                    <h3>Correo Electrónico</h3>
+                    <p>info@saborsalvadoreno.com</p>
+                    <p>reservaciones@saborsalvadoreno.com</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="icon">
+                    <span class="material-icons">schedule</span>
+                </div>
+                <div class="info-content">
+                    <h3>Horario</h3>
+                    <p>Lunes - Jueves: 11:00 AM - 9:00 PM</p>
+                    <p>Viernes - Domingo: 11:00 AM - 10:00 PM</p>
+                    <p class="highlight">La cocina cierra 30 minutos antes</p>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" title="Facebook">
+                        <span class="material-icons">facebook</span>
+                    </a>
+                    <a href="#" class="social-icon" title="Instagram">
+                        <span class="material-icons">photo_camera</span>
+                    </a>
+                    <a href="#" class="social-icon" title="Twitter">
+                        <span class="material-icons">chat</span>
+                    </a>
+                    <a href="#" class="social-icon" title="YouTube">
+                        <span class="material-icons">play_arrow</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2>Envíanos un Mensaje</h2>
+            <form id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nombre Completo <span>*</span></label>
+                        <input type="text" id="fullName" placeholder="Tu nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Correo Electrónico <span>*</span></label>
+                        <input type="email" id="email" placeholder="tu.correo@ejemplo.com" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="tel" id="phone" placeholder="+503 1234-5678">
+                    </div>
+                    <div class="form-group">
+                        <label>Asunto</label>
+                        <select id="subject">
+                            <option value="">Selecciona un asunto</option>
+                            <option value="reservation">Reservación</option>
+                            <option value="inquiry">Consulta General</option>
+                            <option value="feedback">Comentarios</option>
+                            <option value="catering">Catering</option>
+                            <option value="other">Otro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Mensaje <span>*</span></label>
+                    <textarea id="message" placeholder="Cuéntanos cómo podemos ayudarte..." maxlength="500" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Enviar Mensaje</button>
+            </form>
+        </div>
+    </div>
+
+    <section class="map-section">
+        <h2>Encuéntranos</h2>
+        <p>Ubicados en el corazón de San Salvador, listos para recibirte.</p>
+        <div class="map-container">
+            <iframe 
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-89.2170%2C13.6929%2C-89.1970%2C13.7129&layer=mapnik&marker=13.7029%2C-89.2070" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <footer class="pie">
+        <div class="footer_contenido">
+            <div class="footer_columna">
+                <div class="logo">
+                    <img src="img/logoSaborSalvadoreño.png" alt="Logo restaurante" class="logo-img">
+                    <p>Auténtica cocina salvadoreña elaborada con amor y recetas tradicionales transmitidas de
+                        generación en
+                        generación. Experimente los auténticos sabores de El Salvador en cada bocado.</p>
+                </div>
+                <div class="redes_sociales">
+                    <ul>
+                        <li><a href="https://www.facebook.com/?locale=es_LA" target="_blank"><i
+                                    class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com" target="_blank"><i
+                                    class="fa-brands fa-instagram"></i></a>
+                        </li>
+                        <li><a href="https://www.youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                        </li>
+                        <li><a href="https://x.com/?lang=es" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer_columna">
+                <h3>Información sobre nosotros</h3>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i> 123 Calle Principal, San Salvador, El Salvador</li>
+                    <li><i class="fa-solid fa-phone"></i> +503 1234-5678</li>
+                    <li class="horario">
+                        <i class="fa-solid fa-clock"></i>
+                        <div class="horario_texto">
+                            <p>Lunes a Sábado: 7:00 AM - 8:00 PM</p>
+                            <p>Domingo: 9:30 AM - 7:00 PM</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_columna">
+                <h3>Formas de pago</h3>
+                <div class="formas_pago">
+                    <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                    <i class="fa-regular fa-money-bill"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="footer_politicas">
+            <ul>
+                <li><a href="#">Políticas de privacidad</a></li>
+                <li><a href="#">Términos y condiciones</a></li>
+            </ul>
+            <p>© 2025 Sabor Salvadoreño. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
