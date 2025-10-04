@@ -316,6 +316,10 @@ body{
     margin: 0;
 }
 
+.footer_columna .logo img{
+    width: 120px;
+}
+
 .redes_sociales ul {
     display: flex;
     flex-direction: row;
