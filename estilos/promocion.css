@@ -54,16 +54,23 @@ body{
     justify-content: baseline;
 }
 
-
 .main-nav ul li a{
     padding: 15px 17px;
     text-decoration: none;
     color: var(--letras);
     border-radius: 25px;
-    font-weight: 600;
-
-    /*background-color: #fff8ed; */
+    font-weight: 800;
+    background-color: #fff8ed;
 }
 
+.iconos:hover{
+    position: relative;
+    color: #fa7315;
+    box-shadow: 2px 2px 5px 0px #fa7315;
+    bottom: 2px;
+    transition: all 0.3s;
+}
 
-/*<input type="checkbox" name="checkMenu" id="checkMenu">*/
+.pie{
+    background-color: var(--letras);
+}
