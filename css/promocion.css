@@ -85,7 +85,6 @@ body{
 /*Estilos para las promos*/
 .promos{
     background-color: #fffbfc;
-    margin-top: 164px;
 }
 
 .hero{
@@ -110,7 +109,6 @@ body{
     justify-content: center;
     align-items: center;
     padding-top: 7vh;
-    padding-bottom: 7vh;
 }
 
 .menu_promos ul{

@@ -9,7 +9,6 @@
 }
 
 body{
-    
     font-family: "Nunito", Arial, sans-serif;
 }
 
@@ -195,4 +194,6 @@ body{
     bottom: 10px;
     left: 45%;
     overflow-x: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
