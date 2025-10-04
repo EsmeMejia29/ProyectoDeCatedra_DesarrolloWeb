@@ -106,7 +106,7 @@ body{
     text-align: center;
     color: white;
     background: rgba(0, 0, 0, 0.4);
-    z-index: 10;
+    z-index: 30;
     padding: 10%;
     pointer-events: none;
 }
@@ -117,6 +117,10 @@ body{
 
 .grid-texto p{
     font-size: 1.2rem;
+}
+
+#aboutus-grid{
+    align-items: center;
 }
 
 .botones-grid{
@@ -173,4 +177,22 @@ body{
 /*Platos populares*/
 .platos-populares .btnOrdenar{
     top: 15px;
+}
+
+#botonMenuIndex{
+    position: relative;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #fff8ed;
+    background-color: #f57c00;
+    border-radius: 20px;
+    font-weight: 800;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    min-width: 140px;
+    top: 10px;
+    bottom: 10px;
+    left: 45%;
+    overflow-x: auto;
 }
