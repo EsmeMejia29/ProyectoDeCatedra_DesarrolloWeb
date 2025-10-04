@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+ 
 body {
     font-family: "Nunito", Arial, sans-serif;
     line-height: 1.6;
@@ -20,15 +20,15 @@ body {
     background-size: cover;
     background-position: top center;
     position: relative;
-    height: 400px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
     text-align: center;
-    padding: 25%;
     overflow: hidden;
+    width: 100%;
 }
 
 /* efecto de desenfoque */
@@ -561,14 +561,18 @@ body {
 @media (max-width: 1024px) {
     .contenedor-principal {
         grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 0 20px;
     }
 
     .menu-lateral {
         position: relative;
         top: 0;
         display: flex;
-        gap: 15px;
+        gap: 10px;
         overflow-x: auto;
+        padding: 0 20px;
+        margin-bottom: 20px;
     }
 
     .menu-lateral h3 {
@@ -578,12 +582,15 @@ body {
     .item-menu {
         white-space: nowrap;
         flex-shrink: 0;
+        margin-bottom: 0;
+        min-width: 200px;
     }
 
     .info-restaurante,
     .contenido-porque,
     .contenido-opiniones {
         grid-template-columns: 1fr;
+        gap: 30px;
     }
 
     .tarjetas-caracteristicas,
@@ -593,21 +600,49 @@ body {
 
     .grid-equipo {
         grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    .banner-superior {
+        height: 300px;
+        padding: 15%;
+    }
+
+    .banner-superior h1 {
+        font-size: 42px;
+    }
+
+    .imagen-restaurante {
+        left: 0;
+        top: 0;
+        margin-top: 30px;
+    }
+
+    .forma-diagonal {
+        display: none;
     }
 }
 
 @media (max-width: 768px) {
+
     .tarjetas-caracteristicas,
     .grid-galeria {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .banner-superior {
+        height: 250px;
+        padding: 12%;
     }
 
     .banner-superior h1 {
-        font-size: 36px;
+        font-size: 32px;
+        margin-bottom: 15px;
     }
 
     .banner-superior p {
         font-size: 16px;
+        max-width: 90%;
     }
 
     .texto-restaurante h2,
@@ -619,14 +654,49 @@ body {
 
     .grid-equipo {
         grid-template-columns: 1fr;
+        gap:30px;
     }
     
     .seccion-equipo h2 {
         font-size: 36px;
     }
+
+    .contenedor-principal {
+        gap: 30px;
+        padding: 0 15px;
+    }
+
+    .info-restaurante {
+        gap: 30px;
+    }
+
+    .contenido-porque {
+        gap: 25px;
+    }
+
+    .razon {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .icono-razon {
+        margin: 0 auto;
+    }
+
+    .placeholder-img {
+        height: 300px;
+    }
+
+    .tarjeta {
+        padding: 30px 20px;
+    }
+
+    .caja-opinion {
+        padding: 30px 20px;
+    }
 }
 
-/* para que el scroll sea suave */
 html {
     scroll-behavior: smooth;
 }
