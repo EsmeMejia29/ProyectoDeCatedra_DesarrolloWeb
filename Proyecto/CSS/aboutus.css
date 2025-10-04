@@ -28,7 +28,7 @@ body {
     overflow: hidden;
 }
 
-/* imagen de fondo desenfocada */
+/* efecto de desenfoque */
 .banner-superior::before {
     content: '';
     position: absolute;
