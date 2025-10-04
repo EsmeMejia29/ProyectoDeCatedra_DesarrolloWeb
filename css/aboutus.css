@@ -1,0 +1,629 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Nunito", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+
+.seccion-nosotros {
+    width: 100%;
+}
+
+
+.banner-superior {
+    position: relative;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 25%;
+    overflow: hidden;
+}
+
+/* efecto de desenfoque */
+.banner-superior::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../imag/vymaps.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+/* capa oscura encima de la imagen */
+.banner-superior::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.banner-superior h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.banner-superior p {
+    font-size: 18px;
+    max-width: 700px;
+    position: relative;
+    z-index: 10;
+}
+
+/* contenedor principal con nav y contenido */
+.contenedor-principal {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* menu lateral  */
+.menu-lateral {
+    position: sticky;
+    top: 30%;
+    align-self: flex-start;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.menu-lateral h3 {
+    font-size: 20px;
+    color: #2c2c2c;
+    margin-bottom: 25px;
+}
+
+.item-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #666;
+    font-size: 14px;
+    background: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+
+.item-menu:hover {
+    background:#FF8C00;
+    color: white;
+    transform: translateX(5px);
+}
+
+.item-menu.activo:hover {
+    background: linear-gradient(135deg, #FF8C00, #FFA500);
+    transform: translateX(0);
+}
+
+.icono-menu {
+    font-size: 18px;
+    width: 24px;
+}
+
+/* contenido  */
+.contenido-derecha {
+    width: 100%;
+}
+
+.bloque-contenido {
+    margin-bottom: 80px;
+    scroll-margin-top: 20px;
+}
+
+/* seccion del restaurante */
+.info-restaurante {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.texto-restaurante h2 {
+    font-size: 36px;
+    color: #2c2c2c;
+    margin-bottom: 30px;
+}
+
+.texto-restaurante p {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.imagen-restaurante {
+  width: 100%;
+  border-radius: 15px;
+  position: relative;
+  left: 55px;
+  top: 90px;
+}
+
+.placeholder-img {
+  width: 95%;
+  height: 400px;
+  border-radius: 15px;
+  
+}
+
+.placeholder-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+  
+}
+
+.forma-diagonal{
+    position: relative;
+    clip-path: polygon(0 77%, 100% 37%, 100% 100%, 0% 100%);
+    background-color: #FF8C00;
+    width: 115%;
+    height: 390px;
+    z-index: -1;
+    bottom: 360px;
+    right: 45px;
+    border-radius: 3.5px;
+}
+
+
+/* tarjetas de características */
+.tarjetas-caracteristicas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.tarjeta {
+    background: #FFF8F0;
+    padding: 40px 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+
+.icono-tarjeta {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #FF8C00, #FFA500);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 30px;
+    color: white;
+}
+
+.tarjeta h3 {
+    font-size: 20px;
+    color: #2c2c2c;
+    margin-bottom: 15px;
+}
+
+.tarjeta p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* porque elegirnos */
+.por-que-elegirnos {
+    margin-top: 80px;
+}
+
+.por-que-elegirnos h2 {
+    font-size: 36px;
+    color: #2c2c2c;
+    margin-bottom: 50px;
+}
+
+.contenido-porque {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.imagen-comida {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.lista-razones {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.razon {
+    display: flex;
+    gap: 20px;
+}
+
+.icono-razon {
+    width: 50px;
+    height: 50px;
+    background: #FFF8F0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.texto-razon h3 {
+    font-size: 20px;
+    color: #2c2c2c;
+    margin-bottom: 10px;
+}
+
+.texto-razon p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* galeria de fotos */
+.seccion-galeria h2 {
+    font-size: 36px;
+    color: #2c2c2c;
+    margin-bottom: 20px;
+}
+
+.descripcion-galeria {
+    color: #666;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.foto-galeria {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.foto-galeria:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.placeholder-galeria {
+    width: 100%;
+    height: 300px;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 14px;
+}
+
+.placeholder-galeria img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+
+}
+
+.texto-galeria {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.texto-galeria p {
+    font-size: 15px;
+    color: #2c2c2c;
+    font-weight: 600;
+    padding: 2%;
+    margin: 0;
+}
+
+/* seccion de opiniones */
+.seccion-opiniones h2 {
+    font-size: 36px;
+    color: #2c2c2c;
+    margin-bottom: 50px;
+}
+
+.contenido-opiniones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.caja-opinion {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+.caja-opinion h3 {
+    font-size: 28px;
+    color: #2c2c2c;
+    margin-bottom: 20px;
+}
+
+.caja-opinion h3 span {
+    color: #FF8C00;
+}
+
+.texto-opinion {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.persona-opina {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar-persona {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF8C00, #FFA500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.info-persona h4 {
+    font-size: 16px;
+    color: #2c2c2c;
+    margin-bottom: 5px;
+}
+
+.info-persona p {
+    font-size: 14px;
+    color: #999;
+}
+
+.puntos-rating {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.punto {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+}
+
+.punto.activo {
+    background: #FF8C00;
+}
+
+
+.imagen-chef {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.placeholder-chef {
+    width: 100%;
+    height: 500px;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 16px;
+}
+
+.placeholder-chef img{
+    object-fit: cover;
+    width: 100%;
+}
+
+
+.seccion-equipo {
+    text-align: center;
+}
+
+.encabezado-equipo {
+    margin-bottom: 60px;
+}
+
+.subtitulo-equipo {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.seccion-equipo h2 {
+    font-size: 36px;
+    color: #2c2c2c;
+    font-weight: bold;
+}
+
+.texto-naranja {
+    color: #FF8C00;
+}
+
+.grid-equipo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tarjeta-miembro {
+    text-align: center;
+}
+
+.foto-miembro {
+    width: 280px;
+    height: 320px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    background: #f5f5f5;
+    position: relative;
+}
+
+.foto-miembro::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 40%, transparent 100%);
+    pointer-events: none;
+}
+
+.foto-miembro img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.foto-miembro.destacado {
+    background: linear-gradient(180deg, #FFA500 0%, #FF8C00 100%);
+    border: 1px solid #FF8C00;
+}
+
+.foto-miembro.destacado::after {
+    background: linear-gradient(to top, rgba(255, 140, 0, 0.6) 0%, rgba(255, 140, 0, 0.3) 40%, transparent 100%);
+}
+
+.tarjeta-miembro h3 {
+    font-size: 22px;
+    color: #2c2c2c;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.tarjeta-miembro p {
+    font-size: 16px;
+    color: #999;
+}
+
+/* para que funcione en celular y tablet */
+@media (max-width: 1024px) {
+    .contenedor-principal {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-lateral {
+        position: relative;
+        top: 0;
+        display: flex;
+        gap: 15px;
+        overflow-x: auto;
+    }
+
+    .menu-lateral h3 {
+        display: none;
+    }
+
+    .item-menu {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .info-restaurante,
+    .contenido-porque,
+    .contenido-opiniones {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjetas-caracteristicas,
+    .grid-galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-equipo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .tarjetas-caracteristicas,
+    .grid-galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .banner-superior h1 {
+        font-size: 36px;
+    }
+
+    .banner-superior p {
+        font-size: 16px;
+    }
+
+    .texto-restaurante h2,
+    .por-que-elegirnos h2,
+    .seccion-galeria h2,
+    .seccion-opiniones h2 {
+        font-size: 28px;
+    }
+
+    .grid-equipo {
+        grid-template-columns: 1fr;
+    }
+    
+    .seccion-equipo h2 {
+        font-size: 36px;
+    }
+}
+
+/* para que el scroll sea suave */
+html {
+    scroll-behavior: smooth;
+}
