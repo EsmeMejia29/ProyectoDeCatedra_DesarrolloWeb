@@ -8,7 +8,7 @@
     z-index: 1000;
     padding: 0 1rem;
 }
- 
+
 .logo a {
     display: flex;
     justify-content: center;
@@ -56,8 +56,8 @@
 }
 
 .main-nav .iconos img {
-    width: 30px;
-    height: 30px;
+    width: 16px;
+    height: 16px;
 }
 
 .main-nav .iconos:hover {
@@ -221,6 +221,12 @@ footer{
     gap: 0.2rem;
     line-height: 1.4;
 }
+
+
+
+
+
+
 
 .navegacion_sitio{
     position: fixed;
