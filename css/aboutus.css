@@ -697,7 +697,6 @@ body {
     }
 }
 
-/* para que el scroll sea suave */
 html {
     scroll-behavior: smooth;
 }
