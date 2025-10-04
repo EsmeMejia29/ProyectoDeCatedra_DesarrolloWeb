@@ -18,6 +18,14 @@ body{
     font-family: "Nunito", Arial, sans-serif;
 }
 
+.navegacion_sitio{
+    position: fixed;
+    top: 0;
+    background-color: white;
+    width: 100%; 
+    height: 140px;
+}
+
 .logo a{
     display: flex;
     justify-content: center;
@@ -53,7 +61,7 @@ body{
     list-style: none;
 }
 
-.main-nav ul li a{
+.main-nav .iconos{
     padding: 15px 17px;
     text-decoration: none;
     color: var(--letras);
@@ -62,7 +70,7 @@ body{
     background-color: #fff8ed;
 }
 
-.iconos:hover{
+.main-nav .iconos:hover{
     position: relative;
     color: #fa7315;
     box-shadow: 2px 2px 5px 0px #fa7315;
@@ -70,10 +78,73 @@ body{
     transition: all 0.3s;
 }
 
+/*Estilos para las promos*/
+.promos{
+    background-color: #fffbfc;
+    margin-top: 140px;
+}
+
+.hero{
+    padding: 13vh 13vh;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/heroPromo.jpg);
+    background-position: center;
+}
+
+.hero h1{
+    text-align: center;
+    color: white;
+    font-size: 3em;
+}
+
+.hero h1 span{
+    color: #fdba74;
+}
+
+.menu_promos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10.3vh;
+    padding-bottom: 7vh;
+}
+
+.menu_promos ul{
+    display: flex;
+    gap: 1.1rem;
+    list-style: none;
+}
+
+.menu_promos li{
+    padding: 3vh;
+    border-radius: 22px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.08), 0 16px 15px rgba(0,0,0,0.06);
+}
+
+.menu_promos .icono{
+    text-decoration: none;
+    list-style: none;
+    color: var(--letras);
+    font-weight: 620;
+}
+
+.menu_promos li:hover, .menu_promos .icono:hover{
+    background-color: #ef4444;
+    color: white;
+    transition: all 0.2s;
+    transform:scale(1.05);
+}
+
+
+
+
+
+
+
 .pie{
     background-color: var(--letras);
     padding-top: 11vh;
-    color: white;
+    color: #caced5;
     padding-left: 13vh; /*Padding usado para derecha e izquierda para el contenido de la pagina*/
     padding-right: 13vh;
 }
