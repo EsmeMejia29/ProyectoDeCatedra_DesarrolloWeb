@@ -35,6 +35,8 @@ body {
     padding-top: 1vh;
     padding-bottom: 1vh;
     gap: 8px;
+    text-decoration: none;
+    color: inherit;
 }
 
 .logo a img {
@@ -45,6 +47,8 @@ body {
     font-family: "Merriweather", Georgia, 'Times New Roman', serif;
     font-size: 1.4rem;
     font-weight: 800;
+    color: var(--letras);
+    margin: 0;
 }
 
 .main-nav {
@@ -94,14 +98,17 @@ body {
 
 .hero {
     padding: 13vh 13vh;
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/heroMenu.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/bannerfondoMenu.jpg');
+    background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
 }
 
 .hero h1 {
-    text-align: center;
-    color: white;
     font-size: 3em;
+    margin-bottom: 1rem;
 }
 
 .hero h1 span {
@@ -109,10 +116,8 @@ body {
 }
 
 .hero p {
-    text-align: center;
-    color: white;
     font-size: 1.2em;
-    margin-top: 1rem;
+    opacity: 0.9;
 }
 
 .menu_categorias {
