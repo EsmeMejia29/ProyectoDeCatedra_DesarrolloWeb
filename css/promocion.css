@@ -252,6 +252,17 @@ body{
     background-color: #cf0303;
 }
 
+.cartas-promos h2 {
+    width: 100%;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--letras);
+    margin: 3rem 0 1rem; /* separación arriba y abajo */
+    padding-bottom: 0.5rem;
+  }
+
 .pie {
     background-color: var(--letras);
     color: #caced5;
