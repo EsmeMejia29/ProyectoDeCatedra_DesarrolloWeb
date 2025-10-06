@@ -240,12 +240,13 @@ footer{
     line-height: 1.4;
 }
 
-/* ===================================
-   MEDIA QUERIES PARA FOOTER
-   =================================== */
-
 /* Tablets en landscape (1024px y menos) */
 @media screen and (max-width: 1024px) {
+    header {
+        height: auto;
+        min-height: 145px;
+    }
+
     .navegacion_sitio {
         min-height: auto;
     }
