@@ -29,6 +29,7 @@ body {
     text-align: center;
     padding: 25%;
     overflow: hidden;
+    z-index: -1;
 }
 
 /* efecto de desenfoque */
