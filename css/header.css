@@ -246,6 +246,10 @@ footer{
 
 /* Tablets en landscape (1024px y menos) */
 @media screen and (max-width: 1024px) {
+    .navegacion_sitio {
+        min-height: auto;
+    }
+
     .footer_contenido {
         gap: 2rem;
     }
@@ -253,6 +257,21 @@ footer{
 
 /* Tablets en portrait (768px y menos) */
 @media screen and (max-width: 768px) {
+    header {
+        height: auto;
+        min-height: 145px;
+    }
+
+    .main-nav ul {
+        gap: 0.5rem;
+        padding: 0.5vh 0;
+    }
+    
+    .main-nav .iconos {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
     .footer_contenido {
         gap: 2.5rem;
     }
@@ -268,6 +287,39 @@ footer{
 
 /* Móviles en portrait (480px y menos) */
 @media screen and (max-width: 480px) {
+    header {
+        height: auto;
+        min-height: 180px;
+    }
+    
+    .logo a {
+        padding-top: 0.5vh;
+        padding-bottom: 0.5vh;
+    }
+    
+    .logo a img {
+        width: 60px;
+    }
+    
+    .logo a p {
+        font-size: 1.2rem;
+    }
+    
+    .main-nav ul {
+        gap: 0.4rem;
+        padding: 0.3vh 0 0.8vh;
+    }
+    
+    .main-nav .iconos {
+        padding: 6px 8px;
+        font-size: 0.85rem;
+    }
+    
+    .main-nav .iconos img {
+        width: 14px;
+        height: 14px;
+    }
+
     .footer_contenido {
         flex-direction: column;
         gap: 2rem;
@@ -289,6 +341,24 @@ footer{
 
 /* Móviles pequeños (375px y menos) */
 @media screen and (max-width: 375px) {
+    header {
+        height: auto;
+        min-height: 200px;
+    }
+    
+    .logo a img {
+        width: 50px;
+    }
+    
+    .logo a p {
+        font-size: 1.1rem;
+    }
+    
+    .main-nav .iconos {
+        padding: 5px 7px;
+        font-size: 0.8rem;
+    }
+
     .pie {
         padding: 3vh 4%;
     }
