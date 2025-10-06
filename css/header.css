@@ -8,8 +8,15 @@
     --letras: #0f1827;
 }
 
-.navegacion_sitio {
+header{
     position: fixed;
+    width: 100%;
+    z-index: 2;
+    background-color: white;
+    height: 140px;
+}
+
+.navegacion_sitio {
     top: 0;
     background-color: white;
     width: 100%;

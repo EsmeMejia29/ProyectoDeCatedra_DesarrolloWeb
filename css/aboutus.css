@@ -15,6 +15,7 @@ body {
 }
 
 .banner-superior {
+    padding-top: 150px;
     background-image: url(../img/chefscocinando.jpg);
     background-size: cover;
     background-position: top center;

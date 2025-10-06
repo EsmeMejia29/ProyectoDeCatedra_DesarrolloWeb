@@ -12,7 +12,12 @@ body{
     font-family: "Nunito", Arial, sans-serif;
 }
 
+.contenido-inicio{
+    padding-top: 150px;
+}
+
 .contenedor-imgs-carrusel{
+    z-index: -1;
     height: 80vh;
     width: 100%;
     margin: 0 auto;

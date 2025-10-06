@@ -19,6 +19,7 @@ body {
 
 /*Estilos para el menu*/
 .menu-container {
+    padding-top: 150px;
     background-color: #fffbfc;
 }
 

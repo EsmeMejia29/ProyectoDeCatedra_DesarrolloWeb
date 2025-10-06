@@ -15,6 +15,7 @@ body{
 
 /*Estilos para las promos*/
 .promos{
+    padding-top: 150px;
     background-color: #fffbfc;
 }
 
