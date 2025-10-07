@@ -10,10 +10,11 @@
 
 body{
     font-family: "Nunito", Arial, sans-serif;
+    padding-top: 0;
 }
 
 .contenido-inicio{
-    padding-top: 145px;
+    padding-top: 113.5px;
 }
 
 .contenedor-imgs-carrusel{
