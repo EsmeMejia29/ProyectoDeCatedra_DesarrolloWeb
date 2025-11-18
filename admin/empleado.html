@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Empleado - Restaurante</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome, para qie se vea kiut -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/empleado.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div>
+            <h2 class="mb-0">Panel de Administración</h2>
+            <p class="text-muted mb-0">Bienvenido, Empleado</p>
+        </div>
+        <div class="user-info">
+            <div class="user-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <span class="user-name">Empleado</span>
+            <button id="logoutBtn" class="btn logout-btn ms-3">
+                <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
+            </button>
+        </div>
+    </div>
+
+    <!-- Estadisticas. ESTO SE DEBE HACER FUNCIONAL LUEGO-->
+    <div class="container mt-4">
+        <div class="row g-3 mb-4">
+            <div class="col-md-2 col-sm-4">
+                <div class="stats-card">
+                    <h6>Productos</h6>
+                    <div class="value">8</div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4">
+                <div class="stats-card">
+                    <h6>Promociones</h6>
+                    <div class="value">3</div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4">
+                <div class="stats-card">
+                    <h6>Activas</h6>
+                    <div class="value">2</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Principal -->
+        <div class="row">
+            <!-- Columna Izquierda: Formularios -->
+            <div class="col-lg-4">
+                <!-- Nuevo Producto -->
+                <div class="content-section">
+                    <h4 class="section-title">Nuevo Producto</h4>
+                    <p class="text-muted">Agrega o edita un producto del menú</p>
+                    <button id="addProductBtn" class="btn btn-primary w-100 mb-3">
+                        <i class="fas fa-plus me-2"></i>Agregar Producto
+                    </button>
+                    <div id="productFormPlaceholder" class="placeholder-content">
+                        [FORMULARIO DE PRODUCTO - FETCH A FIREBASE]
+                    </div>
+                </div>
+
+                <!-- Nueva Promoción -->
+                <div class="content-section">
+                    <h4 class="section-title">Nueva Promoción</h4>
+                    <p class="text-muted">Crea o edita una promoción activa</p>
+                    <button id="addPromoBtn" class="btn btn-outline-secondary w-100">
+                        <i class="fas fa-tag me-2"></i>Agregar Promoción
+                    </button>
+                    <div id="promoFormPlaceholder" class="mt-3 placeholder-content">
+                        [FORMULARIO DE PROMOCIÓN - FETCH A FIREBASE]
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Listas -->
+            <div class="col-lg-8">
+                <!-- Productos del Menú -->
+                <div class="content-section">
+                    <h4 class="section-title">Productos del Menú</h4>
+                    <p class="text-muted">Administra todos los productos del restaurante</p>
+
+                    <div class="category-tabs">
+                        <div class="category-tab active">Todos</div>
+                        <div class="category-tab">Entradas</div>
+                        <div class="category-tab">Platos Principales</div>
+                        <div class="category-tab">Postres</div>
+                        <div class="category-tab">Bebidas</div>
+                    </div>
+
+                    <div id="productsListPlaceholder" class="placeholder-content">
+                        [LISTA DE PRODUCTOS - FETCH A FIREBASE]
+                    </div>
+                </div>
+
+                <!-- Promociones -->
+                <div class="content-section">
+                    <h4 class="section-title">Promociones</h4>
+                    <p class="text-muted">Gestiona las promociones activas e inactivas</p>
+
+                    <div class="d-flex gap-2 mb-3">
+                        <button class="btn btn-sm btn-outline-primary active">Todas</button>
+                        <button class="btn btn-sm btn-outline-success">Activas</button>
+                        <button class="btn btn-sm btn-outline-secondary">Inactivas</button>
+                    </div>
+
+                    <div id="promosListPlaceholder" class="placeholder-content">
+                        [LISTA DE PROMOCIONES - FETCH A FIREBASE]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../js/logout.js"></script>
+    <script> // ESTO IRA EN OTRO ARCHIVO APRTE, AHORITA ASI PARA QUE SE VEA LINDO pa mientras¿ XD
+        // Simulación de funcionalidad básica
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            alert('Cerrando sesión...');//Esto no es necesario la verdad
+        });
+
+        document.getElementById('addProductBtn').addEventListener('click', () => {
+            alert('Botón "Agregar Producto" clickeado.');
+        });
+
+        document.getElementById('addPromoBtn').addEventListener('click', () => {
+            alert('Botón "Agregar Promoción" clickeado.');
+        });
+
+        // Simular cambio de categoría (productos)
+        document.querySelectorAll('.category-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

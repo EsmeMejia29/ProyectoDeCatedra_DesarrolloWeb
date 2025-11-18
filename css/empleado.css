@@ -1,0 +1,142 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.header {
+    background-color: white;
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #495057;
+    font-size: 1.25rem;
+    border: 2px solid #dee2e6;
+}
+
+.user-name {
+    font-weight: 500;
+    color: #495057;
+}
+
+.stats-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.stats-card:hover {
+    transform: translateY(-2px);
+}
+
+.stats-card h6 {
+    font-weight: 500;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.stats-card .value {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.section-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #495057;
+}
+
+.btn-primary {
+    background-color: #212529;
+    border-color: #212529;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: #1a1e21;
+    border-color: #1a1e21;
+}
+
+.btn-outline-secondary {
+    font-weight: 500;
+}
+
+.category-tabs {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.category-tab {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.category-tab.active {
+    background-color: #0d6efd;
+    color: white;
+    border-color: #0d6efd;
+}
+
+.category-tab:hover {
+    background-color: #e9ecef;
+}
+
+.content-section {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.placeholder-content {
+    min-height: 200px;
+    background-color: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    font-style: italic;
+}
+
+.logout-btn {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    color: #495057;
+    font-weight: 500;
+}
+
+.logout-btn:hover {
+    background-color: #e9ecef;
+}
