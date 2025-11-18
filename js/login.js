@@ -36,9 +36,9 @@ document.querySelector('form').addEventListener('submit', async (e) => {
 
         // 4. Redirigir según el rol
         if (role === 'Gerente') {
-            window.location.href = '../admin/gerente.html'
+            window.location.href = 'admin/gerente.html'
         } else {
-            window.location.href = '../admin/empleado.html';
+            window.location.href = 'admin/empleado.html';
         }
 
     } catch (error) {
