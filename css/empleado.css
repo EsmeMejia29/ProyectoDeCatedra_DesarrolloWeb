@@ -160,7 +160,10 @@ body {
     font-style: normal;
 }
 
-.card-text-precio{
+.precio{
     font-weight: 600;
 }
 
+.menuFormulario{
+    overflow: scroll;
+}

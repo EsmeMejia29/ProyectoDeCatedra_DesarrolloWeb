@@ -26,24 +26,6 @@ export async function obtenerPlatosMenu(){
     }
 }
 
-export async function obtenerPlatosMenuId(nombrePlato){
-    try{
-        const obtenerPlato = doc(db, COLECCION, nombrePlato);
-        const plato = await getDoc(obtenerPlato);
-
-        if(plato.exists()){
-            return {data:
-                {id: plato.id,
-                    ...plato.data()}
-                };
-        }
-        return {error:'Receta no encontrada'};
-    }
-    catch(error){
-        return {error:error.message};
-    }
-}
-
 export async function agregarPlato(platoNuevo){
     try{
         const agregarPlato = await addDoc(collection(db, COLECCION), {
