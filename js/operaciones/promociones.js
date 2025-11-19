@@ -1,41 +1,42 @@
 import {
-    obtenerPlatosMenu, agregarPlato, modificarPlato, eliminarPlato
-} from '../service/menuConfig.js';
+    obtenerPromos, agregarPromo, modificarPromo, eliminarPromo
+} from '../service/promosConfig.js';
 
 document.addEventListener("DOMContentLoaded", () => {
-    mostrarMenu();
+    mostrarPromociones();
 });
 
-const btnAgregar = document.querySelector("#addPlato");
+const btnAgregarPromo = document.querySelector("#addPromocion");
 
 //Se agrega el evento click y su funcion
-btnAgregar.addEventListener("click", desplegarFormulario);
+btnAgregarPromo.addEventListener("click", desplegarFormulario);
 
-async function mostrarMenu() {
+export async function mostrarPromociones() {
     try {
-        const result = await obtenerPlatosMenu();
-        const container = document.querySelector("#platosLista");
+        const result = await obtenerPromos();
+        const container = document.querySelector("#promosLista");
 
         if (!result.data || result.data.length === 0) {
-            container.innerHTML = '<p>No hay platos en el menú</p>';
+            container.innerHTML = '<p>No hay promociones disponibles</p>';
             return;
         }
 
-        container.innerHTML = result.data.map((producto) =>
+        container.innerHTML = result.data.map((promo) =>
             `<div class="card">
-                    <img src="${producto.img}" class="card-img-top" alt="...">
-                    <div class="card-body ${producto.categoria}">
-                        <h5 class="card-title">${producto.nombrePlato}</h5>
-                        <p class="text-muted">${producto.descripcion}</p>
-                        <p class="text-muted precio">Precio: ${producto.precio}</p>
-                        <button type="button" class="btn btn-light btnEditar" data-id="${producto.id}"><i class="fa-regular fa-pen-to-square"></i></button>
-                        <button type="button" class="btn btn-danger btnEliminar" data-id="${producto.id}"><i class="fa-regular fa-trash-can"></i></button>
+                    <img src="${promo.img}" class="card-img-top" alt="...">
+                    <div class="card-body ${promo.categoria}">
+                        <h5 class="card-title">${promo.nombrePromo}</h5>
+                        <p class="text-muted">${promo.descripcion}</p>
+                        <p class="text-muted precio">Precio pormoción: ${promo.precioPromo}</p>
+                        <p class="text-muted precio">Precio anterior: ${promo.precioAnterior}</p>
+                        <button type="button" class="btn btn-light btnEditarPromo" data-id="${promo.id}"><i class="fa-regular fa-pen-to-square"></i></button>
+                        <button type="button" class="btn btn-danger btnEliminarPromo" data-id="${promo.id}"><i class="fa-regular fa-trash-can"></i></button>
                     </div>
                 </div>`
         ).join("");
 
         //Listeners para editar
-        document.querySelectorAll(".btnEditar").forEach(btn => {
+        document.querySelectorAll(".btnEditarPromo").forEach(btn => {
             btn.addEventListener("click", () => {
                 const plato = result.data.find(p => p.id === btn.dataset.id);
                 desplegarEditablePlato(plato);
@@ -43,7 +44,7 @@ async function mostrarMenu() {
         });
 
         // Listeners para eliminar
-        document.querySelectorAll(".btnEliminar").forEach(btn => {
+        document.querySelectorAll(".btnEliminarPromo").forEach(btn => {
             btn.addEventListener("click", () => {
                 const platoId = btn.dataset.id;
                 EliminarPlatoDelMenu(platoId);
@@ -121,7 +122,8 @@ async function agregarPlatoAlMenu() {
         categoria: categoria,
         descripcion: descripcion,
         precio: precio,
-        img: imagen
+        img: imagen,
+        createdAt: serverTimestamp()
     };
 
     try {

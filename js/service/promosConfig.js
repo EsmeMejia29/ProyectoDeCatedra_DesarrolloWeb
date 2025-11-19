@@ -14,27 +14,25 @@ export async function obtenerPromos(){
 
         const obtenerPromos = await getDocs(consulta);
         const verPromos = [];
-        obtenerPlatos.forEach(doc => verPlatos.push({
+        obtenerPromos.forEach(doc => verPromos.push({
             id: doc.id, 
             ...doc.data()
         }));
-
         return {data: verPromos};
     }
-    
+
     catch(error){
         return {error:error.message};
     }
 }
 
-export async function agregarPlato(platoNuevo){
+export async function agregarPromo(promoNueva){
     try{
-        const agregarPlato = await addDoc(collection(db, COLECCION), {
-            ...platoNuevo,
+        const agregarPromo = await addDoc(collection(db, COLECCION), {
+            ...promoNueva,
             createdAt: serverTimestamp()
         });
-
-        return {id: agregarPlato.id};
+        return {id: agregarPromo.id};
     }
 
     catch(error){
@@ -42,23 +40,22 @@ export async function agregarPlato(platoNuevo){
     }
 }
 
-export async function modificarPlato(platoId, platoInfo){
+export async function modificarPromo(promoId, promoInfo){
     try {
-        const platoRef = doc(db, COLECCION, platoId);
-        await updateDoc(platoRef, {
-            ...platoInfo,
+        const promoRef = doc(db, COLECCION, promoId);
+        await updateDoc(promoRef, {
+            ...promoInfo,
             updatedAt: serverTimestamp()
         });
-        return { success: true };
     } catch(error) {
         return { error: error.message };
     }
 }
 
-export async function eliminarPlato(platoId){
+export async function eliminarPromo(promoId){
     try{
-        const eliminarPlato = doc(db, COLECCION, platoId);
-        await deleteDoc(eliminarPlato);
+        const eliminarPromo = doc(db, COLECCION, promoId);
+        await deleteDoc(eliminarPromo);
     }
     catch(error){
         return {error:error.message};
