@@ -41,16 +41,16 @@ export async function agregarPlato(platoNuevo){
     }
 }
 
-export async function modificarPlato(nombrePlato, platoInfo){
-    try{
-        const agregarPlato = collection(db, COLECCION, nombrePlato);
-        await updateDoc(agregarPlato, {
+export async function modificarPlato(platoId, platoInfo){
+    try {
+        const platoRef = doc(db, COLECCION, platoId);
+        await updateDoc(platoRef, {
             ...platoInfo,
-            updateAt:serverTimestamp()
+            updatedAt: serverTimestamp()
         });
-    }
-    catch(error){
-        return {error:error.message};
+        return { success: true };
+    } catch(error) {
+        return { error: error.message };
     }
 }
 
