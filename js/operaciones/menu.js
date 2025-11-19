@@ -232,8 +232,12 @@ async function guardarCambios(platoNombre) {
     }
 }
 
-
-
-async function EliminarPlatoDelMenu(){
-    
+async function EliminarPlatoDelMenu(platoId){
+    try {
+        await eliminarPlato(platoId);
+        alert("Plato eliminado exitosamente");
+        mostrarMenu(); 
+    } catch (error) {
+        console.error("Error al eliminar el plato:", error);
+    }
 }

@@ -3,24 +3,25 @@ import { addDoc ,  collection, serverTimestamp, query, getDocs, getDoc, updateDo
 deleteDoc, orderBy, doc 
 } from 'https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js';
 
-const COLECCION ='menu';
+const COLECCION ='promociones';
 
-export async function obtenerPlatosMenu(){
+export async function obtenerPromos(){
     try{
         const consulta = query(
             collection(db, COLECCION),
             orderBy('createdAt', 'desc')
         );
 
-        const obtenerPlatos = await getDocs(consulta);
-        const verPlatos = [];
+        const obtenerPromos = await getDocs(consulta);
+        const verPromos = [];
         obtenerPlatos.forEach(doc => verPlatos.push({
             id: doc.id, 
             ...doc.data()
         }));
 
-        return {data: verPlatos};
+        return {data: verPromos};
     }
+    
     catch(error){
         return {error:error.message};
     }
