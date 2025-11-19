@@ -140,3 +140,27 @@ body {
 .logout-btn:hover {
     background-color: #e9ecef;
 }
+
+.card img{
+    height: 11rem;
+}
+
+.card{
+    margin: 0.7rem;
+    width: 15rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.2s;
+    border: none;
+}
+
+.card-body{
+    font-style: normal;
+}
+
+.card-text-precio{
+    font-weight: 600;
+}
+

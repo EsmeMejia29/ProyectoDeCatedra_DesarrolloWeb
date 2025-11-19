@@ -1,0 +1,83 @@
+import {db} from '../../js/service/firebase.js';
+import { addDoc ,  collection, serverTimestamp, query, getDocs, getDoc, updateDoc, 
+deleteDoc, orderBy, doc 
+} from 'https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js';
+
+const COLECCION ='menu';
+
+export async function obtenerPlatosMenu(){
+    try{
+        const consulta = query(
+            collection(db, COLECCION),
+            orderBy('createdAt', 'desc')
+        );
+
+        const obtenerPlatos = await getDocs(consulta);
+        const verPlatos = [];
+        obtenerPlatos.forEach(doc => verPlatos.push({
+            id: doc.id, 
+            ...doc.data()
+        }));
+
+        return {data: verPlatos};
+    }
+    catch(error){
+        return {error:error.message};
+    }
+}
+
+export async function obtenerPlatosMenuId(nombrePlato){
+    try{
+        const obtenerPlato = doc(db, COLECCION, nombrePlato);
+        const plato = await getDoc(obtenerPlato);
+
+        if(plato.exists()){
+            return {data:
+                {id: plato.id,
+                    ...plato.data()}
+                };
+        }
+        return {error:'Receta no encontrada'};
+    }
+    catch(error){
+        return {error:error.message};
+    }
+}
+
+export async function agregarPlato(platoNuevo){
+    try{
+        const agregarPlato = await addDoc(collection(db, COLECCION), {
+            ...platoNuevo,
+            createdAt: serverTimestamp()
+        });
+
+        return {id: agregarPlato.id};
+    }
+
+    catch(error){
+        return {error:error.message};
+    }
+}
+
+export async function modificarPlato(nombrePlato, platoInfo){
+    try{
+        const agregarPlato = collection(db, COLECCION, nombrePlato);
+        await updateDoc(agregarPlato, {
+            ...platoInfo,
+            updateAt:serverTimestamp()
+        });
+    }
+    catch(error){
+        return {error:error.message};
+    }
+}
+
+export async function eliminarPlato(nombrePlato){
+    try{
+        const eliminarPlato = collection(db, COLECCION, nombrePlato);
+        await deleteDoc(eliminarPlato);
+    }
+    catch(error){
+        return {error:error.message};
+    }
+}
