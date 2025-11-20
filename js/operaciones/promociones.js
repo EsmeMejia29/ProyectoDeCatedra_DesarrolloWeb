@@ -201,7 +201,7 @@ async function desplegarEditablePromocion(promocion) {
 
     <div class="mb-3">
         <label for="categoria" class="form-label">Categoría</label>
-        <select class="form-select" id="categoria" required>
+        <select class="form-select" id="categoria">
             <option value="Combos en Oferta" ${promocion.categoria === 'Combos en Oferta' ? 'selected' : ''}>Combos en Oferta</option>
             <option value="Paquete Familiar" ${promocion.categoria === 'Paquete Familiar' ? 'selected' : ''}>Paquete Familiar</option>
             <option value="Fin de Semana" ${promocion.categoria === 'Fin de Semana' ? 'selected' : ''}>Fin de Semana</option>
