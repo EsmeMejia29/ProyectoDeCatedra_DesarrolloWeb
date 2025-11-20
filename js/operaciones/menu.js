@@ -37,10 +37,10 @@ async function mostrarMenu() {
                     <h3 class="precio-descuento">$ ${producto.precio}</h3>
                 </div>
                 <div class="boton">
-                    <button type="button" class="btn btn-light btnEditarPromo" data-id="${producto.id}">
+                    <button type="button" class="btn btn-light btnEditar" data-id="${producto.id}">
                         <i class="fa-regular fa-pen-to-square"></i>
                     </button>
-                    <button type="button" class="btn btn-danger btnEliminarPromo" data-id="${producto.id}">
+                    <button type="button" class="btn btn-danger btnEliminar" data-id="${producto.id}">
                         <i class="fa-regular fa-trash-can"></i>
                     </button>
                 </div>
@@ -224,13 +224,13 @@ async function desplegarEditablePlato(plato) {
 }
 
 async function guardarCambios(platoNombre) {
-    const nombrePlato = document.querySelector("#nombrePlato").value.toString();
+    const nombrePlato = document.querySelector("#nombrePlato").value.trim();
     const categoria = document.querySelector("#categoria").value;
-    const descripcion = document.querySelector("#descripcion").value.toString();
+    const descripcion = document.querySelector("#descripcion").value.trim();
     const precio = parseFloat(document.querySelector("#precio").value);
-    const imagen = document.querySelector("#imgPlato").value.toString();
+    const imagen = document.querySelector("#imgPlato").value.trim();
 
-    if (!nombrePlato || !categoria || !descripcion || !precio || !imagen) {
+    if (!nombrePlato || !categoria || !descripcion || isNaN(precio) || !imagen) {
         alert("Por favor completa todos los campos");
         return;
     }

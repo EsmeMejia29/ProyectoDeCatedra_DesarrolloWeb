@@ -82,67 +82,56 @@ async function desplegarFormulario() {
     const container = document.querySelector("#promocionFormulario");
 
     container.innerHTML = `
-    <form onsubmit="return false">
-        <div class="mb-3">
-            <label for="nombrePromo" class="form-label">Nombre de la promoción</label>
-            <input type="text" class="form-control" id="nombrePromo" placeholder="Nombre de la promoción">
-        </div>
+    <form id="formAgregarPromocion" onsubmit="return false">
+    <div class="mb-3">
+        <label for="nombrePromo" class="form-label">Nombre de la promoción</label>
+        <input type="text" class="form-control" id="nombrePromo" placeholder="Nombre de la promoción"
+               required pattern="^[^\d]+$" title="No se permiten números">
+    </div>
 
-        <div class="mb-3">
-            <label for="categoria" class="form-label">Categoría</label>
-            <select class="form-select" aria-label="" id="categoria">
-                <option selected>Combos en Oferta</option>
-                <option value="Combos en Oferta">Combos en Oferta</option>
-                <option value="Paquete Familiar">Paquete Familiar</option>
-                <option value="Fin de Semana">Fin de Semana</option>
-                <option value="Hora Feliz">Hora Feliz</option>
-            </select>
-        </div>
+    <div class="mb-3">
+        <label for="categoria" class="form-label">Categoría</label>
+        <select class="form-select" id="categoria" required>
+            <option value="Combos en Oferta" selected>Combos en Oferta</option>
+            <option value="Paquete Familiar">Paquete Familiar</option>
+            <option value="Fin de Semana">Fin de Semana</option>
+            <option value="Hora Feliz">Hora Feliz</option>
+        </select>
+    </div>
 
-        <div class="mb-3">
-            <label for="descripcion" class="form-label">Descripción</label>
-            <textarea id="descripcion" cols="30" rows="5" class="form-control" placeholder="Descripción de la promoción"></textarea>
-        </div>
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción</label>
+        <textarea id="descripcion" cols="30" rows="5" class="form-control" placeholder="Descripción de la promoción"
+                  required pattern="^[^\d]+$" title="No se permiten números"></textarea>
+    </div>
 
-        <div class="mb-3">
-            <label for="precioPromo" class="form-label">Precio Promoción</label>
-            <input type="number" 
-                class="form-control" 
-                id="precioPromo" 
-                placeholder="Precio de la promoción"
-                min="0"
-                step="0.01">
-        </div>
+    <div class="mb-3">
+        <label for="precioPromo" class="form-label">Precio Promoción</label>
+        <input type="number" class="form-control" id="precioPromo" placeholder="Precio de la promoción"
+               min="0" step="0.01" required>
+    </div>
 
-        <div class="mb-3">
-            <label for="precioAnterior" class="form-label">Precio Anterior</label>
-            <input type="number" 
-                class="form-control" 
-                id="precioAnterior" 
-                placeholder="Precio anterior del plato"
-                min="0"
-                step="0.01">
-        </div>
+    <div class="mb-3">
+        <label for="precioAnterior" class="form-label">Precio Anterior</label>
+        <input type="number" class="form-control" id="precioAnterior" placeholder="Precio anterior del plato"
+               min="0" step="0.01" required>
+    </div>
 
-        <div class="mb-3">
-            <label for="descuento" class="form-label">Descuento (%)</label>
-            <input type="number" 
-                class="form-control" 
-                id="descuento" 
-                placeholder="Porcentaje de descuento"
-                min="0"
-                max="100"
-                step="1">
-        </div>
+    <div class="mb-3">
+        <label for="descuento" class="form-label">Descuento (%)</label>
+        <input type="number" class="form-control" id="descuento" placeholder="Porcentaje de descuento"
+               min="0" max="100" step="1" required>
+    </div>
 
-        <div class="mb-3">
-            <label for="imgPromo" class="form-label">Fotografía de la promoción</label>
-            <input type="text" class="form-control" id="imgPromo" placeholder="URL de la fotografía">
-        </div>
+    <div class="mb-3">
+        <label for="imgPromo" class="form-label">Fotografía de la promoción</label>
+        <input type="url" class="form-control" id="imgPromo" placeholder="URL de la fotografía" required>
+    </div>
 
-        <button type="button" class="btn btn-secondary" id="CancelarFormulario" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="AddPromocion">Añadir</button>
+    <button type="button" class="btn btn-secondary" id="CancelarFormulario" data-bs-dismiss="modal">Cancelar</button>
+    <button type="submit" class="btn btn-primary" id="AddPromocion">Añadir</button>
     </form>
+
     `;
 
     const btnAnadir = document.querySelector("#AddPromocion");
@@ -204,65 +193,54 @@ async function desplegarEditablePromocion(promocion) {
 
     // Desplegamos el formulario con los datos del plato
     container.innerHTML = `
-    <form onsubmit="return false">
-        <div class="mb-3">
-            <label for="nombrePromo" class="form-label">Nombre de la promoción</label>
-            <input type="text" class="form-control" id="nombrePromo" value="${promocion.nombrePromo}">
-        </div>
+    <form id="formEditarPromocion" onsubmit="return false">
+    <div class="mb-3">
+        <label for="nombrePromo" class="form-label">Nombre de la promoción</label>
+        <input type="text" class="form-control" id="nombrePromo" value="${promocion.nombrePromo}"
+               required pattern="^[^\d]+$" title="No se permiten números">
+    </div>
 
-        <div class="mb-3">
-            <label for="categoria" class="form-label">Categoría</label>
-            <select class="form-select" aria-label="" id="categoria">
-                <option value="Combos en Oferta" ${promocion.categoria === 'Combos en Oferta' ? 'selected' : ''}>Combos en Oferta</option>
-                <option value="Paquete Familiar" ${promocion.categoria === 'Paquete Familiar' ? 'selected' : ''}>Paquete Familiar</option>
-                <option value="Fin de Semana" ${promocion.categoria === 'Fin de Semana' ? 'selected' : ''}>Fin de Semana</option>
-                <option value="Hora Feliz" ${promocion.categoria === 'Hora Feliz' ? 'selected' : ''}>Hora Feliz</option>
-            </select>
-        </div>
+    <div class="mb-3">
+        <label for="categoria" class="form-label">Categoría</label>
+        <select class="form-select" id="categoria" required>
+            <option value="Combos en Oferta" ${promocion.categoria === 'Combos en Oferta' ? 'selected' : ''}>Combos en Oferta</option>
+            <option value="Paquete Familiar" ${promocion.categoria === 'Paquete Familiar' ? 'selected' : ''}>Paquete Familiar</option>
+            <option value="Fin de Semana" ${promocion.categoria === 'Fin de Semana' ? 'selected' : ''}>Fin de Semana</option>
+            <option value="Hora Feliz" ${promocion.categoria === 'Hora Feliz' ? 'selected' : ''}>Hora Feliz</option>
+        </select>
+    </div>
 
-        <div class="mb-3">
-            <label for="descripcion" class="form-label">Descripción</label>
-            <textarea id="descripcion" cols="30" rows="5">${promocion.descripcion}</textarea>
-        </div>
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción</label>
+        <textarea id="descripcion" cols="30" rows="5"
+                  class="form-control" required pattern="^[^\d]+$" title="No se permiten números">${promocion.descripcion}</textarea>
+    </div>
 
-        <div class="mb-3">
-            <label for="precioPromo" class="form-label">Precio Promoción</label>
-            <input type="number" 
-                class="form-control" 
-                id="precioPromo" 
-                value="${promocion.precioPromo}"
-                min="0"
-                step="0.01">
-        </div>
+    <div class="mb-3">
+        <label for="precioPromo" class="form-label">Precio Promoción</label>
+        <input type="number" class="form-control" id="precioPromo" value="${promocion.precioPromo}"
+               min="0" step="0.01" required>
+    </div>
 
-        <div class="mb-3">
-            <label for="precioAnterior" class="form-label">Precio Anterior</label>
-            <input type="number" 
-                class="form-control" 
-                id="precioAnterior" 
-                value="${promocion.precioAnterior}"
-                min="0"
-                step="0.01">
-        </div>
+    <div class="mb-3">
+        <label for="precioAnterior" class="form-label">Precio Anterior</label>
+        <input type="number" class="form-control" id="precioAnterior" value="${promocion.precioAnterior}"
+               min="0" step="0.01" required>
+    </div>
 
-        <div class="mb-3">
-            <label for="descuento" class="form-label">Descuento (%)</label>
-            <input type="number" 
-                class="form-control" 
-                id="descuento" 
-                value="${promocion.descuento}"
-                min="0"
-                max="100"
-                step="1">
-        </div>
+    <div class="mb-3">
+        <label for="descuento" class="form-label">Descuento (%)</label>
+        <input type="number" class="form-control" id="descuento" value="${promocion.descuento}"
+               min="0" max="100" step="1" required>
+    </div>
 
-        <div class="mb-3">
-            <label for="imgPromo" class="form-label">Fotografía de la promoción</label>
-            <input type="text" class="form-control" id="imgPromo" value="${promocion.img}">
-        </div>
+    <div class="mb-3">
+        <label for="imgPromo" class="form-label">Fotografía de la promoción</label>
+        <input type="url" class="form-control" id="imgPromo" value="${promocion.img}" required>
+    </div>
 
-        <button type="button" class="btn btn-secondary" id="CancelarFormulario">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="ActualizarPromo">Guardar Cambios</button>
+    <button type="button" class="btn btn-secondary" id="CancelarFormulario">Cancelar</button>
+    <button type="submit" class="btn btn-primary" id="ActualizarPromo">Guardar Cambios</button>
     </form>
     `;
 
