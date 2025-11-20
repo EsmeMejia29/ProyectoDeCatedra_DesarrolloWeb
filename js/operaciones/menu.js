@@ -2,52 +2,16 @@ import {
     obtenerPlatosMenu, agregarPlato, modificarPlato, eliminarPlato
 } from '../service/menuConfig.js';
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
     mostrarMenu();
-    activarFiltrosCategorias();
+
+    const btnAgregar = document.querySelector("#addPlato");
+    btnAgregar.addEventListener("click", desplegarFormulario);
 });
 
-document.querySelectorAll(".category-tabs .category-tab")
-    .forEach(tab => {
-        tab.addEventListener("click", () => {
-
-            // quitar active a todas
-            document.querySelectorAll(".category-tab")
-                .forEach(t => t.classList.remove("active"));
-
-            tab.classList.add("active");
-
-            const categoria = tab.textContent.trim();
-
-            // mostrar filtrado
-            mostrarMenu(categoria);
-        });
-    });
-
-    function activarFiltrosPromociones() {
-        const tabs = document.querySelectorAll(".promos-tabs .promos-tab");
-    
-        tabs.forEach(tab => {
-            tab.addEventListener("click", () => {
-    
-                tabs.forEach(t => t.classList.remove("active"));
-                tab.classList.add("active");
-    
-                const categoria = tab.textContent.trim();
-    
-                mostrarPromociones(categoria);
-            });
-        });
-    }
-    
-    
-
-const btnAgregar = document.querySelector("#addPlato");
-
-//Se agrega el evento click y su funcion
-btnAgregar.addEventListener("click", desplegarFormulario);
-
-async function mostrarMenu(filtro = "Todos") {
+async function mostrarMenu() {
     try {
         const result = await obtenerPlatosMenu();
         const container = document.querySelector("#platosLista");
@@ -57,11 +21,7 @@ async function mostrarMenu(filtro = "Todos") {
             return;
         }
 
-        let platos = result.data;
-
-        if (filtro !== "Todos") {
-            platos = platos.filter(p => p.categoria === filtro);
-        }
+        const platos = result.data;
 
         container.innerHTML = platos.map((producto) =>
             `<article class="tarjeta-comida">
@@ -92,7 +52,7 @@ async function mostrarMenu(filtro = "Todos") {
         // volver a agregar listeners
         document.querySelectorAll(".btnEditar").forEach(btn => {
             btn.addEventListener("click", () => {
-                const plato = result.data.find(p => p.id === btn.dataset.id);
+                const plato = result.data.find(p => p.id == btn.dataset.id);
                 desplegarEditablePlato(plato);
             });
         });
@@ -107,7 +67,7 @@ async function mostrarMenu(filtro = "Todos") {
     } catch (error) {
         console.error("Error mostrando menú:", error);
     }
-};
+}
 
 
 async function desplegarFormulario() {
@@ -264,7 +224,7 @@ async function desplegarEditablePlato(plato) {
     });
 }
 
-async function guardarCambios(platoNombre) {
+async function guardarCambios(platoId) {
     const nombrePlato = document.querySelector("#nombrePlato").value.trim();
     const categoria = document.querySelector("#categoria").value;
     const descripcion = document.querySelector("#descripcion").value.trim();
@@ -285,7 +245,7 @@ async function guardarCambios(platoNombre) {
     };
 
     try {
-        await modificarPlato(platoNombre, platoActualizado);
+        await modificarPlato(platoId, platoActualizado);
         alert("Plato actualizado correctamente");
         mostrarMenu(); 
         document.querySelector("#menuFormulario").innerHTML = ""; // cerrar formulario

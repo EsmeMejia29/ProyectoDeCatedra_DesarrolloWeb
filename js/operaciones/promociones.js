@@ -69,7 +69,7 @@ export async function mostrarPromociones() {
         document.querySelectorAll(".btnEliminarPromo").forEach(btn => {
             btn.addEventListener("click", () => {
                 const promoId = btn.dataset.id;
-                EliminarPlatoDelMenu(promoId);
+                eliminarPromocion(promoId);
             });
         });
     }
@@ -290,7 +290,7 @@ async function guardarCambios(platoPromocion) {
     }
 }
 
-async function EliminarPlatoDelMenu(promoId){
+async function eliminarPromocion(promoId){
     try {
         await eliminarPromo(promoId);
         alert("Promoción eliminada exitosamente");

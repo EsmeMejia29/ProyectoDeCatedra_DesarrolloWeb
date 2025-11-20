@@ -3,7 +3,7 @@ import { collection, getDocs } from "https://www.gstatic.com/firebasejs/12.6.0/f
 
 async function cargarCartas() {
     try {
-        const querySnapshot = await getDocs(collection(db, "productos"));
+        const querySnapshot = await getDocs(collection(db, ""));
 
         querySnapshot.forEach((doc) => {
             const plato = doc.data();
@@ -34,11 +34,11 @@ async function cargarCartas() {
                     const tarjetaHTML = `
                         <article class="tarjeta-comida">
                             <div class="img">
-                                <img src="${plato.imagen}" alt="${plato.nombre}">
+                                <img src="${plato.img}" alt="${plato.nombrePlato}">
                             </div>
                             
                             <div class="info">
-                                <h3>${plato.nombre}</h3>
+                                <h3>${plato.nombrePlato}</h3>
                                 <p>${plato.descripcion}</p>
                                 
                                 <div class="precio">
@@ -46,7 +46,7 @@ async function cargarCartas() {
                                 </div>
                                 
                                 <div class="boton-ordenar">
-                                    <button type="button" onclick="agregarAlCarrito('${id}', '${plato.nombre}', ${plato.precio})">
+                                    <button type="button" onclick="agregarAlCarrito('${id}', '${plato.nombrePlato}', ${plato.precio})">
                                         Agregar al carrito
                                     </button>
                                 </div>
