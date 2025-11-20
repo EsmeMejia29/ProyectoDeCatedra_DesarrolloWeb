@@ -29,6 +29,8 @@ export async function mostrarPromociones() {
                         <p class="text-muted">${promo.descripcion}</p>
                         <p class="text-muted precio">Precio Promoción: ${promo.precioPromo}</p>
                         <p class="text-muted precio">Precio anterior: ${promo.precioAnterior}</p>
+                        <p class="text-muted descuento">Descuento: ${promo.descuento}</p>
+                        <p class="text-muted categoria">Categoria: ${promo.categoria}</p>
                         <button type="button" class="btn btn-light btnEditarPromo" data-id="${promo.id}"><i class="fa-regular fa-pen-to-square"></i></button>
                         <button type="button" class="btn btn-danger btnEliminarPromo" data-id="${promo.id}"><i class="fa-regular fa-trash-can"></i></button>
                     </div>
