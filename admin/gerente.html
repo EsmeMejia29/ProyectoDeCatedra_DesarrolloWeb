@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Gerente</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link rel="stylesheet" href="../css/gerente.css">
+    <link rel="stylesheet" href="../css/empleado.css">
 </head>
 
-<body style="display: none;">
+<body>
 
     <div class="header">
         <div class="d-flex align-items-center gap-3">
@@ -27,15 +30,14 @@
                 <span>Gerente</span>
             </div>
             <button id="logoutBtn" class="btn logout-btn">
-                <i class="fas fa-sign-out-alt me-2"></i>Salir
+                <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
             </button>
         </div>
     </div>
 
-    <div class="container-fluid mt-4 px-4">
+    <div class="container mt-4">
 
         <div class="row g-3 mb-4">
-
             <div class="col-xl-3 col-md-12">
                 <div class="stats-card border-naranja d-flex align-items-center justify-content-between px-4 h-100">
                     <div>
@@ -50,7 +52,7 @@
                 <div class="row g-3 h-100">
                     <div class="col-6 col-md-4 col-xl">
                         <div class="stats-card">
-                            <h6>Total</h6>
+                            <h6>Total Platos</h6>
                             <div class="value" id="statTotal">0</div>
                         </div>
                     </div>
@@ -80,7 +82,7 @@
                     </div>
                     <div class="col-6 col-md-4 col-xl">
                         <div class="stats-card">
-                            <h6>Platos</h6>
+                            <h6>Platos Fuertes</h6>
                             <div class="value" id="statPrincipales">0</div>
                         </div>
                     </div>
@@ -88,217 +90,89 @@
             </div>
         </div>
 
-        <div class="row g-4">
+        <div class="row">
+            <div class="col-lg-4" id="agregar">
 
-            <div class="col-lg-4">
-
-                <div class="content-section mb-4">
-                    <h4 class="section-title"><i class="fas fa-user-tie me-2 text-naranja"></i>Registro RRHH</h4>
-                    <button id="addEmployeeBtn" class="btn btn-primary w-100 mb-3">
-                        <i class="fas fa-plus me-2"></i>Nuevo Empleado
+                <div class="content-section">
+                    <h4 class="section-title">Gestión RRHH</h4>
+                    <p class="text-muted">Registrar nuevo personal</p>
+                    <button id="btnAddEmpleado" class="btn btn-primary w-100 mb-3"
+                        style="background-color: orange; border: none; font-weight: 600;">
+                        <i class="fas fa-user-plus me-2"></i>Nuevo Empleado
                     </button>
-
-                    <div id="formEmpleadoContainer" class="d-none bg-light p-3 rounded border">
-                        <form id="formEmpleado">
-                            <div class="mb-2">
-                                <label class="form-label small fw-bold">Nombre Completo</label>
-                                <input type="text" class="form-control form-control-sm" id="empNombre" required>
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label small fw-bold">Rol</label>
-                                <select class="form-select form-select-sm" id="empRole">
-                                    <option value="Empleado">Empleado</option>
-                                    <option value="Gerente">Gerente</option>
-                                </select>
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label small fw-bold">Correo</label>
-                                <input type="email" class="form-control form-control-sm" id="empEmail" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label small fw-bold">Contraseña</label>
-                                <input type="password" class="form-control form-control-sm" id="empPassword" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100 btn-sm">Registrar Usuario</button>
-                        </form>
-                    </div>
+                    <div id="empleadoFormulario" class="placeholder-content"></div>
                 </div>
 
-                <div class="content-section mb-4">
-                    <h4 class="section-title"><i class="fas fa-utensils me-2 text-naranja"></i>Gestión Menú</h4>
-                    <button id="addProductBtn" class="btn btn-primary w-100 mb-3">
-                        <i class="fas fa-plus me-2"></i>Nuevo Platillo
+                <div class="content-section">
+                    <h4 class="section-title">Nuevo Plato</h4>
+                    <p class="text-muted">Agrega o edita un plato del menú</p>
+                    <button id="addPlato" class="btn btn-primary w-100 mb-3">
+                        <i class="fas fa-plus me-2"></i>Agregar Plato
                     </button>
-
-                    <div id="formProductoContainer" class="d-none bg-light p-3 rounded border">
-                        <form id="formProducto">
-                            <input type="hidden" id="editId">
-                            <div class="mb-2">
-                                <label class="form-label small fw-bold">Nombre</label>
-                                <input type="text" class="form-control form-control-sm" id="prodNombre" required>
-                            </div>
-                            <div class="row g-2">
-                                <div class="col-6 mb-2">
-                                    <label class="form-label small fw-bold">Precio</label>
-                                    <input type="number" step="0.01" class="form-control form-control-sm"
-                                        id="prodPrecio" required>
-                                </div>
-                                <div class="col-6 mb-2">
-                                    <label class="form-label small fw-bold">Categoría</label>
-                                    <select class="form-select form-select-sm" id="prodCategoria">
-                                        <option value="Pupusas">Pupusas</option>
-                                        <option value="Platos Principales">Platos Principales</option>
-                                        <option value="Entradas">Entradas</option>
-                                        <option value="Postres">Postres</option>
-                                        <option value="Bebidas">Bebidas</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label small fw-bold">Descripción</label>
-                                <textarea class="form-control form-control-sm" id="prodDesc" rows="2"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label small fw-bold">URL Imagen</label>
-                                <input type="text" class="form-control form-control-sm" id="prodImg">
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100 btn-sm" id="btnGuardarProd">Guardar
-                                Producto</button>
-                            <button type="button" class="btn btn-secondary w-100 btn-sm mt-2 d-none"
-                                id="btnCancelarEdit">Cancelar</button>
-                        </form>
-                    </div>
+                    <div id="menuFormulario" class="placeholder-content"></div>
                 </div>
 
-                <div class="content-section mb-4">
-                    <h4 class="section-title"><i class="fas fa-tags me-2 text-naranja"></i>Promociones</h4>
-                    <button id="addPromoBtn" class="btn btn-primary w-100 mb-3">
-                        <i class="fas fa-plus me-2"></i>Nueva Oferta
+                <div class="content-section">
+                    <h4 class="section-title">Nueva Promoción</h4>
+                    <p class="text-muted">Agrega o edita un plato en promoción</p>
+                    <button id="addPromocion" class="btn btn-primary w-100 mb-3">
+                        <i class="fas fa-plus me-2"></i>Agregar Promoción
                     </button>
-
-                    <div id="formPromocionContainer" class="d-none bg-light p-3 rounded border">
-                        <form id="formPromocion">
-                            <input type="hidden" id="promoId">
-                            <div class="mb-2">
-                                <label class="form-label small fw-bold">Título</label>
-                                <input type="text" class="form-control form-control-sm" id="promoTitulo" required>
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label small fw-bold">Categoría</label>
-                                <select class="form-select form-select-sm" id="promoCategoria">
-                                    <option value="combo-oferta">Combos en Oferta</option>
-                                    <option value="paquete-familiar">Paquetes Familiares</option>
-                                    <option value="fin-semana">Fin de Semana</option>
-                                    <option value="hora-feliz">Hora Feliz</option>
-                                </select>
-                            </div>
-                            <div class="row g-2">
-                                <div class="col-6 mb-2">
-                                    <label class="form-label small fw-bold">Precio Real</label>
-                                    <input type="number" step="0.01" class="form-control form-control-sm"
-                                        id="promoPrecioOriginal" required>
-                                </div>
-                                <div class="col-6 mb-2">
-                                    <label class="form-label small fw-bold">Precio Oferta</label>
-                                    <input type="number" step="0.01" class="form-control form-control-sm"
-                                        id="promoPrecioOferta" required>
-                                </div>
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label small fw-bold">Badge (ej: 20% OFF)</label>
-                                <input type="text" class="form-control form-control-sm" id="promoDescuentoTexto"
-                                    required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label small fw-bold">URL Imagen</label>
-                                <input type="text" class="form-control form-control-sm" id="promoImg">
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100 btn-sm" id="btnGuardarPromo">Publicar
-                                Promo</button>
-                            <button type="button" class="btn btn-secondary w-100 btn-sm mt-2 d-none"
-                                id="btnCancelarPromo">Cancelar</button>
-                        </form>
-                    </div>
+                    <div id="promocionFormulario" class="placeholder-content"></div>
                 </div>
-
             </div>
 
             <div class="col-lg-8">
 
                 <div class="content-section mb-4">
-                    <h4 class="section-title"><i class="fas fa-chart-pie me-2 text-naranja"></i>Distribución del
-                        Catálogo</h4>
-                    <div style="position: relative; height: 250px; width: 100%;">
+                    <h4 class="section-title">Distribución del Menú</h4>
+                    <div style="position: relative; height: 300px; width: 100%;">
                         <canvas id="graficoCategorias"></canvas>
                     </div>
                 </div>
 
-                <div class="content-section mb-4">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="section-title mb-0">Platos del Menú</h4>
-                        <span class="badge bg-secondary">En tiempo real</span>
+                <div class="content-section">
+                    <h4 class="section-title">Platos del Menú</h4>
+                    <p class="text-muted">Administra todos los platos de "Sabor Salvadoreño"</p>
+
+                    <div class="category-tabs">
+                        <div class="category-tab active">Todos</div>
+                        <div class="category-tab">Entradas</div>
+                        <div class="category-tab">Platos Principales</div>
+                        <div class="category-tab">Pupusas</div>
+                        <div class="category-tab">Postres</div>
+                        <div class="category-tab">Bebidas</div>
                     </div>
 
-                    <div class="d-flex gap-2 flex-wrap mb-4">
-                        <button class="category-tab active">Todos</button>
-                        <button class="category-tab">Entradas</button>
-                        <button class="category-tab">Platos Principales</button>
-                        <button class="category-tab">Pupusas</button>
-                        <button class="category-tab">Postres</button>
-                        <button class="category-tab">Bebidas</button>
-                    </div>
-
-                    <div id="gridProductos" class="row g-3">
-                    </div>
+                    <div id="platosLista" class="placeholder-content"></div>
                 </div>
 
                 <div class="content-section">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="section-title mb-0">Promociones Activas</h4>
-                        <span class="badge bg-success">Público</span>
+                    <h4 class="section-title">Promociones</h4>
+                    <p class="text-muted">Gestiona los platos en promoción</p>
+
+                    <div class="category-tabs">
+                        <div class="category-tab active">Todos</div>
+                        <div class="category-tab">Combos en oferta</div>
+                        <div class="category-tab">Paquete familiar</div>
+                        <div class="category-tab">Fin de semana</div>
+                        <div class="category-tab">Hora Feliz</div>
                     </div>
 
-                    <div id="gridPromociones" class="row g-3">
-                    </div>
+                    <div id="promosLista" class="placeholder-content"></div>
                 </div>
-
             </div>
-
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        const toggle = (btnId, divId) => {
-            const btn = document.getElementById(btnId);
-            const div = document.getElementById(divId);
-            if (btn && div) {
-                btn.addEventListener('click', () => {
-                    div.classList.toggle('d-none');
-                    btn.innerHTML = div.classList.contains('d-none')
-                        ? `<i class="fas fa-plus me-2"></i> Mostrar`
-                        : `<i class="fas fa-minus me-2"></i> Ocultar`;
-                });
-            }
-        };
-        toggle('addProductBtn', 'formProductoContainer');
-        toggle('addPromoBtn', 'formPromocionContainer');
-        toggle('addEmployeeBtn', 'formEmpleadoContainer');
-
-        // Lógica visual de tabs
-        document.querySelectorAll('.category-tab').forEach(tab => {
-            tab.addEventListener('click', function () {
-                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-    </script>
-
     <script type="module" src="../js/logout.js"></script>
     <script type="module" src="../js/operaciones/authGuard.js"></script>
+
     <script type="module" src="../js/operaciones/logicGerente.js"></script>
+    <script type="module" src="../js/operaciones/menu.js"></script>
     <script type="module" src="../js/operaciones/promociones.js"></script>
 </body>
 
