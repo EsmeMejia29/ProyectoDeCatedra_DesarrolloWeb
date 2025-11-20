@@ -4,144 +4,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administración</title>
-    <!-- Bootstrap 5 -->
+    <title>Panel de Gerente</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome para qie se vea kiut -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/gerente.css">
 </head>
-<body>
 
-    <!-- Header -->
+<body style="display: none;">
+
     <div class="header d-flex justify-content-between align-items-center">
         <div>
-            <h2 class="mb-0">Panel de Administración</h2>
-            <p class="text-muted mb-0">Bienvenido, Administrador</p>
+            <h2 class="mb-0">Administración General</h2>
+            <p class="text-muted mb-0">Panel de Gerente</p>
         </div>
         <button id="logoutBtn" class="btn logout-btn">
             <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
         </button>
     </div>
 
-    <!-- Estadisticas. ESTO SE DEBE HACER FUNCIONAL LUEGO -->
     <div class="container mt-4">
+
         <div class="row g-3 mb-4">
-            <div class="col-md-2 col-sm-4">
-                <div class="stats-card">
-                    <h6>Total Productos</h6>
-                    <div class="value">8</div>
+            <div class="col-md-3 col-12">
+                <div class="stats-card border-primary border-top-0 border-start border-4">
+                    <h6>Personal Activo</h6>
+                    <div class="d-flex align-items-center justify-content-center gap-2">
+                        <i class="fas fa-users text-primary opacity-50"></i>
+                        <div class="value text-primary" id="statEmpleados">0</div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-4">
-                <div class="stats-card">
-                    <h6>Entradas</h6>
-                    <div class="value">2</div>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <div class="stats-card">
-                    <h6>Platos Principales</h6>
-                    <div class="value">2</div>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <div class="stats-card">
-                    <h6>Postres</h6>
-                    <div class="value">2</div>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <div class="stats-card">
-                    <h6>Bebidas</h6>
-                    <div class="value">2</div>
+
+            <div class="col-md-9">
+                <div class="row g-3">
+                    <div class="col-md-3 col-6">
+                        <div class="stats-card">
+                            <h6>Total Platillos</h6>
+                            <div class="value" id="statTotal">0</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="stats-card">
+                            <h6>Pupusas</h6>
+                            <div class="value" id="statPupusas">0</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="stats-card">
+                            <h6>Bebidas</h6>
+                            <div class="value" id="statBebidas">0</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="stats-card">
+                            <h6>Postres</h6>
+                            <div class="value" id="statPostres">0</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Principal -->
         <div class="row">
-            <!-- Columna Izquierda: Nuevo Producto y Añadir Empleado -->
+
             <div class="col-lg-4">
-                <!-- Nuevo Producto -->
-                <div class="content-section">
-                    <h4 class="section-title">Nuevo Producto</h4>
-                    <p class="text-muted">Agrega un nuevo producto al menú</p>
-                    <button id="addProductBtn" class="btn btn-primary w-100">
-                        <i class="fas fa-plus me-2"></i>Agregar Producto
+
+                <div class="content-section mb-4">
+                    <h4 class="section-title">Registro de Empleados</h4>
+                    <button id="addEmployeeBtn" class="btn btn-outline-secondary w-100 mb-3">
+                        <i class="fas fa-user-plus me-2"></i>Nuevo Empleado
                     </button>
-                    <div id="productFormPlaceholder" class="mt-3 placeholder-content">
-                        <!-- Aquí irá el formulario de producto (para fetch a Firebase) -->
-                        [FORMULARIO DE PRODUCTO - FETCH A FIREBASE]
+
+                    <div id="formEmpleadoContainer" class="d-none">
+    <form id="formEmpleado">
+        <div class="mb-3">
+            <label class="form-label small text-muted">Nombre Completo</label>
+            <input type="text" class="form-control" id="empNombre" required>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label small text-muted">Rol Asignado</label>
+            <select class="form-select" id="empRole">
+                <option value="Empleado">Empleado</option>
+                <option value="Gerente">Gerente</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label small text-muted">Correo Institucional</label>
+            <input type="email" class="form-control" id="empEmail" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label small text-muted">Contraseña Temporal</label>
+            <input type="password" class="form-control" id="empPassword" required>
+        </div>
+        <button type="submit" class="btn btn-dark w-100">
+            <i class="fas fa-save me-2"></i>Registrar Usuario
+        </button>
+    </form>
+</div>
+                <div class="content-section mb-4">
+                    <h4 class="section-title">Gestión de Menú</h4>
+                    <button id="addProductBtn" class="btn btn-primary w-100 mb-3">
+                        <i class="fas fa-plus me-2"></i>Nuevo Platillo
+                    </button>
+
+                    <div id="formProductoContainer" class="d-none">
+                        <form id="formProducto" class="p-1">
+                            <input type="hidden" id="editId">
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Nombre</label>
+                                <input type="text" class="form-control" id="prodNombre" required>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <label class="form-label small text-muted">Precio</label>
+                                    <input type="number" step="0.01" class="form-control" id="prodPrecio" required>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <label class="form-label small text-muted">Categoría</label>
+                                    <select class="form-select" id="prodCategoria">
+                                        <option value="Pupusas">Pupusas</option>
+                                        <option value="Platos Principales">Platos Principales</option>
+                                        <option value="Entradas">Entradas</option>
+                                        <option value="Postres">Postres</option>
+                                        <option value="Bebidas">Bebidas</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Descripción</label>
+                                <textarea class="form-control" id="prodDesc" rows="2"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">URL Imagen</label>
+                                <input type="text" class="form-control" id="prodImg">
+                            </div>
+                            <button type="submit" class="btn btn-success w-100" id="btnGuardarProd">Guardar</button>
+                            <button type="button" class="btn btn-secondary w-100 mt-2 d-none"
+                                id="btnCancelarEdit">Cancelar</button>
+                        </form>
                     </div>
                 </div>
 
-                <!-- Añadir Empleado -->
-                <div class="content-section">
-                    <h4 class="section-title">Añadir Empleado</h4>
-                    <p class="text-muted">Registra un nuevo empleado en el sistema</p>
-                    <button id="addEmployeeBtn" class="btn btn-outline-secondary w-100">
-                        <i class="fas fa-user-plus me-2"></i>Agregar Empleado
+                <div class="content-section mb-4">
+                    <h4 class="section-title">Promociones</h4>
+                    <button id="addPromoBtn" class="btn btn-outline-secondary w-100 mb-3">
+                        <i class="fas fa-tag me-2"></i>Nueva Oferta
                     </button>
-                    <div id="employeeFormPlaceholder" class="mt-3 placeholder-content">
-                        <!-- Aquí irá el formulario de empleado (para fetch a Firebase) -->
-                        [FORMULARIO DE EMPLEADO - FETCH A FIREBASE]
+
+                    <div id="formPromocionContainer" class="d-none">
+                        <form id="formPromocion">
+                            <input type="hidden" id="promoId">
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Título Oferta</label>
+                                <input type="text" class="form-control" id="promoTitulo" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Categoría</label>
+                                <select class="form-select" id="promoCategoria">
+                                    <option value="combo-oferta">Combos en Oferta</option>
+                                    <option value="paquete-familiar">Paquetes Familiares</option>
+                                    <option value="fin-semana">Fin de Semana</option>
+                                    <option value="hora-feliz">Hora Feliz</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <label class="form-label small text-muted">Precio Real</label>
+                                    <input type="number" step="0.01" class="form-control" id="promoPrecioOriginal"
+                                        required>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <label class="form-label small text-muted">Precio Oferta</label>
+                                    <input type="number" step="0.01" class="form-control" id="promoPrecioOferta"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Texto Badge</label>
+                                <input type="text" class="form-control" id="promoDescuentoTexto" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Descripción</label>
+                                <textarea class="form-control" id="promoDescripcion" rows="2"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">URL Imagen</label>
+                                <input type="text" class="form-control" id="promoImg">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100" id="btnGuardarPromo">Publicar
+                                Promo</button>
+                            <button type="button" class="btn btn-secondary w-100 mt-2 d-none"
+                                id="btnCancelarPromo">Cancelar</button>
+                        </form>
                     </div>
                 </div>
+
             </div>
 
-            <!-- Columna Derecha: Productos del Menú -->
             <div class="col-lg-8">
-                <div class="content-section">
-                    <h4 class="section-title">Productos del Menú</h4>
-                    <p class="text-muted">Administra todos los productos del restaurante</p>
-
-                    <!-- Categorías/Tabs -->
-                    <div class="category-tabs">
-                        <div class="category-tab active">Todos</div>
-                        <div class="category-tab">Entradas</div>
-                        <div class="category-tab">Platos Principales</div>
-                        <div class="category-tab">Postres</div>
-                        <div class="category-tab">Bebidas</div>
-                    </div>
-
-                    <!-- Lista de Productos (Placeholder) -->
-                    <div id="productsListPlaceholder" class="placeholder-content">
-                        <!-- Aquí se mostrarán los productos (fetch desde Firebase) -->
-                        [LISTA DE PRODUCTOS - FETCH A FIREBASE]
+                <div class="content-section mb-4">
+                    <h4 class="section-title">Inventario de Productos</h4>
+                    <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light sticky-top">
+                                <tr>
+                                    <th>Img</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Categoría</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaProductosBody">
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
-                <!-- FALTA HACER CRUD EN PROMOCIONES -->
+                <div class="content-section">
+                    <h4 class="section-title">Promociones Activas</h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Img</th>
+                                    <th>Título</th>
+                                    <th>Oferta</th>
+                                    <th>Badge</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaPromocionesBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="../js/logout.js"></script>
-    <script> // ESTO IRA EN OTRO ARCHIVO APRTE, AHORITA ASI PARA QUE SE VEA LINDO pa mientras¿ XD
-        // Simulación de funcionalidad básica 
-        document.getElementById('logoutBtn').addEventListener('click', () => {
-            alert('Cerrando sesión...'); //Esto no es necesario la verdad
-        });
-
-        document.getElementById('addProductBtn').addEventListener('click', () => {
-            alert('Botón "Agregar Producto" clickeado. Aquí se mostraría el formulario real.');
-        });
-
-        document.getElementById('addEmployeeBtn').addEventListener('click', () => {
-            alert('Botón "Agregar Empleado" clickeado. Aquí se mostraría el formulario real.');
-        });
-
-        // Simular cambio de categoría
-        document.querySelectorAll('.category-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                // aqui se filtraría la lista de productos por categoría
-            });
-        });
+    <script>
+        const toggle = (btnId, divId) => {
+            const btn = document.getElementById(btnId);
+            const div = document.getElementById(divId);
+            if (btn && div) {
+                btn.addEventListener('click', () => {
+                    div.classList.toggle('d-none');
+                    btn.innerHTML = div.classList.contains('d-none')
+                        ? `<i class="fas fa-plus me-2"></i>Mostrar`
+                        : `<i class="fas fa-minus me-2"></i>Ocultar`;
+                });
+            }
+        };
+        toggle('addProductBtn', 'formProductoContainer');
+        toggle('addPromoBtn', 'formPromocionContainer');
+        toggle('addEmployeeBtn', 'formEmpleadoContainer');
     </script>
+
+    <script type="module" src="../js/logout.js"></script>
+    <script type="module" src="../js/operaciones/authGuard.js"></script>
+    <script type="module" src="../js/operaciones/logicGerente.js"></script>
+    <script type="module" src="../js/operaciones/promociones.js"></script>
 </body>
+
 </html>
