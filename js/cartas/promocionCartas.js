@@ -12,7 +12,7 @@ async function cargarPromociones() {
             let contenedorId = "";
 
             //Comparador de categorías según la BD:
-            if (promo.categoria === "Combos" || promo.categoria === "Combo en Oferta") {
+            if (promo.categoria === "Combos" || promo.categoria === "Combos en Oferta") {
                 contenedorId = "lista-Combos";
             } else if (promo.categoria === "Paquete Familiar" || promo.categoria === "Familiar") {
                 contenedorId = "lista-Familiar";
