@@ -127,7 +127,7 @@ async function desplegarFormulario() {
         <input type="url" class="form-control" id="imgPromo" placeholder="URL de la fotografía" required>
     </div>
 
-    <button type="button" class="btn btn-secondary" id="CancelarFormulario" data-bs-dismiss="modal">Cancelar</button>
+    <button type="button" class="btn btn-secondary" id="CancelarFormularioPromo" data-bs-dismiss="modal">Cancelar</button>
     <button type="submit" class="btn btn-primary" id="AddPromocion">Añadir</button>
     </form>
 
@@ -136,7 +136,7 @@ async function desplegarFormulario() {
     const btnAnadir = document.querySelector("#AddPromocion");
     btnAnadir.addEventListener("click", agregarPromocion);
 
-    const btnCancelar = document.querySelector("#CancelarFormulario");
+    const btnCancelar = document.querySelector("#CancelarFormularioPromo");
     btnCancelar.addEventListener("click", () => container.innerHTML = "");
 }
 
@@ -238,13 +238,13 @@ async function desplegarEditablePromocion(promocion) {
         <input type="url" class="form-control" id="imgPromo" value="${promocion.img}" required>
     </div>
 
-    <button type="button" class="btn btn-secondary" id="CancelarFormulario">Cancelar</button>
+    <button type="button" class="btn btn-secondary" id="CancelarFormularioPromo">Cancelar</button>
     <button type="submit" class="btn btn-primary" id="ActualizarPromo">Guardar Cambios</button>
     </form>
     `;
 
     // Listener para cancelar
-    const btnCancelar = document.querySelector("#CancelarFormulario");
+    const btnCancelar = document.querySelector("#CancelarFormularioPromo");
     btnCancelar.addEventListener("click", () => {
         container.innerHTML = "";
     });
