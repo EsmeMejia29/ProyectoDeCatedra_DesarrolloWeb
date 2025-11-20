@@ -5,15 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración</title>
-    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome para qie se vea kiut -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/gerente.css">
 </head>
-<body>
 
-    <!-- Header -->
+<body style="display: none;">
+
     <div class="header d-flex justify-content-between align-items-center">
         <div>
             <h2 class="mb-0">Panel de Administración</h2>
@@ -24,7 +22,6 @@
         </button>
     </div>
 
-    <!-- Estadisticas. ESTO SE DEBE HACER FUNCIONAL LUEGO -->
     <div class="container mt-4">
         <div class="row g-3 mb-4">
             <div class="col-md-2 col-sm-4">
@@ -41,7 +38,7 @@
             </div>
             <div class="col-md-2 col-sm-4">
                 <div class="stats-card">
-                    <h6>Platos Principales</h6>
+                    <h6>Platos Fuertes</h6>
                     <div class="value">2</div>
                 </div>
             </div>
@@ -59,89 +56,177 @@
             </div>
         </div>
 
-        <!-- Principal -->
         <div class="row">
-            <!-- Columna Izquierda: Nuevo Producto y Añadir Empleado -->
             <div class="col-lg-4">
-                <!-- Nuevo Producto -->
-                <div class="content-section">
+
+                <div class="content-section mb-4">
                     <h4 class="section-title">Nuevo Producto</h4>
                     <p class="text-muted">Agrega un nuevo producto al menú</p>
                     <button id="addProductBtn" class="btn btn-primary w-100">
                         <i class="fas fa-plus me-2"></i>Agregar Producto
                     </button>
-                    <div id="productFormPlaceholder" class="mt-3 placeholder-content">
-                        <!-- Aquí irá el formulario de producto (para fetch a Firebase) -->
-                        [FORMULARIO DE PRODUCTO - FETCH A FIREBASE]
+
+                    <div id="formProductoContainer" class="mt-3 d-none">
+                        <form id="formProducto">
+                            <input type="hidden" id="editId">
+                            <div class="mb-3">
+                                <label class="form-label text-muted small">Nombre del Platillo</label>
+                                <input type="text" class="form-control" id="prodNombre"
+                                    placeholder="Ej: Pupusa de Queso" required>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <label class="form-label text-muted small">Precio ($)</label>
+                                    <input type="number" step="0.01" class="form-control" id="prodPrecio" required>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <label class="form-label text-muted small">Categoría</label>
+                                    <select class="form-select" id="prodCategoria">
+                                        <option value="Pupusas">Pupusas</option>
+                                        <option value="Platos Principales">Platos Principales</option>
+                                        <option value="Entradas">Entradas</option>
+                                        <option value="Postres">Postres</option>
+                                        <option value="Bebidas">Bebidas</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label text-muted small">Descripción</label>
+                                <textarea class="form-control" id="prodDesc" rows="2"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label text-muted small">URL de la Imagen</label>
+                                <input type="text" class="form-control" id="prodImg" placeholder="../img/ejemplo.jpg">
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-success" id="btnGuardarProd">Guardar
+                                    Producto</button>
+                                <button type="button" class="btn btn-secondary d-none" id="btnCancelarEdit">Cancelar
+                                    Edición</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
-                <!-- Añadir Empleado -->
                 <div class="content-section">
-                    <h4 class="section-title">Añadir Empleado</h4>
-                    <p class="text-muted">Registra un nuevo empleado en el sistema</p>
+                    <h4 class="section-title">Gestión de Personal</h4>
+                    <p class="text-muted">Registra un nuevo empleado</p>
                     <button id="addEmployeeBtn" class="btn btn-outline-secondary w-100">
                         <i class="fas fa-user-plus me-2"></i>Agregar Empleado
                     </button>
-                    <div id="employeeFormPlaceholder" class="mt-3 placeholder-content">
-                        <!-- Aquí irá el formulario de empleado (para fetch a Firebase) -->
-                        [FORMULARIO DE EMPLEADO - FETCH A FIREBASE]
+
+                    <div id="formEmpleadoContainer" class="mt-3 d-none">
+                        <form id="formEmpleado">
+                            <div class="mb-3">
+                                <label class="form-label text-muted small">Nombre Completo</label>
+                                <input type="text" class="form-control" id="empNombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-muted small">Correo del Empleado</label>
+                                <input type="email" class="form-control" id="empEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-muted small">Contraseña Temporal</label>
+                                <input type="password" class="form-control" id="empPassword" required>
+                            </div>
+                            <button type="submit" class="btn btn-dark w-100">
+                                <i class="fas fa-user-check me-2"></i>Crear Cuenta
+                            </button>
+                        </form>
                     </div>
+                </div>
+
+                <div id="formEmpleadoContainer" class="mt-3 d-none">
+                    <form id="formEmpleado">
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">Correo del Empleado</label>
+                            <input type="email" class="form-control" id="empEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">Contraseña Temporal</label>
+                            <input type="password" class="form-control" id="empPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-dark w-100">
+                            <i class="fas fa-user-check me-2"></i>Crear Cuenta
+                        </button>
+                    </form>
                 </div>
             </div>
+        </div>
 
-            <!-- Columna Derecha: Productos del Menú -->
-            <div class="col-lg-8">
-                <div class="content-section">
-                    <h4 class="section-title">Productos del Menú</h4>
-                    <p class="text-muted">Administra todos los productos del restaurante</p>
+        <div class="col-lg-8">
+            <div class="content-section">
+                <h4 class="section-title">Inventario del Menú</h4>
+                <p class="text-muted">Administra todos los productos existentes</p>
 
-                    <!-- Categorías/Tabs -->
-                    <div class="category-tabs">
-                        <div class="category-tab active">Todos</div>
-                        <div class="category-tab">Entradas</div>
-                        <div class="category-tab">Platos Principales</div>
-                        <div class="category-tab">Postres</div>
-                        <div class="category-tab">Bebidas</div>
-                    </div>
-
-                    <!-- Lista de Productos (Placeholder) -->
-                    <div id="productsListPlaceholder" class="placeholder-content">
-                        <!-- Aquí se mostrarán los productos (fetch desde Firebase) -->
-                        [LISTA DE PRODUCTOS - FETCH A FIREBASE]
-                    </div>
+                <div class="category-tabs mb-3">
+                    <div class="category-tab active">Todos</div>
+                    <div class="category-tab">Entradas</div>
+                    <div class="category-tab">Platos Principales</div>
+                    <div class="category-tab">Postres</div>
+                    <div class="category-tab">Bebidas</div>
                 </div>
 
-                <!-- FALTA HACER CRUD EN PROMOCIONES -->
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th width="15%">Imagen</th>
+                                <th width="25%">Nombre</th>
+                                <th width="15%">Precio</th>
+                                <th width="20%">Categoría</th>
+                                <th width="25%">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaProductosBody">
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+    </div>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="../js/logout.js"></script>
-    <script> // ESTO IRA EN OTRO ARCHIVO APRTE, AHORITA ASI PARA QUE SE VEA LINDO pa mientras¿ XD
-        // Simulación de funcionalidad básica 
-        document.getElementById('logoutBtn').addEventListener('click', () => {
-            alert('Cerrando sesión...'); //Esto no es necesario la verdad
-        });
 
-        document.getElementById('addProductBtn').addEventListener('click', () => {
-            alert('Botón "Agregar Producto" clickeado. Aquí se mostraría el formulario real.');
-        });
+    <script>
+        // Función para cambiar la visibilidad de los formularios
+        const toggleForm = (btnId, containerId) => {
+            const btn = document.getElementById(btnId);
+            const container = document.getElementById(containerId);
 
-        document.getElementById('addEmployeeBtn').addEventListener('click', () => {
-            alert('Botón "Agregar Empleado" clickeado. Aquí se mostraría el formulario real.');
-        });
+            if (btn && container) {
+                btn.addEventListener('click', () => {
+                    container.classList.toggle('d-none');
+                    const isHidden = container.classList.contains('d-none');
+                    // Cambiar texto e icono del botón según estado
+                    btn.innerHTML = isHidden
+                        ? `<i class="fas fa-plus me-2"></i>Mostrar Formulario`
+                        : `<i class="fas fa-minus me-2"></i>Ocultar Formulario`;
+                });
+            }
+        };
 
-        // Simular cambio de categoría
+        // Inicializar los toggles
+        toggleForm('addProductBtn', 'formProductoContainer');
+        toggleForm('addEmployeeBtn', 'formEmpleadoContainer');
+
+        // Lógica visual para las tabs de categoría
         document.querySelectorAll('.category-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
+            tab.addEventListener('click', function () {
                 document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
-                // aqui se filtraría la lista de productos por categoría
             });
         });
     </script>
+
+    <script type="module" src="../js/logout.js"></script>
+    <script type="module" src="../js/gerente/authGuard.js"></script>
+    <script type="module" src="../js/gerente/logicGerente.js"></script>
 </body>
+
 </html>
