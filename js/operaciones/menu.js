@@ -22,18 +22,31 @@ async function mostrarMenu() {
         }
 
         container.innerHTML = result.data.map((producto) =>
-            `<div class="card">
-                    <img src="${producto.img}" class="card-img-top" alt="...">
-                    <div class="card-body ${producto.categoria}">
-                        <h5 class="card-title">${producto.nombrePlato}</h5>
-                        <p class="text-muted">${producto.descripcion}</p>
-                        <p class="text-muted precio">Precio: ${producto.precio}</p>
-                        <p class="text-muted categoria">Categoría: ${producto.categoria}</p>
-                        <button type="button" class="btn btn-light btnEditar" data-id="${producto.id}"><i class="fa-regular fa-pen-to-square"></i></button>
-                        <button type="button" class="btn btn-danger btnEliminar" data-id="${producto.id}"><i class="fa-regular fa-trash-can"></i></button>
-                    </div>
-                </div>`
+            `<article class="tarjeta-comida">
+                <div class="img">
+                    <img src="${producto.img}" alt="imagen promoción">
+                </div>
+                <div class="categoria">
+                    <p id="flotanteCategoria">${producto.categoria}</p>
+                </div>
+                <div class="info">
+                    <h3>${producto.nombrePlato}</h3>
+                    <p>${producto.descripcion}</p>
+                </div>
+                <div class="precio">
+                    <h3 class="precio-descuento">$ ${producto.precio}</h3>
+                </div>
+                <div class="boton">
+                    <button type="button" class="btn btn-light btnEditarPromo" data-id="${producto.id}">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger btnEliminarPromo" data-id="${producto.id}">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </button>
+                </div>
+            </article>`
         ).join("");
+
 
         //Listeners para editar
         document.querySelectorAll(".btnEditar").forEach(btn => {

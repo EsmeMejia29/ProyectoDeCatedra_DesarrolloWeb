@@ -22,21 +22,41 @@ export async function mostrarPromociones() {
         }
 
         container.innerHTML = result.data.map((promo) =>
-            `<div class="card">
-                    <img src="${promo.img}" class="card-img-top" alt="...">
-                    <div class="card-body ${promo.categoria}">
-                        <h5 class="card-title">${promo.nombrePromo}</h5>
-                        <p class="text-muted">${promo.descripcion}</p>
-                        <p class="text-muted precio">Precio Promoción: ${promo.precioPromo}</p>
-                        <p class="text-muted precio">Precio anterior: ${promo.precioAnterior}</p>
-                        <p class="text-muted descuento">Descuento: ${promo.descuento}</p>
-                        <p class="text-muted categoria">Categoria: ${promo.categoria}</p>
+            `
+            <section class="cartas-promos">
+                <article class="tarjeta-comida">
+                    <div class="img">
+                    <img src="${promo.img}" alt="imagen promoción">
+                    </div>
+
+                    <div class="porcentaje-descuento">
+                        <p class="flotante">${promo.descuento}% OFF</p>
+                        
+                    </div>
+
+                    <div class="categoria">
+                        <p id="flotanteCategoria">${promo.categoria}</p>
+                    </div>
+
+                    <div class="info">
+                    <h3>${promo.nombrePromo}</h3>
+                    <p>${promo.descripcion}</p>
+                    </div>
+
+                    <div class="precio">
+                        <h3 class="precio-descuento">$ ${promo.precioPromo}</h3>
+                        <p class="precio-original">$ ${promo.precioAnterior}</p>
+                    </div>
+
+                    <div class="boton">
                         <button type="button" class="btn btn-light btnEditarPromo" data-id="${promo.id}"><i class="fa-regular fa-pen-to-square"></i></button>
                         <button type="button" class="btn btn-danger btnEliminarPromo" data-id="${promo.id}"><i class="fa-regular fa-trash-can"></i></button>
                     </div>
-                </div>`
+                </article>
+            </section>
+            `
         ).join("");
-
+        
         //Listeners para editar
         document.querySelectorAll(".btnEditarPromo").forEach(btn => {
             btn.addEventListener("click", () => {
