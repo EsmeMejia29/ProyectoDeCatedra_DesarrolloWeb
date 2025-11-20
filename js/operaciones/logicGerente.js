@@ -9,37 +9,46 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebas
 
 // DOM
 const formProducto = document.getElementById('formProducto');
-const gridProductos = document.getElementById('gridProductos'); 
+const gridProductos = document.getElementById('gridProductos');
 const formEmpleado = document.getElementById('formEmpleado');
 const btnCancelar = document.getElementById('btnCancelarEdit');
 const statEmpleados = document.getElementById('statEmpleados');
-
 let editStatus = false;
 let idEditar = '';
 let chartInstance = null;
+let listaProductos = [];
+let filtroActual = 'Todos';
+document.querySelectorAll('.category-tab').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.category-tab').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        filtroActual = e.target.textContent.trim();
+        renderizarGrid();
+    });
+});
 
-// segun categoria la cantidad de productos
+//contabilizar la gente que usa el sitio, ya sean gerentes o empleados
 const qEmpleados = query(collection(db, "usuarios"), where("role", "==", "Empleado"));
 onSnapshot(qEmpleados, (snapshot) => {
     if (statEmpleados) statEmpleados.innerText = snapshot.size;
 });
-
-//menuuuu con tarjetitas
 const qProductos = query(collection(db, "productos"), orderBy("categoria"));
 
 onSnapshot(qProductos, (snapshot) => {
+    listaProductos = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    renderizarGrid();
+    actualizarDashboard(listaProductos);
+});
+
+// tarjetitas de productos
+function renderizarGrid() {
     let html = '';
-    let contadores = {
-        total: 0, Pupusas: 0, Entradas: 0, "Platos Principales": 0, Postres: 0, Bebidas: 0
-    };
 
-    snapshot.docs.forEach(doc => {
-        const prod = doc.data();
+    const productosFiltrados = listaProductos.filter(prod => {
+        return filtroActual === 'Todos' ? true : prod.categoria === filtroActual;
+    });
 
-        // Contadores
-        contadores.total++;
-        if (contadores.hasOwnProperty(prod.categoria)) contadores[prod.categoria]++;
-
+    productosFiltrados.forEach(prod => {
         html += `
             <div class="col-12 col-md-6 col-xl-4">
                 <div class="card h-100 shadow-sm border-0 card-producto">
@@ -58,10 +67,10 @@ onSnapshot(qProductos, (snapshot) => {
                             ${prod.descripcion ? prod.descripcion.substring(0, 60) + '...' : 'Sin descripción'}
                         </p>
                         <div class="d-flex gap-2 mt-3 pt-3 border-top">
-                            <button class="btn btn-sm btn-outline-naranja flex-grow-1 btn-editar" data-id="${doc.id}">
+                            <button class="btn btn-sm btn-outline-naranja flex-grow-1 btn-editar" data-id="${prod.id}">
                                 <i class="fas fa-edit me-1"></i>Editar
                             </button>
-                            <button class="btn btn-sm btn-outline-danger btn-eliminar" data-id="${doc.id}">
+                            <button class="btn btn-sm btn-outline-danger btn-eliminar" data-id="${prod.id}">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </div>
@@ -72,27 +81,36 @@ onSnapshot(qProductos, (snapshot) => {
     });
 
     if (gridProductos) gridProductos.innerHTML = html;
-
-    actualizarEstadisticasProductos(contadores);
-    renderizarGrafica(contadores);
     asignarEventosDinamicos();
-});
-
-function actualizarEstadisticasProductos(c) {
-    const setText = (id, val) => { if (document.getElementById(id)) document.getElementById(id).innerText = val; };
-    setText('statTotal', c.total);
-    setText('statPupusas', c.Pupusas);
-    setText('statBebidas', c.Bebidas);
-    setText('statPostres', c.Postres);
-    setText('statEntradas', c.Entradas);
-    setText('statPrincipales', c["Platos Principales"]);
 }
 
+// darle update a la grafique
+function actualizarDashboard(productos) {
+    let contadores = {
+        total: 0, Pupusas: 0, Entradas: 0, "Platos Principales": 0, Postres: 0, Bebidas: 0
+    };
+
+    productos.forEach(prod => {
+        contadores.total++;
+        if (contadores.hasOwnProperty(prod.categoria)) contadores[prod.categoria]++;
+    });
+
+    const setText = (id, val) => { if (document.getElementById(id)) document.getElementById(id).innerText = val; };
+    setText('statTotal', contadores.total);
+    setText('statPupusas', contadores.Pupusas);
+    setText('statBebidas', contadores.Bebidas);
+    setText('statPostres', contadores.Postres);
+    setText('statEntradas', contadores.Entradas);
+    setText('statPrincipales', contadores["Platos Principales"]);
+
+    renderizarGrafica(contadores);
+}
+
+// grafica
 function renderizarGrafica(datos) {
     const ctx = document.getElementById('graficoCategorias');
     if (!ctx) return;
-
-    if (chartInstance) { chartInstance.destroy(); }
+    if (chartInstance) chartInstance.destroy();
 
     chartInstance = new Chart(ctx, {
         type: 'doughnut',
@@ -101,19 +119,18 @@ function renderizarGrafica(datos) {
             datasets: [{
                 data: [datos.Pupusas, datos.Entradas, datos["Platos Principales"], datos.Postres, datos.Bebidas],
                 backgroundColor: ['#fa7315', '#ef4444', '#fcd34d', '#3b82f6', '#10b981'],
-                borderWidth: 0,
-                hoverOffset: 10
+                borderWidth: 0, hoverOffset: 10
             }]
         },
         options: {
             responsive: true, maintainAspectRatio: false,
-            plugins: {
-                legend: { position: 'right', labels: { font: { family: "'Poppins', sans-serif", size: 12 }, usePointStyle: true, padding: 15 } }
-            },
+            plugins: { legend: { position: 'right', labels: { font: { family: "'Poppins', sans-serif", size: 12 }, usePointStyle: true, padding: 15 } } },
             layout: { padding: 10 }
         }
     });
 }
+
+// CRUD productos
 if (formProducto) {
     formProducto.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -140,6 +157,7 @@ if (formProducto) {
     });
 }
 
+// CRUD
 function asignarEventosDinamicos() {
     document.querySelectorAll('.btn-eliminar').forEach(btn => {
         btn.addEventListener('click', async (e) => {
@@ -153,6 +171,7 @@ function asignarEventosDinamicos() {
             const id = e.currentTarget.dataset.id;
             editStatus = true;
             idEditar = id;
+
             const btnGuardar = document.getElementById('btnGuardarProd');
             if (btnGuardar) {
                 btnGuardar.innerText = 'Actualizar';
@@ -161,13 +180,10 @@ function asignarEventosDinamicos() {
             }
             if (btnCancelar) btnCancelar.classList.remove('d-none');
 
-            // desocultar el formulario
             const container = document.getElementById('formProductoContainer');
-            if (container && container.classList.contains('d-none')) {
-                container.classList.remove('d-none');
-            }
-            formProducto.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (container && container.classList.contains('d-none')) container.classList.remove('d-none');
 
+            formProducto.scrollIntoView({ behavior: 'smooth', block: 'center' });
             alert("Modo edición activado.");
         });
     });
@@ -184,7 +200,7 @@ function resetForm() {
     if (btnCancelar) btnCancelar.classList.add('d-none');
 }
 
-// para registrar los pelones
+// form empleados
 if (formEmpleado) {
     formEmpleado.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -211,7 +227,6 @@ if (formEmpleado) {
                 nombre: nombre, email: email, role: rol
             });
             await signOut(secondaryAuth);
-
             alert(`Usuario ${nombre} (${rol}) creado.`);
             formEmpleado.reset();
         } catch (error) {
