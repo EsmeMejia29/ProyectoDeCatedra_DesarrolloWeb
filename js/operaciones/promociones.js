@@ -38,16 +38,16 @@ export async function mostrarPromociones() {
         //Listeners para editar
         document.querySelectorAll(".btnEditarPromo").forEach(btn => {
             btn.addEventListener("click", () => {
-                const plato = result.data.find(p => p.id === btn.dataset.id);
-                desplegarEditablePlato(plato);
+                const promo = result.data.find(p => p.id === btn.dataset.id);
+                desplegarEditablePromocion(promo);
             });
         });
 
         // Listeners para eliminar
         document.querySelectorAll(".btnEliminarPromo").forEach(btn => {
             btn.addEventListener("click", () => {
-                const platoId = btn.dataset.id;
-                EliminarPlatoDelMenu(platoId);
+                const promoId = btn.dataset.id;
+                EliminarPlatoDelMenu(promoId);
             });
         });
     }
@@ -139,53 +139,53 @@ async function agregarPromocion() {
     const descuento = parseFloat(document.querySelector("#descuento").value);
     const imagen = document.querySelector("#imgPromo").value.trim();
 
-    if (!nombrePromocion || !categoria || !descripcion || !precioPromo || !precioAnterior || !descuento || !imagen) {
+    if (!nombrePromocion || !categoria || !descripcion || isNaN(precioPromo) || isNaN(precioAnterior) || isNaN(descuento) || !imagen) {
         alert("Por favor completa todos los campos");
         return;
-    }
+    }    
 
-    const platoNuevo = {
-        nombrePlato: nombrePlato,
+    const promoNueva = {
+        nombrePromo: nombrePromocion,
         categoria: categoria,
         descripcion: descripcion,
-        precioPromo: precio,
+        precioPromo: precioPromo,
         precioAnterior: precioAnterior,
         descuento: descuento,
         img: imagen
     };
 
     try {
-        const result = await agregarPlato(platoNuevo);
+        const result = await agregarPromo(promoNueva);
         if (result.id) {
-            alert("Plato agregado correctamente");
+            alert("Promoción agregada correctamente");
             mostrarPromociones();
 
-        document.querySelector("#nombrePromo").value.trim();
-        document.querySelector("#categoria").value;
-        document.querySelector("#descripcion").value.trim();
-        parseFloat(document.querySelector("#precioPromo").value);
-        parseFloat(document.querySelector("#precioAnterior").value);
-        parseFloat(document.querySelector("#descuento").value);
-        document.querySelector("#imgPromo").value.trim();
+            document.querySelector("#nombrePromo").value = "";
+            document.querySelector("#categoria").value = "Combos en Oferta";
+            document.querySelector("#descripcion").value = "";
+            document.querySelector("#precioPromo").value = "";
+            document.querySelector("#precioAnterior").value = "";
+            document.querySelector("#descuento").value = "";
+            document.querySelector("#imgPromo").value = "";
 
         } else {
             console.error(result.error);
             alert("Error al agregar la promoción");
         }
     } catch (error) {
-        console.error("Error en agregarPlatoAlMenu:", error);
+        console.error("Error en agregarPromocion:", error);
     }
 }
 
-async function desplegarEditablePlato(promocion) {
+async function desplegarEditablePromocion(promocion) {
     const container = document.querySelector("#promocionFormulario");
 
     // Desplegamos el formulario con los datos del plato
     container.innerHTML = `
     <form onsubmit="return false">
         <div class="mb-3">
-            <label for="nombrePlato" class="form-label">Nombre de la promoción</label>
-            <input type="text" class="form-control" id="nombrePlato" value="${promocion.nombrePromo}">
+            <label for="nombrePromo" class="form-label">Nombre de la promoción</label>
+            <input type="text" class="form-control" id="nombrePromo" value="${promocion.nombrePromo}">
         </div>
 
         <div class="mb-3">
@@ -266,23 +266,23 @@ async function guardarCambios(platoPromocion) {
     const descuento = parseFloat(document.querySelector("#descuento").value);
     const imagen = document.querySelector("#imgPromo").value.trim();
 
-    if (!nombrePromocion || !categoria || !descripcion || !precioPromo || !precioAnterior || !descuento || !imagen) {
+    if (!nombrePromocion || !categoria || !descripcion || isNaN(precioPromo) || isNaN(precioAnterior) || isNaN(descuento) || !imagen) {
         alert("Por favor completa todos los campos");
         return;
-    }
+    }    
 
     const promoActualizada = {
-        nombrePlato: nombrePlato,
+        nombrePromo: nombrePromocion,
         categoria: categoria,
         descripcion: descripcion,
-        precioPromo: precio,
+        precioPromo: precioPromo,
         precioAnterior: precioAnterior,
         descuento: descuento,
         img: imagen
     };
 
     try {
-        await modificarPlato(platoPromocion, promoActualizada);
+        await modificarPromo(platoPromocion, promoActualizada);
         alert("Promoción actualizado correctamente");
         mostrarPromociones();
         document.querySelector("#promocionFormulario").innerHTML = ""; // cerrar formulario
@@ -293,9 +293,9 @@ async function guardarCambios(platoPromocion) {
 
 async function EliminarPlatoDelMenu(promoId){
     try {
-        await eliminarPlato(promoId);
+        await eliminarPromo(promoId);
         alert("Promoción eliminada exitosamente");
-        mostrarMenu(); 
+        mostrarPromociones(); 
     } catch (error) {
         console.error("Error al eliminar la promoción:", error);
     }
