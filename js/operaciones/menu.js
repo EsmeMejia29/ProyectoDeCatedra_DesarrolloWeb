@@ -129,8 +129,8 @@ async function agregarPlatoAlMenu() {
     const precio = parseFloat(document.querySelector("#precio").value);
     const imagen = document.querySelector("#imgPlato").value.trim();
 
-    if (!nombrePlato || !categoria || !descripcion || !precio || !imagen) {
-        alert("Por favor completa todos los campos");
+    if (!nombrePlato || !categoria || !descripcion || isNaN(precio) || precio < 0 || !imagen) {
+        alert("Por favor completa todos los campos correctamente");
         return;
     }
 
@@ -229,8 +229,8 @@ async function guardarCambios(platoId) {
     const precio = parseFloat(document.querySelector("#precio").value);
     const imagen = document.querySelector("#imgPlato").value.trim();
 
-    if (!nombrePlato || !categoria || !descripcion || isNaN(precio) || !imagen) {
-        alert("Por favor completa todos los campos");
+    if (!nombrePlato || !categoria || !descripcion || isNaN(precio) || precio < 0 || !imagen) {
+        alert("Por favor completa todos los campos correctamente");
         return;
     }
 

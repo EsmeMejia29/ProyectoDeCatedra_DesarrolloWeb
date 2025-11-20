@@ -149,8 +149,8 @@ async function agregarPromocion() {
     const descuento = parseFloat(document.querySelector("#descuento").value);
     const imagen = document.querySelector("#imgPromo").value.trim();
 
-    if (!nombrePromocion || !categoria || !descripcion || isNaN(precioPromo) || isNaN(precioAnterior) || isNaN(descuento) || !imagen) {
-        alert("Por favor completa todos los campos");
+    if (!nombrePromocion || !categoria || !descripcion || isNaN(precioPromo) || precioPromo < 0 || isNaN(precioAnterior) || precioAnterior < 0 || isNaN(descuento) || descuento < 0 || !imagen) {
+        alert("Por favor completa todos los campos correctamente");
         return;
     }    
 
@@ -265,10 +265,10 @@ async function guardarCambios(platoPromocion) {
     const descuento = parseFloat(document.querySelector("#descuento").value);
     const imagen = document.querySelector("#imgPromo").value.trim();
 
-    if (!nombrePromocion || !categoria || !descripcion || isNaN(precioPromo) || isNaN(precioAnterior) || isNaN(descuento) || !imagen) {
-        alert("Por favor completa todos los campos");
+    if (!nombrePromocion || !categoria || !descripcion || isNaN(precioPromo) || precioPromo < 0 || isNaN(precioAnterior) || precioAnterior < 0 || isNaN(descuento) || descuento < 0 || !imagen) {
+        alert("Por favor completa todos los campos correctamente");
         return;
-    }    
+    } 
 
     const promoActualizada = {
         nombrePromo: nombrePromocion,
