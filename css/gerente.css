@@ -11,22 +11,15 @@
 }
 
 body {
-    font-family: "Nunito", Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--fondo);
     color: var(--letras);
 }
 
 h2,
 h4 {
-    font-family: "Merriweather", serif;
     font-weight: 900;
     color: var(--letras);
-}
-
-h6,
-.form-label,
-.btn {
-    font-family: "Poppins", sans-serif;
 }
 
 .header {
@@ -85,7 +78,6 @@ h6,
 }
 
 .stats-card h6 {
-    font-family: "Nunito", sans-serif;
     font-weight: 700;
     color: #6b7280;
     text-transform: uppercase;
@@ -95,7 +87,6 @@ h6,
 }
 
 .stats-card .value {
-    font-family: "Poppins", sans-serif;
     font-weight: 800;
     font-size: 1.8rem;
     color: var(--letras);
@@ -154,7 +145,6 @@ h6,
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
 }
-
 
 .text-naranja {
     color: var(--naranja) !important;
@@ -218,23 +208,6 @@ h6,
     background-color: #ef4444;
     color: var(--blanco);
     border-color: #ef4444;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-span,
-div,
-button,
-input,
-select,
-label {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
 .content-section .section-title {
