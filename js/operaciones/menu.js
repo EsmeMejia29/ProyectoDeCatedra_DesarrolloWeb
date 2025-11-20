@@ -4,14 +4,50 @@ import {
 
 document.addEventListener("DOMContentLoaded", () => {
     mostrarMenu();
+    activarFiltrosCategorias();
 });
+
+document.querySelectorAll(".category-tabs .category-tab")
+    .forEach(tab => {
+        tab.addEventListener("click", () => {
+
+            // quitar active a todas
+            document.querySelectorAll(".category-tab")
+                .forEach(t => t.classList.remove("active"));
+
+            tab.classList.add("active");
+
+            const categoria = tab.textContent.trim();
+
+            // mostrar filtrado
+            mostrarMenu(categoria);
+        });
+    });
+
+    function activarFiltrosPromociones() {
+        const tabs = document.querySelectorAll(".promos-tabs .promos-tab");
+    
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+    
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+    
+                const categoria = tab.textContent.trim();
+    
+                mostrarPromociones(categoria);
+            });
+        });
+    }
+    
+    
 
 const btnAgregar = document.querySelector("#addPlato");
 
 //Se agrega el evento click y su funcion
 btnAgregar.addEventListener("click", desplegarFormulario);
 
-async function mostrarMenu() {
+async function mostrarMenu(filtro = "Todos") {
     try {
         const result = await obtenerPlatosMenu();
         const container = document.querySelector("#platosLista");
@@ -21,13 +57,19 @@ async function mostrarMenu() {
             return;
         }
 
-        container.innerHTML = result.data.map((producto) =>
+        let platos = result.data;
+
+        if (filtro !== "Todos") {
+            platos = platos.filter(p => p.categoria === filtro);
+        }
+
+        container.innerHTML = platos.map((producto) =>
             `<article class="tarjeta-comida">
                 <div class="img">
                     <img src="${producto.img}" alt="imagen promoción">
                 </div>
                 <div class="categoria">
-                    <p id="flotanteCategoria">${producto.categoria}</p>
+                    <p>${producto.categoria}</p>
                 </div>
                 <div class="info">
                     <h3>${producto.nombrePlato}</h3>
@@ -47,8 +89,7 @@ async function mostrarMenu() {
             </article>`
         ).join("");
 
-
-        //Listeners para editar
+        // volver a agregar listeners
         document.querySelectorAll(".btnEditar").forEach(btn => {
             btn.addEventListener("click", () => {
                 const plato = result.data.find(p => p.id === btn.dataset.id);
@@ -56,18 +97,18 @@ async function mostrarMenu() {
             });
         });
 
-        // Listeners para eliminar
         document.querySelectorAll(".btnEliminar").forEach(btn => {
             btn.addEventListener("click", () => {
                 const platoId = btn.dataset.id;
                 EliminarPlatoDelMenu(platoId);
             });
         });
-    }
-    catch (error) {
+
+    } catch (error) {
         console.error("Error mostrando menú:", error);
     }
 };
+
 
 async function desplegarFormulario() {
     const container = document.querySelector("#menuFormulario");
