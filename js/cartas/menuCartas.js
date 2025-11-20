@@ -3,7 +3,7 @@ import { collection, getDocs } from "https://www.gstatic.com/firebasejs/12.6.0/f
 
 async function cargarCartas() {
     try {
-        const querySnapshot = await getDocs(collection(db, ""));
+        const querySnapshot = await getDocs(collection(db, "menu"));
 
         querySnapshot.forEach((doc) => {
             const plato = doc.data();
