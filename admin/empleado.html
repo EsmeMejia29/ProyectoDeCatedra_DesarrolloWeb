@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Empleado - Restaurante</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome, para qie se vea kiut -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/empleado.css">
+    <script type="module" src="../js/operaciones/menu.js"></script>
+    <script type="module" src="../js/operaciones/promociones.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div>
+            <h2 class="mb-0">Panel de Administración</h2>
+            <p class="text-muted mb-0">Bienvenido, <span id="nombreEmpleado">Empleado</span></p>
+        </div>
+        <div class="user-info">
+            <div class="user-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <span class="user-name">Empleado</span>
+            <button id="logoutBtn" class="btn logout-btn ms-3">
+                <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
+            </button>
+        </div>
+    </div>
+
+    <!-- Estadisticas. ESTO SE DEBE HACER FUNCIONAL LUEGO-->
+    <div class="container mt-4">
+        
+
+        <!-- Principal -->
+        <div class="row">
+            <!-- Columna Izquierda: Formularios -->
+            <div class="col-lg-4" id="agregar">
+                <!-- Nuevo plato -->
+                <div class="content-section">
+                    <h4 class="section-title">Nuevo Plato</h4>
+                    <p class="text-muted">Agrega o edita un plato del menú</p>
+                    <button id="addPlato" class="btn btn-primary w-100 mb-3">
+                        <i class="fas fa-plus me-2"></i>Agregar Plato
+                    </button>
+
+                    <div id="menuFormulario" class="placeholder-content">
+                        
+                    </div>
+                </div>
+
+                <!-- Nueva Promoción -->
+                <div class="content-section">
+                    <h4 class="section-title">Nueva Promoción</h4>
+                    <p class="text-muted">Agrega o edita un plato en promoción</p>
+                    <button id="addPromocion" class="btn btn-primary w-100 mb-3">
+                        <i class="fas fa-plus me-2"></i>Agregar Promoción
+                    </button>
+                    <div id="promocionFormulario" class="placeholder-content">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Listas -->
+            <div class="col-lg-8">
+                <!-- Platos del Menú -->
+                <div class="content-section">
+                    <h4 class="section-title">Platos del Menú</h4>
+                    <p class="text-muted">Administra todos los platos de "Sabor Salvadoreño"</p>
+
+                    <div class="category-tabs">
+                        <div class="category-tab active">Todos</div>
+                        <div class="category-tab">
+                            Entradas
+                        </div>
+                        <div class="category-tab">Platos Principales</div>
+                        <div class="category-tab">Pupusas</div>
+                        <div class="category-tab">Postres</div>
+                        <div class="category-tab">Bebidas</div>
+                    </div>
+
+                    <div id="platosLista" class="placeholder-content d-flex">
+                        
+                    </div>
+                </div>
+
+                <!-- Promociones -->
+                <div class="content-section">
+                    <h4 class="section-title">Promociones</h4>
+                    <p class="text-muted">Gestiona los platos en promoción</p>
+
+                    <div class="category-tabs">
+                        <div class="category-tab active">Todos</div>
+                        <div class="category-tab">Combos en oferta</div>
+                        <div class="category-tab">Paquete familiar</div>
+                        <div class="category-tab">Fin de semana</div>
+                        <div class="category-tab">Hora Feliz</div>
+                    </div>
+
+                    <div id="promosLista" class="placeholder-content">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/logout.js"></script>
+</body>
+</html>

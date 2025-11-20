@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Sabor Salvadoreño</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+    <div class="contenedor-login">
+        <div class="contenedor-logo">
+            <div class="logo">
+                <img src="./img/logoSaborSalvadorenno.png" alt="Logo Restaurante">
+            </div>
+        </div>
+
+        <h1>Sabor Salvadoreño</h1>
+        <p class="subtitulo">Ingresa tus credenciales para acceder al sistema</p>
+
+        <form>
+            <div class="grupo-formulario">
+                <label for="email">Email</label>
+                <div class="contenedor-input">
+                    <span class="material-icons icono-input">email</span>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                </div>
+            </div>
+
+            <div class="grupo-formulario">
+                <label for="contrasena">Contraseña</label>
+                <div class="contenedor-input">
+                    <span class="material-icons icono-input">lock</span>
+                    <input type="password" id="contrasena" name="contrasena" placeholder="••••••••" required>
+                </div>
+            </div>
+
+            <button type="submit" class="boton-login">Iniciar Sesión</button>
+        </form>
+
+        <p class="enlace-home">
+            <a href="./index.html">← Volver al inicio</a>
+        </p>
+    </div>
+
+    <script type="module" src="js/login.js"></script>
+</body>
+
+</html>
