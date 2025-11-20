@@ -18,6 +18,9 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+.header .titulo{
+    font-weight: bold;
+}
 
 .user-info {
     display: flex;
@@ -41,6 +44,22 @@ body {
 .user-name {
     font-weight: 500;
     color: #495057;
+}
+
+.logout-btn {
+    background-color: #f3f4f6;
+    color: var(--letras);
+    border-radius: 50px;
+    padding: 6px 16px;
+    border: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #e5e7eb;
+    color: var(--rojo);
 }
 
 .stats-card {
@@ -72,6 +91,7 @@ body {
     font-weight: 600;
     margin-bottom: 1rem;
     color: #495057;
+    font-size: 1rem;
 }
 
 .btn-primary {
@@ -149,6 +169,7 @@ body {
     color: white;
     font-weight: 600;
     border: none;
+    border-radius: 50px;
 }
 
 #AddPromocion, #AddProducto{
