@@ -5,7 +5,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #fffbfc;
     color: #333;
 }
 
@@ -132,7 +132,6 @@ body {
     align-items: center;
     justify-content: center;
     color: #6c757d;
-    font-style: italic;
 }
 
 .logout-btn {
@@ -172,6 +171,8 @@ body {
     text-align: center;
     transition: transform 0.2s ease;
     width: 100%;
+    font-style: normal;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .tarjeta-comida:hover {
