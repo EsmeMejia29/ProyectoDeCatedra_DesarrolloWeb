@@ -76,26 +76,32 @@
                     </button>
 
                     <div id="formEmpleadoContainer" class="d-none">
-                        <form id="formEmpleado">
-                            <div class="mb-3">
-                                <label class="form-label small text-muted">Nombre Completo</label>
-                                <input type="text" class="form-control" id="empNombre" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label small text-muted">Correo Institucional</label>
-                                <input type="email" class="form-control" id="empEmail" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label small text-muted">Contraseña Temporal</label>
-                                <input type="password" class="form-control" id="empPassword" required>
-                            </div>
-                            <button type="submit" class="btn btn-dark w-100">
-                                <i class="fas fa-save me-2"></i>Registrar
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
+    <form id="formEmpleado">
+        <div class="mb-3">
+            <label class="form-label small text-muted">Nombre Completo</label>
+            <input type="text" class="form-control" id="empNombre" required>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label small text-muted">Rol Asignado</label>
+            <select class="form-select" id="empRole">
+                <option value="Empleado">Empleado</option>
+                <option value="Gerente">Gerente</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label small text-muted">Correo Institucional</label>
+            <input type="email" class="form-control" id="empEmail" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label small text-muted">Contraseña Temporal</label>
+            <input type="password" class="form-control" id="empPassword" required>
+        </div>
+        <button type="submit" class="btn btn-dark w-100">
+            <i class="fas fa-save me-2"></i>Registrar Usuario
+        </button>
+    </form>
+</div>
                 <div class="content-section mb-4">
                     <h4 class="section-title">Gestión de Menú</h4>
                     <button id="addProductBtn" class="btn btn-primary w-100 mb-3">
