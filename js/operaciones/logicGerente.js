@@ -157,15 +157,16 @@ function resetForm() {
     if (btnCancelar) btnCancelar.classList.add('d-none');
 }
 
-if (formEmpleado) {
+if(formEmpleado) {
     formEmpleado.addEventListener('submit', async (e) => {
         e.preventDefault();
-
         const nombre = document.getElementById('empNombre').value;
         const email = document.getElementById('empEmail').value;
         const password = document.getElementById('empPassword').value;
+        const rolSeleccionado = document.getElementById('empRole').value; // NUEVO: Captura el rol
 
         try {
+            // Configuración para la app secundaria
             const firebaseConfig = {
                 apiKey: "AIzaSyDmYYGRmUDEOtgbiO37l0hNfbZ0shC3cB0",
                 authDomain: "gestionrestaurante-99b84.firebaseapp.com",
@@ -175,32 +176,34 @@ if (formEmpleado) {
                 appId: "1:436759352562:web:5fe3e2fe0631ad38f1ac6b",
                 measurementId: "G-E5D6H214L9"
             };
-
-            //crear un usuario nuevo 
+            
+            // Comenzar sin cerrar la sesión actual
             const secondaryApp = initializeApp(firebaseConfig, "SecondaryApp");
             const secondaryAuth = getAuth(secondaryApp);
 
             //Crear usuario en Auth
             const userCredential = await createUserWithEmailAndPassword(secondaryAuth, email, password);
-
-            //Guardar datos y rol en Firestore 
+            
+            //Guardar datos en Firestore con el role
             await setDoc(doc(db, "usuarios", userCredential.user.uid), {
                 nombre: nombre,
                 email: email,
-                role: "Empleado"
+                role: rolSeleccionado // segun el rol que tenga la people
             });
 
-            //Cerrar sesión
+            //Cerrar sesión 
             await signOut(secondaryAuth);
 
-            alert(`¡Empleado ${nombre} registrado exitosamente!`);
+            alert(`¡${rolSeleccionado} "${nombre}" registrado exitosamente!`);
             formEmpleado.reset();
+            // Resetear el select a "Empleado" por seguridad
+            document.getElementById('empRole').value = "Empleado";
 
         } catch (error) {
-            console.error("Error creando empleado:", error);
+            console.error("Error creando usuario:", error);
             let msg = error.message;
-            if (error.code === 'auth/email-already-in-use') msg = "El correo ya está registrado.";
-            if (error.code === 'auth/weak-password') msg = "La contraseña debe tener al menos 6 caracteres.";
+            if(error.code === 'auth/email-already-in-use') msg = "El correo ya está registrado.";
+            if(error.code === 'auth/weak-password') msg = "La contraseña debe tener al menos 6 caracteres.";
             alert("Error: " + msg);
         }
     });
