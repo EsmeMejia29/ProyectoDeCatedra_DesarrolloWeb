@@ -94,7 +94,7 @@
                 </p>
 
                 <div class="botones-grid">
-                    <a href="" class="btnOrdenar">
+                    <a href="javascript:void(0);" class="btnOrdenar" onclick="irAlCarrito()">
                         Ordena ahora
                     </a>
                     <a href="./html/menu.html" class="btnMenu">
@@ -122,9 +122,9 @@
                             <h3 class="precio-actual">$4.00</h3>
                         </div>
 
-                        <div class="boton-ordenar">
-                            <button type="button">Agregar al carrito</button>
-                        </div>
+                        <button class="boton-ordenar" type="button"  onclick="agregarAlCarrito('Carne Asada', 4.00)">
+                            Agregar al carrito
+                        </button>
                     </article>
 
                     <article class="tarjeta-comida">
@@ -141,9 +141,9 @@
                             <h3 class="precio-actual">$3.50</h3>
                         </div>
 
-                        <div class="boton-ordenar">
-                            <button type="button">Agregar al carrito</button>
-                        </div>
+                        <button class="boton-ordenar" type="button"  onclick="agregarAlCarrito('Pescado Frito', 3.50)">
+                            Agregar al carrito
+                        </button>
                     </article>
 
                     <article class="tarjeta-comida">
@@ -160,9 +160,9 @@
                             <h3 class="precio-actual">$4.00</h3>
                         </div>
 
-                        <div class="boton-ordenar">
-                            <button type="button">Agregar al carrito</button>
-                        </div>
+                        <button class="boton-ordenar" type="button"  onclick="agregarAlCarrito('Sopa de pollo indio', 4.00)">
+                            Agregar al carrito
+                        </button>
                     </article>
                 </div>
             </div>
@@ -233,6 +233,18 @@
             <p>© 2025 Sabor Salvadoreño. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+
+    <script>
+        window.agregarAlCarrito = (nombre, precio) => {
+            alert(`El producto "${nombre}" fue agregado al carrito por $${precio.toFixed(2)}`);
+        };
+
+        window.irAlCarrito =()=>{
+            alert(`Este botón te dirige a la sección del carrito`)
+        }
+    </script>
+
 </body>
 
 </html>
