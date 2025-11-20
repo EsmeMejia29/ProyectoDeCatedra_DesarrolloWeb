@@ -2,8 +2,6 @@ import {
     obtenerPlatosMenu, agregarPlato, modificarPlato, eliminarPlato
 } from '../service/menuConfig.js';
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
     mostrarMenu();
 
