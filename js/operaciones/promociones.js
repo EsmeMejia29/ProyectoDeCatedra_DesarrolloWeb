@@ -27,7 +27,7 @@ export async function mostrarPromociones() {
                     <div class="card-body ${promo.categoria}">
                         <h5 class="card-title">${promo.nombrePromo}</h5>
                         <p class="text-muted">${promo.descripcion}</p>
-                        <p class="text-muted precio">Precio pormoción: ${promo.precioPromo}</p>
+                        <p class="text-muted precio">Precio Promoción: ${promo.precioPromo}</p>
                         <p class="text-muted precio">Precio anterior: ${promo.precioAnterior}</p>
                         <button type="button" class="btn btn-light btnEditarPromo" data-id="${promo.id}"><i class="fa-regular fa-pen-to-square"></i></button>
                         <button type="button" class="btn btn-danger btnEliminarPromo" data-id="${promo.id}"><i class="fa-regular fa-trash-can"></i></button>
@@ -57,62 +57,89 @@ export async function mostrarPromociones() {
 };
 
 async function desplegarFormulario() {
-    const container = document.querySelector("#menuFormulario");
+    const container = document.querySelector("#promocionFormulario");
 
     container.innerHTML = `
     <form onsubmit="return false">
         <div class="mb-3">
-            <label for="nombrePlato" class="form-label">Nombre del Plato</label>
-            <input type="text" class="form-control" id="nombrePlato" placeholder="Nombre del Plato">
+            <label for="nombrePromo" class="form-label">Nombre de la promoción</label>
+            <input type="text" class="form-control" id="nombrePromo" placeholder="Nombre de la promoción">
         </div>
 
         <div class="mb-3">
             <label for="categoria" class="form-label">Categoría</label>
             <select class="form-select" aria-label="" id="categoria">
-                <option selected>Pupusas</option>
-                <option value="1">Entradas</option>
-                <option value="2">Platos Principales</option>
-                <option value="3">Pupusas</option>
-                <option value="4">Postres</option>
-                <option value="4">Bebidas</option>
+                <option selected>Combos en Oferta</option>
+                <option value="Combos en Oferta">Combos en Oferta</option>
+                <option value="Paquete Familiar">Paquete Familiar</option>
+                <option value="Fin de Semana">Fin de Semana</option>
+                <option value="Hora Feliz">Hora Feliz</option>
             </select>
         </div>
 
         <div class="mb-3">
-        <label for="descripcion" class="form-label">Descripción</label>
-        <textarea id="descripcion" cols="30" rows="5" placeholder="Descripción del plato"></textarea>
+            <label for="descripcion" class="form-label">Descripción</label>
+            <textarea id="descripcion" cols="30" rows="5" class="form-control" placeholder="Descripción de la promoción"></textarea>
         </div>
 
         <div class="mb-3">
-            <label for="precio" class="form-label">Precio</label>
-            <input type="text" class="form-control" id="precio" placeholder="Precio del Plato">
+            <label for="precioPromo" class="form-label">Precio Promoción</label>
+            <input type="number" 
+                class="form-control" 
+                id="precioPromo" 
+                placeholder="Precio de la promoción"
+                min="0"
+                step="0.01">
         </div>
 
         <div class="mb-3">
-            <label for="imgPlato" class="form-label">Fotografía del plato</label>
-            <input type="text" class="form-control" id="imgPlato" placeholder="URL de la fotografía">
+            <label for="precioAnterior" class="form-label">Precio Anterior</label>
+            <input type="number" 
+                class="form-control" 
+                id="precioAnterior" 
+                placeholder="Precio anterior del plato"
+                min="0"
+                step="0.01">
+        </div>
+
+        <div class="mb-3">
+            <label for="descuento" class="form-label">Descuento (%)</label>
+            <input type="number" 
+                class="form-control" 
+                id="descuento" 
+                placeholder="Porcentaje de descuento"
+                min="0"
+                max="100"
+                step="1">
+        </div>
+
+        <div class="mb-3">
+            <label for="imgPromo" class="form-label">Fotografía de la promoción</label>
+            <input type="text" class="form-control" id="imgPromo" placeholder="URL de la fotografía">
         </div>
 
         <button type="button" class="btn btn-secondary" id="CancelarFormulario" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="AddProducto">Añadir</button>
+        <button type="button" class="btn btn-primary" id="AddPromocion">Añadir</button>
     </form>
     `;
 
-    const btnAnadir = document.querySelector("#AddProducto");
-    btnAnadir.addEventListener("click", agregarPlatoAlMenu);
+    const btnAnadir = document.querySelector("#AddPromocion");
+    btnAnadir.addEventListener("click", agregarPromocion);
 
     const btnCancelar = document.querySelector("#CancelarFormulario");
     btnCancelar.addEventListener("click", () => container.innerHTML = "");
 }
 
-async function agregarPlatoAlMenu() {
-    const nombrePlato = document.querySelector("#nombrePlato").value.toString();
+async function agregarPromocion() {
+    const nombrePromocion = document.querySelector("#nombrePromo").value.trim();
     const categoria = document.querySelector("#categoria").value;
-    const descripcion = document.querySelector("#descripcion").value.toString();
-    const precio = document.querySelector("#precio").value.toString();
-    const imagen = document.querySelector("#imgPlato").value.toString();
+    const descripcion = document.querySelector("#descripcion").value.trim();
+    const precioPromo = parseFloat(document.querySelector("#precioPromo").value);
+    const precioAnterior = parseFloat(document.querySelector("#precioAnterior").value);
+    const descuento = parseFloat(document.querySelector("#descuento").value);
+    const imagen = document.querySelector("#imgPromo").value.trim();
 
-    if (!nombrePlato || !categoria || !descripcion || !precio || !imagen) {
+    if (!nombrePromocion || !categoria || !descripcion || !precioPromo || !precioAnterior || !descuento || !imagen) {
         alert("Por favor completa todos los campos");
         return;
     }
@@ -121,70 +148,99 @@ async function agregarPlatoAlMenu() {
         nombrePlato: nombrePlato,
         categoria: categoria,
         descripcion: descripcion,
-        precio: precio,
-        img: imagen,
-        createdAt: serverTimestamp()
+        precioPromo: precio,
+        precioAnterior: precioAnterior,
+        descuento: descuento,
+        img: imagen
     };
 
     try {
         const result = await agregarPlato(platoNuevo);
         if (result.id) {
             alert("Plato agregado correctamente");
-            mostrarMenu(); 
+            mostrarPromociones();
 
-            document.querySelector("#nombrePlato").value = "";
-            document.querySelector("#descripcion").value = "";
-            document.querySelector("#precio").value = "";
-            document.querySelector("#imgPlato").value = "";
-            document.querySelector("#nombrePlato").focus()
+        document.querySelector("#nombrePromo").value.trim();
+        document.querySelector("#categoria").value;
+        document.querySelector("#descripcion").value.trim();
+        parseFloat(document.querySelector("#precioPromo").value);
+        parseFloat(document.querySelector("#precioAnterior").value);
+        parseFloat(document.querySelector("#descuento").value);
+        document.querySelector("#imgPromo").value.trim();
+
         } else {
             console.error(result.error);
-            alert("Error al agregar el plato");
+            alert("Error al agregar la promoción");
         }
     } catch (error) {
         console.error("Error en agregarPlatoAlMenu:", error);
     }
 }
 
-async function desplegarEditablePlato(plato) {
-    const container = document.querySelector("#menuFormulario");
+async function desplegarEditablePlato(promocion) {
+    const container = document.querySelector("#promocionFormulario");
 
     // Desplegamos el formulario con los datos del plato
     container.innerHTML = `
     <form onsubmit="return false">
         <div class="mb-3">
-            <label for="nombrePlato" class="form-label">Nombre del Plato</label>
-            <input type="text" class="form-control" id="nombrePlato" value="${plato.nombrePlato}">
+            <label for="nombrePlato" class="form-label">Nombre de la promoción</label>
+            <input type="text" class="form-control" id="nombrePlato" value="${promocion.nombrePromo}">
         </div>
 
         <div class="mb-3">
             <label for="categoria" class="form-label">Categoría</label>
-            <select class="form-select" id="categoria">
-                <option value="Pupusas" ${plato.categoria === 'Pupusas' ? 'selected' : ''}>Pupusas</option>
-                <option value="Entradas" ${plato.categoria === 'Entradas' ? 'selected' : ''}>Entradas</option>
-                <option value="Platos Principales" ${plato.categoria === 'Platos Principales' ? 'selected' : ''}>Platos Principales</option>
-                <option value="Postres" ${plato.categoria === 'Postres' ? 'selected' : ''}>Postres</option>
-                <option value="Bebidas" ${plato.categoria === 'Bebidas' ? 'selected' : ''}>Bebidas</option>
+            <select class="form-select" aria-label="" id="categoria">
+                <option value="Combos en Oferta" ${promocion.categoria === 'Combos en Oferta' ? 'selected' : ''}>Combos en Oferta</option>
+                <option value="Paquete Familiar" ${promocion.categoria === 'Paquete Familiar' ? 'selected' : ''}>Paquete Familiar</option>
+                <option value="Fin de Semana" ${promocion.categoria === 'Fin de Semana' ? 'selected' : ''}>Fin de Semana</option>
+                <option value="Hora Feliz" ${promocion.categoria === 'Hora Feliz' ? 'selected' : ''}>Hora Feliz</option>
             </select>
         </div>
 
         <div class="mb-3">
             <label for="descripcion" class="form-label">Descripción</label>
-            <textarea id="descripcion" cols="30" rows="5">${plato.descripcion}</textarea>
+            <textarea id="descripcion" cols="30" rows="5">${promocion.descripcion}</textarea>
         </div>
 
         <div class="mb-3">
-            <label for="precio" class="form-label">Precio</label>
-            <input type="text" class="form-control" id="precio" value="${plato.precio}">
+            <label for="precioPromo" class="form-label">Precio Promoción</label>
+            <input type="number" 
+                class="form-control" 
+                id="precioPromo" 
+                value="${promocion.precioPromo}"
+                min="0"
+                step="0.01">
         </div>
 
         <div class="mb-3">
-            <label for="imgPlato" class="form-label">Fotografía del plato</label>
-            <input type="text" class="form-control" id="imgPlato" value="${plato.img}">
+            <label for="precioAnterior" class="form-label">Precio Anterior</label>
+            <input type="number" 
+                class="form-control" 
+                id="precioAnterior" 
+                value="${promocion.precioAnterior}"
+                min="0"
+                step="0.01">
+        </div>
+
+        <div class="mb-3">
+            <label for="descuento" class="form-label">Descuento (%)</label>
+            <input type="number" 
+                class="form-control" 
+                id="descuento" 
+                value="${promocion.descuento}"
+                min="0"
+                max="100"
+                step="1">
+        </div>
+
+        <div class="mb-3">
+            <label for="imgPromo" class="form-label">Fotografía de la promoción</label>
+            <input type="text" class="form-control" id="imgPromo" value="${promocion.img}">
         </div>
 
         <button type="button" class="btn btn-secondary" id="CancelarFormulario">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="ActualizarProducto">Guardar Cambios</button>
+        <button type="button" class="btn btn-primary" id="ActualizarPromo">Guardar Cambios</button>
     </form>
     `;
 
@@ -195,48 +251,52 @@ async function desplegarEditablePlato(plato) {
     });
 
     // Listener para guardar cambios
-    const btnActualizar = document.querySelector("#ActualizarProducto");
+    const btnActualizar = document.querySelector("#ActualizarPromo");
     btnActualizar.addEventListener("click", async () => {
-        await guardarCambios(plato.id); 
+        await guardarCambios(promocion.id); 
     });
 }
 
-async function guardarCambios(platoNombre) {
-    const nombrePlato = document.querySelector("#nombrePlato").value.toString();
+async function guardarCambios(platoPromocion) {
+    const nombrePromocion = document.querySelector("#nombrePromo").value.trim();
     const categoria = document.querySelector("#categoria").value;
-    const descripcion = document.querySelector("#descripcion").value.toString();
-    const precio = document.querySelector("#precio").value.toString();
-    const imagen = document.querySelector("#imgPlato").value.toString();
+    const descripcion = document.querySelector("#descripcion").value.trim();
+    const precioPromo = parseFloat(document.querySelector("#precioPromo").value);
+    const precioAnterior = parseFloat(document.querySelector("#precioAnterior").value);
+    const descuento = parseFloat(document.querySelector("#descuento").value);
+    const imagen = document.querySelector("#imgPromo").value.trim();
 
-    if (!nombrePlato || !categoria || !descripcion || !precio || !imagen) {
+    if (!nombrePromocion || !categoria || !descripcion || !precioPromo || !precioAnterior || !descuento || !imagen) {
         alert("Por favor completa todos los campos");
         return;
     }
 
-    const platoActualizado = {
+    const promoActualizada = {
         nombrePlato: nombrePlato,
         categoria: categoria,
         descripcion: descripcion,
-        precio: precio,
+        precioPromo: precio,
+        precioAnterior: precioAnterior,
+        descuento: descuento,
         img: imagen
     };
 
     try {
-        await modificarPlato(platoNombre, platoActualizado);
-        alert("Plato actualizado correctamente");
-        mostrarMenu(); 
-        document.querySelector("#menuFormulario").innerHTML = ""; // cerrar formulario
+        await modificarPlato(platoPromocion, promoActualizada);
+        alert("Promoción actualizado correctamente");
+        mostrarPromociones();
+        document.querySelector("#promocionFormulario").innerHTML = ""; // cerrar formulario
     } catch (error) {
-        console.error("Error actualizando plato:", error);
+        console.error("Error actualizando la promoción:", error);
     }
 }
 
-async function EliminarPlatoDelMenu(platoId){
+async function EliminarPlatoDelMenu(promoId){
     try {
-        await eliminarPlato(platoId);
-        alert("Plato eliminado exitosamente");
+        await eliminarPlato(promoId);
+        alert("Promoción eliminada exitosamente");
         mostrarMenu(); 
     } catch (error) {
-        console.error("Error al eliminar el plato:", error);
+        console.error("Error al eliminar la promoción:", error);
     }
 }

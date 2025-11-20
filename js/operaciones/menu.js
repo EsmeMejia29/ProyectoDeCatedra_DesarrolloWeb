@@ -69,11 +69,11 @@ async function desplegarFormulario() {
             <label for="categoria" class="form-label">Categoría</label>
             <select class="form-select" aria-label="" id="categoria">
                 <option selected>Pupusas</option>
-                <option value="1">Entradas</option>
-                <option value="2">Platos Principales</option>
-                <option value="3">Pupusas</option>
-                <option value="4">Postres</option>
-                <option value="4">Bebidas</option>
+                <option value="Entradas">Entradas</option>
+                <option value="Platos Principales">Platos Principales</option>
+                <option value="Pupusas">Pupusas</option>
+                <option value="Postres">Postres</option>
+                <option value="Bebidas">Bebidas</option>
             </select>
         </div>
 
@@ -84,7 +84,12 @@ async function desplegarFormulario() {
 
         <div class="mb-3">
             <label for="precio" class="form-label">Precio</label>
-            <input type="text" class="form-control" id="precio" placeholder="Precio del Plato">
+            <input type="number" 
+                class="form-control" 
+                id="precio" 
+                placeholder="Precio del plato"
+                min="0"
+                step="0.01">
         </div>
 
         <div class="mb-3">
@@ -105,11 +110,11 @@ async function desplegarFormulario() {
 }
 
 async function agregarPlatoAlMenu() {
-    const nombrePlato = document.querySelector("#nombrePlato").value.toString();
+    const nombrePlato = document.querySelector("#nombrePlato").value.trim();  
     const categoria = document.querySelector("#categoria").value;
-    const descripcion = document.querySelector("#descripcion").value.toString();
-    const precio = document.querySelector("#precio").value.toString();
-    const imagen = document.querySelector("#imgPlato").value.toString();
+    const descripcion = document.querySelector("#descripcion").value.trim();
+    const precio = parseFloat(document.querySelector("#precio").value);
+    const imagen = document.querySelector("#imgPlato").value.trim();
 
     if (!nombrePlato || !categoria || !descripcion || !precio || !imagen) {
         alert("Por favor completa todos los campos");
@@ -173,7 +178,12 @@ async function desplegarEditablePlato(plato) {
 
         <div class="mb-3">
             <label for="precio" class="form-label">Precio</label>
-            <input type="text" class="form-control" id="precio" value="${plato.precio}">
+            <input type="number" 
+                class="form-control" 
+                id="precio"
+                value="${plato.precio}"
+                min="0"
+                step="0.01">
         </div>
 
         <div class="mb-3">
@@ -203,7 +213,7 @@ async function guardarCambios(platoNombre) {
     const nombrePlato = document.querySelector("#nombrePlato").value.toString();
     const categoria = document.querySelector("#categoria").value;
     const descripcion = document.querySelector("#descripcion").value.toString();
-    const precio = document.querySelector("#precio").value.toString();
+    const precio = parseFloat(document.querySelector("#precio").value);
     const imagen = document.querySelector("#imgPlato").value.toString();
 
     if (!nombrePlato || !categoria || !descripcion || !precio || !imagen) {
