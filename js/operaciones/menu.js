@@ -28,6 +28,7 @@ async function mostrarMenu() {
                         <h5 class="card-title">${producto.nombrePlato}</h5>
                         <p class="text-muted">${producto.descripcion}</p>
                         <p class="text-muted precio">Precio: ${producto.precio}</p>
+                        <p class="text-muted categoria">Categoría: ${producto.categoria}</p>
                         <button type="button" class="btn btn-light btnEditar" data-id="${producto.id}"><i class="fa-regular fa-pen-to-square"></i></button>
                         <button type="button" class="btn btn-danger btnEliminar" data-id="${producto.id}"><i class="fa-regular fa-trash-can"></i></button>
                     </div>
