@@ -203,3 +203,22 @@ body{
     margin-top: 20px;
     margin-bottom: 30px;
 }
+
+.boton-ordenar {
+    background-color: var(--rojo);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin: 1rem auto;
+    display: block;
+}
+
+.boton-ordenar:hover {
+    background-color: #cf0303;
+    transform: scale(1.05);
+}
