@@ -85,8 +85,7 @@ async function desplegarFormulario() {
     <form id="formAgregarPromocion" onsubmit="return false">
     <div class="mb-3">
         <label for="nombrePromo" class="form-label">Nombre de la promoción</label>
-        <input type="text" class="form-control" id="nombrePromo" placeholder="Nombre de la promoción"
-               required pattern="^[^\d]+$" title="No se permiten números">
+        <input type="text" class="form-control" id="nombrePromo" placeholder="Nombre de la promoción">
     </div>
 
     <div class="mb-3">
@@ -102,7 +101,7 @@ async function desplegarFormulario() {
     <div class="mb-3">
         <label for="descripcion" class="form-label">Descripción</label>
         <textarea id="descripcion" cols="30" rows="5" class="form-control" placeholder="Descripción de la promoción"
-                  required pattern="^[^\d]+$" title="No se permiten números"></textarea>
+                  required></textarea>
     </div>
 
     <div class="mb-3">
@@ -197,7 +196,7 @@ async function desplegarEditablePromocion(promocion) {
     <div class="mb-3">
         <label for="nombrePromo" class="form-label">Nombre de la promoción</label>
         <input type="text" class="form-control" id="nombrePromo" value="${promocion.nombrePromo}"
-               required pattern="^[^\d]+$" title="No se permiten números">
+               required>
     </div>
 
     <div class="mb-3">
@@ -213,7 +212,7 @@ async function desplegarEditablePromocion(promocion) {
     <div class="mb-3">
         <label for="descripcion" class="form-label">Descripción</label>
         <textarea id="descripcion" cols="30" rows="5"
-                  class="form-control" required pattern="^[^\d]+$" title="No se permiten números">${promocion.descripcion}</textarea>
+                  class="form-control" required>${promocion.descripcion}</textarea>
     </div>
 
     <div class="mb-3">
