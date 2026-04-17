@@ -62,7 +62,7 @@ header{
     margin: 0;
 }
 
-.main-nav .iconos {
+.main-nav .iconos, .cart-icon, .login-btn {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -73,6 +73,7 @@ header{
     font-weight: 650;
     background-color: transparent;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .main-nav .iconos img {
@@ -80,10 +81,11 @@ header{
     height: 32px;
 }
 
-.main-nav .iconos:hover {
+.main-nav .iconos:hover, .cart-icon:hover, .login-btn:hover{
     color: var(--naranja);
     background-color: #fff8ed;
     transform: translateY(-2px);
+    box-shadow: 10px 10px 24px -12px  #fa7315;
 }
 
 /* Sección de usuario (carrito y login) */
@@ -93,34 +95,13 @@ header{
     gap: 1rem;
 }
 
-.cart-icon, .login-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    text-decoration: none;
-    color: var(--letras);
-    border-radius: 8px;
-    font-weight: 650;
-    background-color: #fff8ed;
-    cursor: pointer;
-    border: none;
-    font-family: inherit;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+.cart-icon {
     position: relative;
 }
-
 
 .cart-icon img, .login-btn img {
     width: 24px;
     height: 24px;
-}
-
-.cart-icon:hover, .login-btn:hover {
-    color: var(--naranja);
-    box-shadow: 0 4px 8px rgba(250, 115, 21, 0.3);
-    transform: translateY(-2px);
 }
 
 /* Badge del carrito */
@@ -145,7 +126,6 @@ header{
 footer{
     width: 100%;
 }
-
 
 .pie {
     background-color: var(--letras);
