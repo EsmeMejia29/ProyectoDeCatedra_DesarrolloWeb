@@ -18,7 +18,7 @@ document.querySelector('form').addEventListener('submit', async (e) => {
         const userDoc = await getDoc(doc(db, 'usuarios', user.uid));
 
         if (!userDoc.exists()) {
-            alert('Usuario no encontrado en la base de datos. Contacte al administrador.');
+            alert('Usuario no encontrado.');
             return;
         }
 
