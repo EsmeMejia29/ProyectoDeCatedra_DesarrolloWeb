@@ -18,6 +18,11 @@ header{
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+body{
+    font-family: "Nunito", Arial, sans-serif;
+    background-color: white;
+}
+
 .navegacion_sitio {
     display: flex;
     justify-content: space-between;
@@ -54,8 +59,6 @@ header{
 
 .main-nav ul {
     display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 0.8rem;
     list-style: none;
     padding: 0;
@@ -81,17 +84,31 @@ header{
     height: 32px;
 }
 
-.main-nav .iconos:hover, .cart-icon:hover, .login-btn:hover{
+.main-nav .close-menu, .user-actions .burger-menu {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    padding: 10px 16px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    align-items: center;
+}
+
+.main-nav .iconos:hover, .cart-icon:hover, .login-btn:hover, .close-menu:hover, .burger-menu:hover{
     color: var(--naranja);
-    background-color: #fff8ed;
+    background-color: #fdf4eb;
     transform: translateY(-2px);
-    box-shadow: 10px 10px 24px -12px  #fa7315;
+}
+
+.main-nav .close-menu:hover{
+    transform: none;
 }
 
 /* Sección de usuario (carrito y login) */
 .user-actions {
     display: flex;
-    align-items: center;
     gap: 1rem;
 }
 
@@ -272,147 +289,42 @@ footer{
 }
 
 /* Tablets en landscape (1024px y menos) */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1110px) {
     header {
-        padding: 1rem 1.5rem;
+        padding: 1rem 0 1rem 1.5rem;
+        filter: none;
     }
 
     .logo a p {
         font-size: 1.3rem;
     }
 
-    .main-nav ul {
-        gap: 0.6rem;
-    }
-
-    .main-nav .iconos {
-        padding: 8px 12px;
-        font-size: 0.95rem;
-    }
-}
-
-/* Tablets en portrait (768px y menos) */
-@media screen and (max-width: 768px) {
-    header {
-        padding: 0.8rem 1rem;
-    }
-
-    .navegacion_sitio {
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .logo {
+    .user-actions{
         order: 1;
+        justify-items: flex-end;
     }
 
-    .user-actions {
+    .user-actions .burger-menu, .main-nav .close-menu {
+        display: flex;
+    }
+
+    .main-nav{
+        position: relative;
+        justify-content: end;
         order: 2;
-        gap: 0.5rem;
-    }
-
-    .main-nav {
-        order: 3;
-        width: 100%;
-        justify-content: center;
+        z-index: 2;
     }
 
     .main-nav ul {
-        gap: 0.5rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .main-nav .iconos {
-        padding: 8px 12px;
-        font-size: 0.9rem;
+        flex-direction: column;
+        position: absolute;
+        background-color: white;
+        height: 100vh;
     }
 
-    .cart-icon, .login-btn {
-        padding: 8px 12px;
-        font-size: 0.9rem;
-    }
-
-    .cart-icon img, .login-btn img {
-        width: 18px;
-        height: 18px;
-    }
-}
-
-/* Móviles en portrait (480px y menos) */
-@media screen and (max-width: 480px) {
-    header {
-        padding: 0.8rem;
-    }
-    
-    .logo a img {
-        width: 55px;
-    }
-    
-    .logo a p {
-        font-size: 1.1rem;
-    }
-    
-    .main-nav ul {
-        gap: 0.4rem;
-    }
-    
-    .main-nav .iconos {
-        padding: 6px 10px;
-        font-size: 0.85rem;
-    }
-    
-    .main-nav .iconos img {
-        width: 16px;
-        height: 16px;
-    }
-
-    .cart-icon, .login-btn {
-        padding: 6px 10px;
-        font-size: 0.85rem;
-    }
-
-    .cart-icon img, .login-btn img {
-        width: 16px;
-        height: 16px;
-    }
-
-    .user-actions {
-        gap: 0.4rem;
-    }
-}
-
-/* Móviles pequeños (375px y menos) */
-@media screen and (max-width: 375px) {
-    header {
-        padding: 0.6rem;
-    }
-    
-    .logo a img {
-        width: 50px;
-    }
-    
-    .logo a p {
-        font-size: 1rem;
-    }
-    
-    .main-nav .iconos {
-        padding: 5px 8px;
-        font-size: 0.8rem;
-    }
-
-    .main-nav .iconos img {
-        width: 14px;
-        height: 14px;
-    }
-
-    .cart-icon, .login-btn {
-        padding: 5px 8px;
-        font-size: 0.8rem;
-    }
-
-    .cart-icon img, .login-btn img {
-        width: 14px;
-        height: 14px;
+    .main-nav .iconos{
+        padding-right: 6rem;
+        padding-left: 2rem;
+        border-radius: 0;
     }
 }
