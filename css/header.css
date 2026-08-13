@@ -52,7 +52,6 @@ body{
 }
 
 .main-nav {
-    flex: 1;
     display: flex;
     justify-content: center;
 }
@@ -84,7 +83,7 @@ body{
     height: 32px;
 }
 
-.main-nav .close-menu, .user-actions .burger-menu {
+#menuForSmallDevices .close-menu, .user-actions .burger-menu {
     display: none;
     background: none;
     border: none;
@@ -94,22 +93,53 @@ body{
     transition: all 0.3s ease;
     cursor: pointer;
     align-items: center;
+    color: var(--letras);
 }
 
-.main-nav .iconos:hover, .cart-icon:hover, .login-btn:hover, .close-menu:hover, .burger-menu:hover{
+.main-nav .iconos:hover, .cart-icon:hover, .login-btn:hover, #menuForSmallDevices .close-menu:hover, .burger-menu:hover{
     color: var(--naranja);
     background-color: #fdf4eb;
     transform: translateY(-2px);
 }
 
-.main-nav .close-menu:hover{
+#menuForSmallDevices .close-menu:hover{
     transform: none;
+}
+
+/* Menu/navbar for small screens */
+#menuForSmallDevices{
+    display: none;
+    justify-content: end;
+    order: 2;
+}
+
+#menuForSmallDevices ul {
+    flex-direction: column;
+    position: fixed;
+    background-color: white;
+    height: 100vh;
+    padding-top: 2.2rem;
+    top: 0;
+    z-index: 10;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+#menuForSmallDevices.open ul {
+    transform: translateX(0);
+}
+
+#menuForSmallDevices .iconos{
+    padding-right: 5rem;
+    padding-left: 2rem;
+    border-radius: 0;
 }
 
 /* Sección de usuario (carrito y login) */
 .user-actions {
     display: flex;
     gap: 1rem;
+    order: 1;
 }
 
 .cart-icon {
@@ -288,43 +318,31 @@ footer{
     line-height: 1.4;
 }
 
-/* Tablets en landscape (1024px y menos) */
+/* (1024px y menos) */
 @media screen and (max-width: 1110px) {
     header {
-        padding: 1rem 0 1rem 1.5rem;
-        filter: none;
+        padding-left: 1rem;
+        padding-right: 0;
+    }
+
+    #menuForSmallDevices, #menuForSmallDevices .close-menu{
+        display: flex;
+    }
+
+    .main-nav{
+        display:none;
     }
 
     .logo a p {
         font-size: 1.3rem;
     }
 
-    .user-actions{
-        order: 1;
-        justify-items: flex-end;
+    .user-actions, #menuForSmallDevices #button-menu{
+        padding-right: 1rem;
+        margin-left: auto;
     }
 
-    .user-actions .burger-menu, .main-nav .close-menu {
+    .user-actions .burger-menu {
         display: flex;
-    }
-
-    .main-nav{
-        position: relative;
-        justify-content: end;
-        order: 2;
-        z-index: 2;
-    }
-
-    .main-nav ul {
-        flex-direction: column;
-        position: absolute;
-        background-color: white;
-        height: 100vh;
-    }
-
-    .main-nav .iconos{
-        padding-right: 6rem;
-        padding-left: 2rem;
-        border-radius: 0;
     }
 }
