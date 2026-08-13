@@ -1,6 +1,11 @@
 const btnOpenHiddenMenu = document.querySelector(".burger-menu");
 const container = document.querySelector("#menuForSmallDevices");
 
+// Determinar prefijo relativo según la ubicación de la página
+const path = window.location.pathname;
+const isInSubfolder = path.includes('/html/') || path.includes('/admin/');
+const base = isInSubfolder ? '..' : '.';
+
 // Insertar el menú una sola vez al cargar
 container.innerHTML = `
     <ul>
@@ -10,28 +15,28 @@ container.innerHTML = `
             </button>
         </li>
         <li>
-            <a href="/index.html" class="iconos">
-                <img src="/img/IconInicio.png" alt="Inicio"> Inicio
+            <a href="${base}/index.html" class="iconos">
+                <img src="${base}/img/IconInicio.png" alt="Inicio"> Inicio
             </a>
         </li>
         <li>
-            <a href="/html/menu.html" class="iconos">
-                <img src="/img/IconMenu.png" alt="Menu"> Menú
+            <a href="${base}/html/menu.html" class="iconos">
+                <img src="${base}/img/IconMenu.png" alt="Menu"> Menú
             </a>
         </li>
         <li>
-            <a href="/html/promocion.html" class="iconos">
-                <img src="/img/IconPromocion.png" alt="Promocion"> Promociones
+            <a href="${base}/html/promocion.html" class="iconos">
+                <img src="${base}/img/IconPromocion.png" alt="Promocion"> Promociones
             </a>
         </li>
         <li>
-            <a href="/html/aboutus.html" class="iconos">
-                <img src="/img/IconNosotros.png" alt="Nosotros"> Nosotros
+            <a href="${base}/html/aboutus.html" class="iconos">
+                <img src="${base}/img/IconNosotros.png" alt="Nosotros"> Nosotros
             </a>
         </li>
         <li>
-            <a href="/html/contacto.html" class="iconos">
-                <img src="/img/IconContacto.png" alt="Contacto"> Contacto
+            <a href="${base}/html/contacto.html" class="iconos">
+                <img src="${base}/img/IconContacto.png" alt="Contacto"> Contacto
             </a>
         </li>
     </ul>`;
