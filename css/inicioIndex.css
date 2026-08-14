@@ -87,7 +87,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: first baseline;
+    align-items: center;
     text-align: center;
     color: white;
     background: rgba(0, 0, 0, 0.4);
@@ -158,28 +158,30 @@ body{
 }
 
 /*Platos populares*/
+.platos-populares{
+    margin-top: 1rem;
+}
+
 .platos-populares .btnOrdenar{
     top: 15px;
 }
 
+.indexMenu{
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
 #botonMenuIndex{
-    position: relative;
+    display: flex;
     padding: 12px 15px;
     text-decoration: none;
     color: #f8f8f8;
     background-color: #f57c00;
     border-radius: 20px;
     font-weight: 800;
-    transition: all 0.3s ease;
-    display: inline-block;
-    text-align: center;
-    min-width: 140px;
-    top: 10px;
-    bottom: 10px;
-    left: 45%;
-    overflow-x: auto;
-    margin-top: 20px;
-    margin-bottom: 30px;
 }
 
 .boton-ordenar {
@@ -199,4 +201,10 @@ body{
 .boton-ordenar:hover {
     background-color: #cf0303;
     transform: scale(1.05);
+}
+
+@media screen and (max-width: 400px) {
+    .botones-grid{
+        flex-direction: column;
+    }
 }

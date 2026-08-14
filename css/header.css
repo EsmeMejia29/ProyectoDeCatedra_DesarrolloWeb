@@ -168,7 +168,6 @@ body{
     font-weight: bold;
 }
 
-/* (1024px y menos) */
 @media screen and (max-width: 1110px) {
     header {
         padding-left: 1rem;
@@ -194,5 +193,18 @@ body{
 
     .user-actions .burger-menu {
         display: flex;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .user-actions{
+        gap: 10px;
+    }
+    .user-actions .login-btn img, .cart-icon img{
+        width: 34px;
+        height: 34px;
+    }
+    .user-actions .login-btn .registro-texto{
+        display: none;
     }
 }
