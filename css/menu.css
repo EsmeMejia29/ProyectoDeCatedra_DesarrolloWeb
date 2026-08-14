@@ -29,7 +29,7 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 13vh 13vh;
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/heroPromo.jpg);
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/bannerfondoMenu.jpg);
     background-position: center;
     background-size: cover;
     color: white;
@@ -55,7 +55,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 7vh 1rem 3vh 1rem;
+    padding: 7vh 1rem 5vh 1rem;
     overflow-x: auto;
     scrollbar-width: none;
 }
@@ -110,11 +110,9 @@ body {
 }
 
 .cartas-menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem 0;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .categoria-seccion {
@@ -122,11 +120,14 @@ body {
 }
 
 .titulo-categoria {
+    width: 100%;
     text-align: center;
-    color: var(--letras);
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 2rem;
     font-weight: 700;
+    color: var(--letras);
+    margin: 1.3rem 0 1rem;
+    padding-bottom: 0.5rem;
 }
 
 #platos-populares{
