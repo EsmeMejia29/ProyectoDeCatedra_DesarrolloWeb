@@ -1,13 +1,13 @@
 const promosTest = [
-    { nombrePromo: "Combo Pupusero", descripcion: "3 pupusas revueltas + horchata + plátano frito", precioPromo: 4.99, precioAnterior: 7.50, descuento: 33, categoria: "Combos en Oferta", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400" },
-    { nombrePromo: "Combo Carne Asada", descripcion: "Carne asada + arroz + ensalada + tortillas + bebida", precioPromo: 7.99, precioAnterior: 11.50, descuento: 30, categoria: "Combos en Oferta", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400" },
-    { nombrePromo: "Combo Pollo", descripcion: "Pollo guisado + yuca frita + curtido + refresco", precioPromo: 6.49, precioAnterior: 9.00, descuento: 28, categoria: "Combos en Oferta", img: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=400" },
-    { nombrePromo: "Paquete Familiar 4 personas", descripcion: "12 pupusas surtidas + 4 horchatas + curtido extra", precioPromo: 12.99, precioAnterior: 18.00, descuento: 28, categoria: "Paquete Familiar", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400" },
-    { nombrePromo: "Paquete Familiar Parrilla", descripcion: "Carne asada + pollo + chorizo + tortillas + ensalada para 4", precioPromo: 24.99, precioAnterior: 35.00, descuento: 29, categoria: "Paquete Familiar", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400" },
-    { nombrePromo: "Sábado de Mariscos", descripcion: "Cóctel de camarones + ceviche + 2 cervezas", precioPromo: 14.99, precioAnterior: 22.00, descuento: 32, categoria: "Fin de Semana", img: "https://images.unsplash.com/photo-1565680018093-ebb6e51e9d38?w=400" },
-    { nombrePromo: "Domingo Familiar", descripcion: "Sopa de gallina + arroz + tortillas + postre para 2", precioPromo: 10.99, precioAnterior: 15.00, descuento: 27, categoria: "Fin de Semana", img: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=400" },
-    { nombrePromo: "2x1 Cervezas Nacionales", descripcion: "Todas las cervezas nacionales al 2x1 de 4pm a 7pm", precioPromo: 2.00, precioAnterior: 4.00, descuento: 50, categoria: "Hora Feliz", img: "https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=400" },
-    { nombrePromo: "Chaparro + Boquitas", descripcion: "Chaparro artesanal + plato de boquitas surtidas", precioPromo: 6.99, precioAnterior: 10.50, descuento: 33, categoria: "Hora Feliz", img: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400" }
+    { nombrePromo: "Combo Pupusero", descripcion: "3 pupusas revueltas + horchata + plátano frito", precioPromo: 4.99, precioAnterior: 7.50, descuento: 33, categoria: "Combos en Oferta", img: "../img/combofamiliarpupusasMenu.jpg" },
+    { nombrePromo: "Combo Carne Asada", descripcion: "Carne asada + arroz + ensalada + tortillas + bebida", precioPromo: 7.99, precioAnterior: 11.50, descuento: 30, categoria: "Combos en Oferta", img: "../img/carneasadaMenu.jpg" },
+    { nombrePromo: "Combo Desayuno Típico", descripcion: "Plátano frito + frijoles + crema + huevos + tortillas", precioPromo: 6.49, precioAnterior: 9.00, descuento: 28, categoria: "Combos en Oferta", img: "../img/comboDesayunoTipico.png" },
+    { nombrePromo: "Paquete Familiar Pupusas", descripcion: "12 pupusas surtidas + 4 horchatas + curtido extra", precioPromo: 12.99, precioAnterior: 18.00, descuento: 28, categoria: "Paquete Familiar", img: "../img/paqueteFamiliar.jpg" },
+    { nombrePromo: "Paquete Familiar Parrilla", descripcion: "Carne asada + pollo + chorizo + tortillas + ensalada para 4", precioPromo: 24.99, precioAnterior: 35.00, descuento: 29, categoria: "Paquete Familiar", img: "../img/paqueteCarnes.jpeg" },
+    { nombrePromo: "Oferta Sopa de Mondongo", descripcion: "Sopa de mondongo + tortillas + bebida natural", precioPromo: 7.99, precioAnterior: 11.00, descuento: 27, categoria: "Fin de Semana", img: "../img/ofertaSopaPata.jpg" },
+    { nombrePromo: "Oferta Fin de Semana", descripcion: "Tamales + atol de elote + empanadas de platano rellenas de poleada", precioPromo: 5.99, precioAnterior: 15.00, descuento: 27, categoria: "Fin de Semana", img: "../img/comboEmpanaAtol.jpg" },
+    { nombrePromo: "2x1 Cervezas Nacionales", descripcion: "Todas las cervezas nacionales al 2x1 de 4pm a 7pm", precioPromo: 2.00, precioAnterior: 4.00, descuento: 50, categoria: "Hora Feliz", img: "../img/cervezasMenu.jpg" },
+    { nombrePromo: "Hora Feliz Café", descripcion: "Café artesanal + postre del día a mitad de precio", precioPromo: 3.50, precioAnterior: 7.00, descuento: 50, categoria: "Hora Feliz", img: "../img/horaFelizCafe.jpg" }
 ];
 
 function renderizarPromos(promos) {
@@ -55,7 +55,7 @@ function renderizarPromos(promos) {
                             
                             <div class="boton-ordenar">
                                 <button type="button" onclick="agregarAlCarrito('${id}', '${promo.nombrePromo}', ${precioActual})">
-                                    Ordenar Ahora
+                                    Agregar al carrito
                                 </button>
                             </div>
                         </div>

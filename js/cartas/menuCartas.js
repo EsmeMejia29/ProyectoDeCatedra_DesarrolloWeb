@@ -1,16 +1,16 @@
 const platosTest = [
-    { nombrePlato: "Pupusa de Queso", descripcion: "Pupusa tradicional rellena de queso derretido", precio: 0.75, categoria: "Pupusas", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400" },
-    { nombrePlato: "Pupusa Revuelta", descripcion: "Rellena de chicharrón, queso y frijol", precio: 1.00, categoria: "Pupusas", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400" },
-    { nombrePlato: "Pupusa de Loroco", descripcion: "Rellena de loroco con queso", precio: 1.00, categoria: "Pupusas", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400" },
-    { nombrePlato: "Carne Asada", descripcion: "Carne de res a la parrilla con chimol y tortillas", precio: 8.50, categoria: "Platos Principales", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400" },
-    { nombrePlato: "Pollo Guisado", descripcion: "Pollo en salsa con arroz y ensalada fresca", precio: 6.99, categoria: "Platos Principales", img: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=400" },
-    { nombrePlato: "Costilla de Cerdo", descripcion: "Costilla adobada con yuca frita y curtido", precio: 9.50, categoria: "Platos Principales", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400" },
-    { nombrePlato: "Yuca Frita con Chicharrón", descripcion: "Yuca crujiente acompañada de chicharrón y curtido", precio: 4.50, categoria: "Entradas", img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400" },
-    { nombrePlato: "Plátanos Fritos", descripcion: "Plátanos maduros fritos con crema y frijoles", precio: 3.50, categoria: "Entradas", img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400" },
-    { nombrePlato: "Tres Leches", descripcion: "Pastel húmedo bañado en tres tipos de leche", precio: 3.99, categoria: "Postres", img: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=400" },
-    { nombrePlato: "Empanadas de Leche", descripcion: "Empanadas dulces rellenas de leche y canela", precio: 1.50, categoria: "Postres", img: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=400" },
-    { nombrePlato: "Horchata", descripcion: "Bebida refrescante de morro y semillas", precio: 1.75, categoria: "Bebidas", img: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400" },
-    { nombrePlato: "Chaparro Premium", descripcion: "Licor artesanal salvadoreño", precio: 5.00, categoria: "Bebidas", img: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400" }
+    { nombrePlato: "Pupusa de Queso", descripcion: "Pupusa tradicional rellena de queso derretido", precio: 0.75, categoria: "Pupusas", img: "../img/pupusadequesoMenu.jpg" },
+    { nombrePlato: "Pupusa Revuelta", descripcion: "Rellena de chicharrón, queso y frijol", precio: 1.00, categoria: "Pupusas", img: "../img/pupusarevueltaMenu.jpg" },
+    { nombrePlato: "Pupusa de Loroco", descripcion: "Rellena de loroco con queso", precio: 1.00, categoria: "Pupusas", img: "../img/pupusadelorocoMenu.webp" },
+    { nombrePlato: "Carne Asada", descripcion: "Carne de res a la parrilla con chimol y tortillas", precio: 8.50, categoria: "Platos Principales", img: "../img/carneasadaMenu.jpg" },
+    { nombrePlato: "Sopa de Gallina", descripcion: "Sopa de gallina con elote, yuca, arroz, aguacate y dos tortillas", precio: 6.99, categoria: "Platos Principales", img: "../img/sopadepolloMenu.jpg" },
+    { nombrePlato: "Pescado Frito", descripcion: "Pescado frito con papas al vapor y rodajas de tomate", precio: 7.50, categoria: "Platos Principales", img: "../img/pescadofritoMenu.webp" },
+    { nombrePlato: "Yuca Frita", descripcion: "Yuca crujiente acompañada de curtido y jalapeños", precio: 4.50, categoria: "Entradas", img: "../img/YucafritaconchicharronMenu.jpg" },
+    { nombrePlato: "Canoas de Plátano", descripcion: "Plátanos maduros rellenos con frijoles y queso", precio: 3.50, categoria: "Entradas", img: "../img/canoasdeplatanoMenu.jpg" },
+    { nombrePlato: "Nuégados en Miel", descripcion: "Nuégados de yuca bañados en miel de panela", precio: 3.99, categoria: "Postres", img: "../img/nuegadosenmielMenu.webp" },
+    { nombrePlato: "Empanadas de Plátano", descripcion: "Empanadas dulces de plátano con leche y canela", precio: 1.50, categoria: "Postres", img: "../img/empanadasdeplatanoMenu.jpg" },
+    { nombrePlato: "Frozen natural", descripcion: "Bebida natural refrescante de fresa, uvas, frambuesas o moras", precio: 1.25, categoria: "Bebidas", img: "../img/smothiesybatidos.jpg" },
+    { nombrePlato: "Chaparro Premium", descripcion: "Licor artesanal salvadoreño", precio: 5.00, categoria: "Bebidas", img: "../img/chaparropremiumMenu.jpg" }
 ];
 
 function renderizarCartas(platos) {
