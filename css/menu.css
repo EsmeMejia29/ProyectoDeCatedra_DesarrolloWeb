@@ -55,9 +55,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 7vh 1rem 5vh 1rem;
+    padding: 4vh 1rem 3vh 1rem;
     overflow-x: auto;
     scrollbar-width: none;
+    position: sticky;
+    top: 13vh;
+    background-color: #fffbfc;
 }
 
 .menu_categorias ul {
@@ -69,44 +72,39 @@ body {
 }
 
 .menu_categorias li {
-    padding: 1vh 2vw;
+    padding: 0.5rem 1rem;
     border-radius: 22px;
     background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08), 0 16px 15px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 16px 15px rgba(0,0,0,0.01);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .menu_categorias .icono {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     text-decoration: none;
-    list-style: none;
     color: var(--letras);
     font-weight: 620;
-    text-align: center;
+    white-space: nowrap;
 }
 
-.menu_categorias .icono i {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    display: block;
-    color: var(--letras);
+.menu_promos .icono img {
+    width: 35px;
 }
 
 .menu_categorias li:hover {
     background-color: var(--rojo);
     transition: all 0.2s;
-    transform: scale(1.05);
+    transform:scale(1.05);
 }
 
 .menu_categorias .icono:hover {
     color: white;
     transition: all 0.2s;
-    transform: scale(1.05);
-}
-
-.menu_categorias .icono:hover i {
-    color: white;
+    transform:scale(1.05);
 }
 
 .cartas-menu {
@@ -115,19 +113,29 @@ body {
     box-sizing: border-box;
 }
 
-.categoria-seccion {
+.grid-cartas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
     width: 100%;
 }
 
-.titulo-categoria {
+.categoria-seccion {
     width: 100%;
-    text-align: center;
-    font-family: "Poppins", sans-serif;
-    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem; 
+    margin-right: 100%;
+}
+
+.titulo-categoria {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
     font-weight: 700;
-    color: var(--letras);
-    margin: 1.3rem 0 1rem;
-    padding-bottom: 0.5rem;
+    text-align: center;
+    width: 100%;
 }
 
 #platos-populares{
@@ -141,14 +149,6 @@ body {
 
 #cartas-index{
     padding: 0;
-}
-
-.grid-cartas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem 0;
 }
 
 .tarjeta-comida {
@@ -216,7 +216,7 @@ body {
     border: none;
     border-radius: 30px;
     padding: 0.7rem 2rem;
-    font-size: 1rem;
+    font-size: 0.7rem;
     font-weight: 600;
     cursor: pointer;
     transition: background 0.3s;
@@ -226,8 +226,26 @@ body {
     background-color: #cf0303;
 }
 
-@media screen and (max-width: 605px) {
-    .menu_categorias {
+@media screen and (max-width: 945px) {
+    .menu_promos {
         justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 605px) {
+    .hero h1{
+        font-size: 2em;
+    }
+
+    .hero p{
+        font-size: 1em;
+    }
+
+    .hero{
+        padding: 9vh 6vh;
+    }
+
+    .categoria-seccion h2{
+        font-size: 1.3em;
     }
 }

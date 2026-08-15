@@ -51,12 +51,15 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 7vh 1rem 5vh 1rem;
+    padding: 4vh 1rem 3vh 1rem;
     overflow-x: auto;
     scrollbar-width: none;
+    position: sticky;
+    top: 13vh;
+    background-color: #fffbfc;
 }
 
-.menu_promos ul{
+.menu_promos ul {
     display: flex;
     gap: 1.1rem;
     list-style: none;
@@ -64,26 +67,28 @@ body{
     justify-content: center;
 }
 
-.menu_promos li{
-    padding: 1vh 2vw;
+.menu_promos li {
+    padding: 0.5rem 1rem;
     border-radius: 22px;
     background-color: white;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.08), 0 16px 15px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 16px 15px rgba(0,0,0,0.01);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.menu_promos .icono{
+.menu_promos .icono {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     text-decoration: none;
-    list-style: none;
     color: var(--letras);
     font-weight: 620;
-    text-align: center;
+    white-space: nowrap;
 }
 
-.menu_promos .icono img{
-    width: 75px;
+.menu_promos .icono img {
+    width: 35px;
 }
 
 .menu_promos li:hover{
@@ -99,6 +104,12 @@ body{
 }
 
 /*Cartas con promociones*/
+.cartas-promos {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .grid-cartas {
     display: flex;
     flex-wrap: wrap;
@@ -122,12 +133,6 @@ body{
     font-weight: 700;
     text-align: center;
     width: 100%;
-}
-
-.cartas-promos {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 .tarjeta-comida {
@@ -234,8 +239,26 @@ body{
     padding-bottom: 0.5rem;
 }
 
-@media screen and (max-width: 605px) {
+@media screen and (max-width: 945px) {
     .menu_promos {
         justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 605px) {
+    .hero h1{
+        font-size: 2em;
+    }
+
+    .hero p{
+        font-size: 1em;
+    }
+
+    .hero{
+        padding: 9vh 6vh;
+    }
+
+    .categoria-seccion h2{
+        font-size: 1.3em;
     }
 }
