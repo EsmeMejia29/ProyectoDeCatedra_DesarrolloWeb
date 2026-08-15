@@ -23,7 +23,7 @@ export async function mostrarPromociones() {
 
         container.innerHTML = result.data.map((promo) =>
             `
-            <section class="cartas-promos">
+            <section class="seccion-cartas">
                 <article class="tarjeta-comida">
                     <div class="img">
                     <img src="${promo.img}" alt="imagen promoción">

@@ -1,164 +1,7 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root{
-    --letras: #0f1827;
-    --rojo: #ef4444;
-}
-
-body{
-    font-family: "Nunito", Arial, sans-serif;
-}
-
-/*Estilos para las promos*/
-.promos{
-    padding-top: 113.5px;
-    background-color: #fffbfc;
-}
-
-.hero{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 13vh 13vh;
+.hero {
     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/heroPromo.jpg);
-    background-position: center;
-    background-size: cover;
-    color: white;
-    text-align: center;
 }
 
-.hero h1{
-    font-size: 3em;
-}
-
-.hero h1 span{
-    color: #fdba74;
-}
-
-.hero p {
-    flex: 1;
-    font-size: 1.2em;
-    opacity: 0.9;
-}
-
-.menu_promos {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 4vh 1rem 3vh 1rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-    position: sticky;
-    top: 13vh;
-    background-color: #fffbfc;
-}
-
-.menu_promos ul {
-    display: flex;
-    gap: 1.1rem;
-    list-style: none;
-    flex-wrap: nowrap;
-    justify-content: center;
-}
-
-.menu_promos li {
-    padding: 0.5rem 1rem;
-    border-radius: 22px;
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 16px 15px rgba(0,0,0,0.01);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.menu_promos .icono {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    color: var(--letras);
-    font-weight: 620;
-    white-space: nowrap;
-}
-
-.menu_promos .icono img {
-    width: 35px;
-}
-
-.menu_promos li:hover{
-    background-color: var(--rojo);
-    transition: all 0.2s;
-    transform:scale(1.05);
-}
-
-.menu_promos .icono:hover{
-    color: white;
-    transition: all 0.2s;
-    transform:scale(1.05);
-}
-
-/*Cartas con promociones*/
-.cartas-promos {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.grid-cartas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    width: 100%;
-}
-
-.categoria-seccion {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 4rem; 
-    margin-right: 100%;
-}
-
-.categoria-seccion h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    font-weight: 700;
-    text-align: center;
-    width: 100%;
-}
-
-.tarjeta-comida {
-    position: relative;
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    width: 280px;
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.2s ease;
-    margin-bottom: 1rem; 
-}
-  
-.tarjeta-comida:hover {
-    transform: translateY(-4px);
-}
-  
-.tarjeta-comida .img img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-}
-  
 .porcentaje-descuento {
     position: absolute;
     top: 10px;
@@ -170,95 +13,21 @@ body{
     border-radius: 20px;
     font-size: 0.9rem;
 }
-  
-.info {
-    padding: 1rem;
-}
-  
-.info h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--letras);
-    margin-bottom: 0.5rem;
-}
-  
-.info p {
-    color: var(--letras);
-    font-size: 0.9rem;
-    margin: 0;
-}
-  
-.precio {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-  
+
 .precio-descuento {
     color: var(--rojo);
     font-size: 1.3rem;
     font-weight: 700;
 }
-  
+
 .precio-original {
     color: #aaa;
     text-decoration: line-through;
     font-size: 1rem;
 }
 
-.boton-ordenar {
-    padding: 1rem;
-}
-
-.boton-ordenar button {
-    background-color: var(--rojo);
-    color: white;
-    border: none;
-    border-radius: 30px;
-    padding: 0.7rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.boton-ordenar button:hover {
-    background-color: #cf0303;
-}
-
-.cartas-promos h2 {
-    width: 100%;
-    text-align: center;
-    font-family: "Poppins", sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--letras);
-    margin: 1.3rem 0 1rem;
-    padding-bottom: 0.5rem;
-}
-
 @media screen and (max-width: 945px) {
-    .menu_promos {
+    .barra-categorias {
         justify-content: flex-start;
-    }
-}
-
-@media screen and (max-width: 605px) {
-    .hero h1{
-        font-size: 2em;
-    }
-
-    .hero p{
-        font-size: 1em;
-    }
-
-    .hero{
-        padding: 9vh 6vh;
-    }
-
-    .categoria-seccion h2{
-        font-size: 1.3em;
     }
 }
