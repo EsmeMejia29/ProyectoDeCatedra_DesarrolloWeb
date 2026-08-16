@@ -168,6 +168,32 @@ body{
     font-weight: bold;
 }
 
+.hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 13vh 13vh;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+.hero h1{
+    font-size: 3em;
+}
+
+.hero h1 span{
+    color: #fdba74;
+}
+
+.hero p {
+    flex: 1;
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
 @media screen and (max-width: 1110px) {
     header {
         padding-left: 1rem;
@@ -193,6 +219,20 @@ body{
 
     .user-actions .burger-menu {
         display: flex;
+    }
+}
+
+@media screen and (max-width: 605px) {
+    .hero h1{
+        font-size: 2em;
+    }
+
+    .hero p{
+        font-size: 1em;
+    }
+
+    .hero{
+        padding: 9vh 6vh;
     }
 }
 

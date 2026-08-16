@@ -14,30 +14,7 @@ body {
 }
 
 .hero{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 13vh 13vh;
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/chefs.jpeg);
-    background-position: center;
-    background-size: cover;
-    color: white;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 3em;
-}
-
-.hero h1 span {
-    color: #fdba74;
-}
-
-.hero p {
-    flex: 1;
-    font-size: 1.2em;
-    opacity: 0.9;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/banners/banner-nosotros.jpeg);
 }
 
 /* contenedor principal con nav y contenido */

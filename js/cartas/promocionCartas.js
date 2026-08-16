@@ -1,13 +1,13 @@
 const promosTest = [
-    { nombrePromo: "Combo Pupusero", descripcion: "3 pupusas revueltas + horchata + plátano frito", precioPromo: 4.99, precioAnterior: 7.50, descuento: 33, categoria: "Combos en Oferta", img: "../img/combofamiliarpupusasMenu.jpg" },
-    { nombrePromo: "Combo Carne Asada", descripcion: "Carne asada + arroz + ensalada + tortillas + bebida", precioPromo: 7.99, precioAnterior: 11.50, descuento: 30, categoria: "Combos en Oferta", img: "../img/carneasadaMenu.jpg" },
-    { nombrePromo: "Combo Desayuno Típico", descripcion: "Plátano frito + frijoles + crema + huevos + tortillas", precioPromo: 6.49, precioAnterior: 9.00, descuento: 28, categoria: "Combos en Oferta", img: "../img/comboDesayunoTipico.png" },
-    { nombrePromo: "Paquete Familiar Pupusas", descripcion: "12 pupusas surtidas + 4 horchatas + curtido extra", precioPromo: 12.99, precioAnterior: 18.00, descuento: 28, categoria: "Paquete Familiar", img: "../img/paqueteFamiliar.jpg" },
-    { nombrePromo: "Paquete Familiar Parrilla", descripcion: "Carne asada + pollo + chorizo + tortillas + ensalada para 4", precioPromo: 24.99, precioAnterior: 35.00, descuento: 29, categoria: "Paquete Familiar", img: "../img/paqueteCarnes.jpeg" },
-    { nombrePromo: "Oferta Sopa de Mondongo", descripcion: "Sopa de mondongo + tortillas + bebida natural", precioPromo: 7.99, precioAnterior: 11.00, descuento: 27, categoria: "Fin de Semana", img: "../img/ofertaSopaPata.jpg" },
-    { nombrePromo: "Oferta Fin de Semana", descripcion: "Tamales + atol de elote + empanadas de platano rellenas de poleada", precioPromo: 5.99, precioAnterior: 15.00, descuento: 27, categoria: "Fin de Semana", img: "../img/comboEmpanaAtol.jpg" },
-    { nombrePromo: "2x1 Cervezas Nacionales", descripcion: "Todas las cervezas nacionales al 2x1 de 4pm a 7pm", precioPromo: 2.00, precioAnterior: 4.00, descuento: 50, categoria: "Hora Feliz", img: "../img/cervezasMenu.jpg" },
-    { nombrePromo: "Hora Feliz Café", descripcion: "Café artesanal + postre del día a mitad de precio", precioPromo: 3.50, precioAnterior: 7.00, descuento: 50, categoria: "Hora Feliz", img: "../img/horaFelizCafe.jpg" }
+    { nombrePromo: "Combo Pupusero", descripcion: "3 pupusas revueltas + horchata + plátano frito", precioPromo: 4.99, precioAnterior: 7.50, descuento: 33, categoria: "Combos en Oferta", img: "../img/menu/combo-familiar-pupusas.jpg" },
+    { nombrePromo: "Combo Carne Asada", descripcion: "Carne asada + arroz + ensalada + tortillas + bebida", precioPromo: 7.99, precioAnterior: 11.50, descuento: 30, categoria: "Combos en Oferta", img: "../img/menu/carne-asada.jpg" },
+    { nombrePromo: "Combo Desayuno Típico", descripcion: "Plátano frito + frijoles + crema + huevos + tortillas", precioPromo: 6.49, precioAnterior: 9.00, descuento: 28, categoria: "Combos en Oferta", img: "../img/promociones/combo-desayuno-tipico.png" },
+    { nombrePromo: "Paquete Familiar Pupusas", descripcion: "12 pupusas surtidas + 4 horchatas + curtido extra", precioPromo: 12.99, precioAnterior: 18.00, descuento: 28, categoria: "Paquete Familiar", img: "../img/promociones/paquete-familiar.jpg" },
+    { nombrePromo: "Paquete Familiar Parrilla", descripcion: "Carne asada + pollo + chorizo + tortillas + ensalada para 4", precioPromo: 24.99, precioAnterior: 35.00, descuento: 29, categoria: "Paquete Familiar", img: "../img/promociones/paquete-carnes.jpeg" },
+    { nombrePromo: "Oferta Sopa de Mondongo", descripcion: "Sopa de mondongo + tortillas + bebida natural", precioPromo: 7.99, precioAnterior: 11.00, descuento: 27, categoria: "Fin de Semana", img: "../img/promociones/oferta-sopa-pata.jpg" },
+    { nombrePromo: "Oferta Fin de Semana", descripcion: "Tamales + atol de elote + empanadas de platano rellenas de poleada", precioPromo: 5.99, precioAnterior: 15.00, descuento: 27, categoria: "Fin de Semana", img: "../img/promociones/combo-empanada-atol.jpg" },
+    { nombrePromo: "2x1 Cervezas Nacionales", descripcion: "Todas las cervezas nacionales al 2x1 de 4pm a 7pm", precioPromo: 2.00, precioAnterior: 4.00, descuento: 50, categoria: "Hora Feliz", img: "../img/menu/cervezas.jpg" },
+    { nombrePromo: "Hora Feliz Café", descripcion: "Café artesanal + postre del día a mitad de precio", precioPromo: 3.50, precioAnterior: 7.00, descuento: 50, categoria: "Hora Feliz", img: "../img/promociones/hora-feliz-cafe.jpg" }
 ];
 
 function renderizarPromos(promos) {
