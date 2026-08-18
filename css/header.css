@@ -9,6 +9,11 @@
     --naranja: #fa7315;
 }
 
+/* para que el scroll sea suave */
+html {
+    scroll-behavior: smooth;
+}
+
 header{
     position: fixed;
     width: 100%;
