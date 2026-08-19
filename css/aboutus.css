@@ -144,6 +144,8 @@ body {
     width: 100%;
     border-radius: 15px;
     background-color: var(--naranja);
+    justify-content: center;
+    align-items: center;
 }
 
 /* tarjetas de características */
@@ -431,31 +433,6 @@ body {
 
 .punto.activo {
     background: var(--naranja);
-}
-
-
-.imagen-chef {
-    width: 100%;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-}
-
-.placeholder-chef {
-    width: 100%;
-    height: 500px;
-    background: #e0e0e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #999;
-    font-size: 16px;
-}
-
-.placeholder-chef img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
 }
 
 .seccion-equipo {
