@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="../css/footer.css">
     <!-- Fuente: Font Awesome 6.5 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 <body>
@@ -85,27 +83,21 @@
             <ul>
                 <li>
                     <a href="#sobre-restaurante" class="icono">
-                        <span class="material-symbols-outlined">
-                            restaurant
-                        </span>
+                        <i class="fa-solid fa-utensils"></i>
                         <p>Sobre el restaurante</p>
                     </a>
                 </li>
 
                 <li>
                     <a href="#galeria" class="icono">
-                        <span class="material-symbols-outlined">
-                            image
-                        </span>
+                        <i class="fa-solid fa-image"></i>
                         <p>Galeria de imagenes</p>
                     </a>
                 </li>
 
                 <li>
                     <a href="#creadores" class="icono">
-                        <span class="material-symbols-outlined">
-                            boy
-                        </span>
+                        <i class="fa-solid fa-award"></i>
                         <p>Reconocimientos</p>
                     </a>
                 </li>
@@ -114,7 +106,6 @@
 
         <main class="contenido-principal">
             <!-- info del restaurante -->
-            <div id="sobre-restaurante" class="bloque-contenido">
                 <div class="info-restaurante">
                     <div class="texto-restaurante">
                         <h2>Sabor Salvadoreño</h2>
@@ -144,9 +135,7 @@
                         </div>
                         <div class="lista-razones">
                             <div class="razon">
-                                <div class="icono-razon"><span class="material-symbols-outlined">
-                                        package_2
-                                    </span></div>
+                                <div class="icono-razon"><i class="fa-solid fa-box"></i></div>
                                 <div class="texto-razon">
                                     <h3>Conveniente y Confiable</h3>
                                     <p>Ya sea comás en nuestro local o si pedís para llevar, estas 100% garantizado
@@ -154,9 +143,7 @@
                                 </div>
                             </div>
                             <div class="razon">
-                                <div class="icono-razon"><span class="material-symbols-outlined">
-                                        brunch_dining
-                                    </span></div>
+                                <div class="icono-razon"><i class="fa-solid fa-bowl-food"></i></div>
                                 <div class="texto-razon">
                                     <h3>Muchas Opciones</h3>
                                     <p>Desde comida saludable, yuca frita, pupusas, atol de elote, atol de ripio,
@@ -165,9 +152,7 @@
                                 </div>
                             </div>
                             <div class="razon">
-                                <div class="icono-razon"><span class="material-symbols-outlined">
-                                        dine_heart
-                                    </span></div>
+                                <div class="icono-razon"><i class="fa-solid fa-heart"></i></div>
                                 <div class="texto-razon">
                                     <h3>100% Salvadoreño</h3>
                                     <p>Nuestros platillos son preparados por manos totalmente salvadoreñas llenas de
@@ -177,7 +162,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
             <!-- seccion de galeria -->
             <div id="galeria" class="bloque-contenido seccion-galeria">
@@ -208,39 +192,104 @@
             <!-- opiniones de clientes y equipo -->
             <div id="creadores" class="bloque-contenido seccion-opiniones">
                 <h2>Feedback del cliente</h2>
-                <div class="contenido-opiniones">
+                <div class="carousel-opiniones">
+                    <button class="flecha-opinion flecha-izq" aria-label="Anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="contenido-opiniones">
                     <div class="caja-opinion">
-                        <h3>Reseñas de los <span>Clientes</span></h3>
+                        <div class="estrellas-opinion">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
                         <p class="texto-opinion">
-                            Recientemente cené en su restaurante y quería compartir mi experiencia. La comida estaba
-                            absolutamente deliciosa y me impresionó la frescura de los ingredientes. Cada plato
-                            estaba lleno de sabor y las porciones eran perfectas. El servicio fue rápido y
-                            eficiente, y el personal fue increíblemente amable y acogedor.
+                            Las pupusas me transportaron a mi infancia en San Salvador. El curtido y la salsa
+                            tienen ese toque casero que no encontrás en otro lado. Mi restaurante favorito.
                         </p>
                         <div class="persona-opina">
-                            <div class="avatar-persona">TS</div>
+                            <div class="avatar-persona">MR</div>
                             <div class="info-persona">
-                                <h4>Tayyab Sohail</h4>
-                                <p>Cocinera experta</p>
-                                <div class="puntos-rating">
-                                    <span class="punto activo"></span>
-                                    <span class="punto"></span>
-                                    <span class="punto"></span>
-                                </div>
+                                <h4>María Rodríguez</h4>
+                                <p>Cliente frecuente</p>
                             </div>
                         </div>
                     </div>
-                    <div class="imagen-chef">
-                        <div class="placeholder-chef">
-                            <img src="../img/nosotros/chef-juanita.jpg" alt="">
+
+                    <div class="caja-opinion">
+                        <div class="estrellas-opinion">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="texto-opinion">
+                            El combo familiar fue un éxito total. Yuca crujiente, empanadas deliciosas y
+                            la comida llegó calientita a domicilio. Totalmente recomendado.
+                        </p>
+                        <div class="persona-opina">
+                            <div class="avatar-persona">JL</div>
+                            <div class="info-persona">
+                                <h4>Jorge López</h4>
+                                <p>Amante de la gastronomía</p>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="caja-opinion">
+                        <div class="estrellas-opinion">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <p class="texto-opinion">
+                            El ambiente es súper acogedor. Las canoas de plátano y el atol de elote son
+                            espectaculares. Se nota el cariño en cada platillo. Ya es mi rutina semanal.
+                        </p>
+                        <div class="persona-opina">
+                            <div class="avatar-persona">AC</div>
+                            <div class="info-persona">
+                                <h4>Andrea Castillo</h4>
+                                <p>Bloguera de comida</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="caja-opinion">
+                        <div class="estrellas-opinion">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="texto-opinion">
+                            Descubrí este lugar por recomendación y no me arrepiento. Los tamales de gallina
+                            y las enchiladas son increíbles. El servicio es rápido y el personal muy amable.
+                        </p>
+                        <div class="persona-opina">
+                            <div class="avatar-persona">DF</div>
+                            <div class="info-persona">
+                                <h4>Daniel Flores</h4>
+                                <p>Nuevo cliente</p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <button class="flecha-opinion flecha-der" aria-label="Siguiente">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
 
             <div id="creadores" class="bloque-contenido seccion-equipo">
                 <div class="encabezado-equipo">
-                    <h2><span class="texto-naranja">Chefs</span> y Equipo</h2>
+                    <h2>Chefs y Equipo</h2>
                 </div>
                 <div class="grid-equipo">
                     <div class="tarjeta-miembro">

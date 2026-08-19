@@ -4,9 +4,15 @@
     box-sizing: border-box;
 }
 
+:root {
+    --letras: #0f1827;
+    --naranja: #fa7315;
+    --rojo: #ef4444;
+}
+
 body {
     line-height: 1.6;
-    color: #333;
+    color: var(--letras);
     background-color: #fffbfc;
 }
 
@@ -36,13 +42,14 @@ body {
 }
 
 .contact-info h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 32px;
+    font-weight: 700;
+    color: var(--letras);
 }
 
 .contact-info p {
-    color: #666;
+    color: var(--letras);
     margin-bottom: 30px;
 }
 
@@ -55,15 +62,11 @@ body {
     transition: all 0.3s ease;
 }
 
-.info-item:hover {
-    background: #fff5f0;
-    transform: translateX(5px);
-}
 
 .icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #ff6b35, #ff8c42);
+    background: var(--naranja);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -81,17 +84,17 @@ body {
 .info-content h3 {
     font-size: 1.2em;
     margin-bottom: 8px;
-    color: #2c3e50;
+    color: var(--letras);
 }
 
 .info-content p {
     margin: 3px 0;
-    color: #666;
+    color: var(--letras);
     font-size: 0.95em;
 }
 
 .info-content .highlight {
-    color: #ff6b35;
+    color: var(--naranja);
     font-weight: 600;
     font-size: 0.9em;
 }
@@ -102,7 +105,7 @@ body {
 
 .social-links h3 {
     margin-bottom: 15px;
-    color: #2c3e50;
+    color: var(--letras);
 }
 
 .social-icons {
@@ -113,7 +116,7 @@ body {
 .social-icon {
     width: 45px;
     height: 45px;
-    background: #ff6b35;
+    background: var(--naranja);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -129,9 +132,7 @@ body {
 }
 
 .social-icon:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
-    background: #ff8c42;
+    background: var(--rojo);
 }
 
 .contact-form {
@@ -142,9 +143,10 @@ body {
 }
 
 .contact-form h2 {
-    font-size: 2em;
-    margin-bottom: 30px;
-    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 32px;
+    font-weight: 700;
+    color: var(--letras);
 }
 
 .form-row {
@@ -161,13 +163,13 @@ body {
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    color: #2c3e50;
+    color: var(--letras);
     font-weight: 500;
     font-size: 0.95em;
 }
 
 .form-group label span {
-    color: #ff6b35;
+    color: var(--naranja);
 }
 
 .form-group input,
@@ -186,7 +188,7 @@ body {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #ff6b35;
+    border-color: var(--naranja);
     box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
 }
 
@@ -198,21 +200,21 @@ body {
 .char-count {
     text-align: right;
     font-size: 0.85em;
-    color: #999;
+    color: var(--letras);
     margin-top: 5px;
 }
 
 .char-count {
     text-align: right;
     font-size: 0.85em;
-    color: #999;
+    color: var(--letras);
     margin-top: 5px;
 }
 
 .submit-btn {
     width: 100%;
     padding: 15px;
-    background: linear-gradient(135deg, #ff6b35, #ff8c42);
+    background: var(--naranja);
     color: white;
     border: none;
     border-radius: 8px;
@@ -223,8 +225,7 @@ body {
 }
 
 .submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
+    background: var(--rojo);
 }
 
 .submit-btn:active {
@@ -239,14 +240,15 @@ body {
 
 .map-section h2 {
     text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 15px;
-    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 32px;
+    font-weight: 700;
+    color: var(--letras);
 }
 
 .map-section p {
     text-align: center;
-    color: #666;
+    color: var(--letras);
     margin-bottom: 40px;
     font-size: 1.1em;
 }

@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 :root{
     --letras: #0f1827;
     --rojo: #ef4444;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Nunito", Arial, sans-serif;
     background-color: #fffbfc;
     color: #333;
 }
@@ -210,7 +212,7 @@ body {
     transition: transform 0.2s ease;
     width: 100%;
     font-style: normal;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Nunito", Arial, sans-serif;
 }
 
 .tarjeta-comida:hover {
